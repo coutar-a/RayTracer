@@ -117,6 +117,7 @@ int 	color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot);
 void	calc_inter(t_obj **scene, t_sec **inter, t_eye *eye, t_3d *vc);
 void	process_k(t_obj **scene, t_sec **inter, t_eye *eye, t_3d *vc);
 void	define_scene(t_obj **scene, t_sec **inter_array);
+void	free_scene(t_obj **scene, t_sec **inter, t_3d **spots);
 void	display_sec_array(t_sec inter_array[2]);
 void	disp_scene_spec(t_obj scene[2]);
 void	disp_obj_spec(t_obj *obj);

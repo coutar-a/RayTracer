@@ -71,12 +71,10 @@ void		sub_calc_vc(t_3d *pt, t_eye *eye, t_3d *vector)
 
 int		color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
 {
-  //t_3d		spot;
   float		swap_k;
   int		obj;
   int		i;
 
-  //define_spot1(&spot);
   swap_k = inter_array[0]->k;
   obj = 0;
   i = 0;
@@ -106,20 +104,27 @@ int		calc(t_dump *ptr,int x, int y, t_eye *eye)
 {
   t_3d		point;
   t_3d		vector;
-  t_obj		**scene;
-  t_sec		**inter_array;
-  t_3d    	**spots;
+  static t_obj		**scene;
+  static t_sec		**inter_array;
+  static t_3d    	**spots;
+  int		color;
 
   sub_calc_pt(ptr, &point, x, y);
   sub_calc_vc(&point, eye, &vector);
-  scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);                //déclaration des objs en dur, à remplacer par un parsing de 0.
-  inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
-  spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
-  define_scene(scene, inter_array);				//même deal pour les lumières.
-  define_lights(spots);
+  if (x == 0 &&  y == 0)
+    {
+      scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);                //déclaration des objs en dur, à remplacer par un parsing de 0.
+      inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
+      spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
+      define_scene(scene, inter_array);				//même deal pour les lumières.
+      define_lights(spots);
+    }
   calc_inter(scene, inter_array, eye, &vector);
   process_k(scene, inter_array, eye, &vector);
-  return (color_picker(scene, inter_array, spots));
+  color = color_picker(scene, inter_array, spots);
+  if (x == ptr->win_x - 1 && y == ptr->win_y - 1)
+    free_scene(scene, inter_array, spots);
+  return (color);
 }
 
 /*
