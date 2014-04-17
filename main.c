@@ -100,14 +100,14 @@ int		color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
 ** Finally returns return value of color picker.
 */
 
-int		calc(t_dump *ptr,int x, int y, t_eye *eye)
+int			calc(t_dump *ptr,int x, int y, t_eye *eye)
 {
-  t_3d		point;
-  t_3d		vector;
+  t_3d			point;
+  t_3d			vector;
   static t_obj		**scene;
   static t_sec		**inter_array;
   static t_3d    	**spots;
-  int		color;
+  int			color;
 
   sub_calc_pt(ptr, &point, x, y);
   sub_calc_vc(&point, eye, &vector);
