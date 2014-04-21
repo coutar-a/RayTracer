@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:08:15 2014 grelli_t
-** Last update Mon Apr 21 10:08:16 2014 grelli_t
+** Last update Mon Apr 21 14:36:21 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -90,4 +90,27 @@ void		process_k(t_obj **scene, t_sec **inter, t_eye *eye, t_3d *vc)
       process_array[test](inter[i], eye, vc, scene[i]);
       i++;
     }
+}
+
+void	free_scene(t_obj **scene, t_sec **inter, t_3d **spots)
+{
+  int	i;
+  int	j;
+
+  i = 0;
+  j = 0;
+  while (i != NUMBER_OBJ)
+    {
+      free(scene[i]);
+      free(inter[i]);
+      i++;
+    }
+  while (j != NBR_LIGHTS)
+    {
+      free(spots[j]);
+      j++;
+    }
+  free(scene);
+  free(inter);
+  free(spots);
 }
