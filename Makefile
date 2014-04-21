@@ -5,16 +5,16 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Mon Apr 21 11:07:28 2014 grelli_t
+## Last update Mon Apr 21 10:26:42 2014 grelli_t
 ##
 
-CC	= clang
+CC	= gcc
 
 RM	= rm -f
 
 CFLAGS	+= -I.
 
-NAME	= raytraceur
+NAME	= rt
 
 SRCS	= alt_int.c \
 	  basic_functions.c  \

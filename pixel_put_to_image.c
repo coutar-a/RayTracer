@@ -5,11 +5,11 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:07:06 2014 grelli_t
-** Last update Mon Apr 21 10:07:08 2014 grelli_t
+** Last update Mon Apr 21 15:05:38 2014 grelli_t
 */
 
 #include <mlx.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Applies MLX unsigned-long color to the appropriate pixel.

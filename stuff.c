@@ -5,11 +5,11 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:09:19 2014 grelli_t
-** Last update Mon Apr 21 10:09:20 2014 grelli_t
+** Last update Mon Apr 21 15:07:00 2014 grelli_t
 */
 
 #include <mlx.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Sub-function of calc, calculates point 3d coords.

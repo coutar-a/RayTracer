@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:05:48 2014 grelli_t
-** Last update Mon Apr 21 10:05:49 2014 grelli_t
+** Last update Mon Apr 21 15:04:27 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** All functions here are used to fill up objs as cones.

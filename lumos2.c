@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Mon Apr 21 12:12:36 2014 grelli_t
+** Last update Mon Apr 21 15:05:09 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Decomposes MLX color integer into RR GG BB, applies light coeff, then
@@ -22,7 +22,7 @@
 */
 
 void	incre_unsigned(unsigned char *r, unsigned char *g, unsigned char *b,
-		       unsigned char *t_spot)
+                       unsigned char *t_spot)
 {
   *r = 0;
   *g = 0;
@@ -31,7 +31,7 @@ void	incre_unsigned(unsigned char *r, unsigned char *g, unsigned char *b,
 }
 
 void	incre_unsi_int(unsigned char *g_spot, unsigned char *b_spot, int *i,
-		       int *ret)
+                       int *ret)
 {
   *i = -1;
   *ret = 0;
@@ -51,11 +51,11 @@ int		apply_light(float *cos_a, t_sec *k, t_3d **spot)
       apply.g += (unsigned char)(((k->color >> 8) & 0xFF) * cos_a[apply.i]) / NBR_LIGHTS;
       apply.b += (unsigned char)((k->color & 0xFF) * cos_a[apply.i]) / NBR_LIGHTS;
       apply.r_spot += (unsigned char)((spot[apply.i]->color >> 16 & 0xFF) * cos_a[apply.i]) /
-	NBR_LIGHTS;
+        NBR_LIGHTS;
       apply.g_spot += (unsigned char)((spot[apply.i]->color >> 8 & 0xFF) * cos_a[apply.i]) /
-	NBR_LIGHTS;
+        NBR_LIGHTS;
       apply.b_spot += (unsigned char)((spot[apply.i]->color & 0xFF) * cos_a[apply.i]) /
-	NBR_LIGHTS;
+        NBR_LIGHTS;
     }
   apply.r = (apply.r) * (1 - k->brill) + (apply.r_spot) * k->brill;
   apply.g = (apply.g) * (1 - k->brill) + (apply.g_spot) * k->brill;
@@ -74,4 +74,6 @@ void    define_lights(t_3d **spots)
   define_spot3(spots[2]);
   spots[3] = malloc(sizeof(t_3d));
   define_spot3(spots[3]);
+  //spots[4] = malloc(sizeof(t_3d));
+  //define_spot4(spots[4]);
 }

@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:09:29 2014 grelli_t
-** Last update Mon Apr 21 10:09:30 2014 grelli_t
+** Last update Mon Apr 21 15:07:09 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Point/eye translation.

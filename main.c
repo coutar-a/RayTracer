@@ -1,17 +1,17 @@
 /*
-** main.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
-** 
-** Made by grelli_t
-** Login   <grelli_t@epitech.net>
-** 
-** Started on  Mon Apr 21 10:06:47 2014 grelli_t
-** Last update Mon Apr 21 10:40:14 2014 grelli_t
+** main.c for rtv1 in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
+**
+** Made by coutar_a
+** Login   <coutar_a@epitech.net>
+**
+** Started on  Sat Feb 15 13:33:14 2014 coutar_a
+** Last update Mon Apr 21 15:32:16 2014 grelli_t
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <mlx.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Fills up image pixel per pixel with calls to calc and pixel_put_to_image.
@@ -48,9 +48,9 @@ int	fill_image(t_dump *ptr, t_eye *eye)
 ** Sub-function of calc, determines LOS vector, applies eye rotations.
 */
 
-void		sub_calc_vc(t_3d *pt, t_eye *eye, t_3d *vector)
+void	sub_calc_vc(t_3d *pt, t_eye *eye, t_3d *vector)
 {
-  float		trans[3][3];
+  float	trans[3][3];
 
   vector->x = pt->x - eye->x;
   vector->y = pt->y - eye->y;
@@ -69,11 +69,11 @@ void		sub_calc_vc(t_3d *pt, t_eye *eye, t_3d *vector)
 ** lumos or default color.
 */
 
-int		color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
+int	color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
 {
-  float		swap_k;
-  int		obj;
-  int		i;
+  float	swap_k;
+  int	obj;
+  int	i;
 
   swap_k = inter_array[0]->k;
   obj = 0;
@@ -81,7 +81,7 @@ int		color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
   while (i != NUMBER_OBJ)
     {
       if ((inter_array[i]->k < swap_k && inter_array[i]->k != 0.0) ||
-      (swap_k == 0.0 && inter_array[i]->k > 0.0))
+	  (swap_k == 0.0 && inter_array[i]->k > 0.0))
 	{
 	  swap_k = inter_array[i]->k;
 	  obj = i;
@@ -104,20 +104,27 @@ int		calc(t_dump *ptr,int x, int y, t_eye *eye)
 {
   t_3d		point;
   t_3d		vector;
-  t_obj		**scene;
-  t_sec		**inter_array;
-  t_3d    	**spots;
+  static t_obj	**scene;
+  static t_sec	**inter_array;
+  static t_3d	**spots;
+  int		color;
 
   sub_calc_pt(ptr, &point, x, y);
   sub_calc_vc(&point, eye, &vector);
-  scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
-  inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
-  spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
-  define_scene(scene, inter_array);
-  define_lights(spots);
+  if (x == 0 &&  y == 0)
+    {
+      scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
+      inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
+      spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
+      define_scene(scene, inter_array);
+      define_lights(spots);
+    }
   calc_inter(scene, inter_array, eye, &vector);
   process_k(scene, inter_array, eye, &vector);
-  return (color_picker(scene, inter_array, spots));
+  color = color_picker(scene, inter_array, spots);
+  if (x == ptr->win_x - 1 && y == ptr->win_y - 1)
+    free_scene(scene, inter_array, spots);
+  return (color);
 }
 
 /*
@@ -142,7 +149,7 @@ int		main(void)
   if ((ptr.mlx_ptr = mlx_init()) == NULL)
     return (0);
   ptr.win_ptr = mlx_new_window(ptr.mlx_ptr,
-  ptr.win_x, ptr.win_y, "trace them rays boy");
+			       ptr.win_x, ptr.win_y, "trace them rays boy");
   ptr.img_ptr = mlx_new_image(ptr.mlx_ptr, ptr.win_x, ptr.win_y);
   fill_image(&ptr, &eye);
   mlx_key_hook(ptr.win_ptr, key_event, 0);

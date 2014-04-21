@@ -5,13 +5,13 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:08:34 2014 grelli_t
-** Last update Mon Apr 21 10:08:35 2014 grelli_t
+** Last update Mon Apr 21 15:06:26 2014 grelli_t
 */
 
 #include <stdio.h>
 #include <mlx.h>
 #include <math.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** The following are intersection functions modified to calculate shadows.

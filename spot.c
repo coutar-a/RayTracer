@@ -5,12 +5,12 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:09:04 2014 grelli_t
-** Last update Mon Apr 21 10:09:04 2014 grelli_t
+** Last update Mon Apr 21 15:06:50 2014 grelli_t
 */
 
 #include <stdio.h>
 #include <mlx.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Light spot coords, etc...

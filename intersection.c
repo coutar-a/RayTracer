@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:11 2014 grelli_t
-** Last update Mon Apr 21 10:42:08 2014 grelli_t
+** Last update Mon Apr 21 15:04:59 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Deprecated intersection functions.
@@ -31,8 +31,7 @@ float		sphere_intersection(t_eye *eye, t_3d *vc, float ray)
 
   a = (powf(vc->x, 2.0) + powf(vc->y, 2.0) + powf(vc->z, 2.0));
   b = 2.0 * (eye->x * vc->x) + 2 * (eye->y * vc->y) + 2 * (eye->z * vc->z);
-  c = (powf(eye->x, 2.0) + powf(eye->y, 2.0) + powf(eye->z, 2.0) -
-       powf(ray, 2.0));
+  c = (powf(eye->x, 2.0) + powf(eye->y, 2.0) + powf(eye->z, 2.0) - powf(ray, 2.0));
   delta = powf(b, 2.0) - (4.0 * a * c);
   if (delta < 0.0)
     return (0.0);
@@ -48,7 +47,7 @@ float		sphere_intersection(t_eye *eye, t_3d *vc, float ray)
     }
 }
 
-float		cyl_intersection(t_eye *eye, t_3d *vc, float ray)
+float	cyl_intersection(t_eye *eye, t_3d *vc, float ray)
 {
   float		a;
   float		b;
@@ -80,7 +79,7 @@ float		cyl_intersection(t_eye *eye, t_3d *vc, float ray)
 ** Square constant q for funky results.
 */
 
-float		cone_intersection(t_eye *eye, t_3d *vc, float angle)
+float	cone_intersection(t_eye *eye, t_3d *vc, float angle)
 {
   float		q;
   float		a;

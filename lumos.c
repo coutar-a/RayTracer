@@ -5,13 +5,13 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Mon Apr 21 10:44:52 2014 grelli_t
+** Last update Mon Apr 21 15:05:18 2014 grelli_t
 */
 
 #include <stdio.h>
 #include <mlx.h>
 #include <math.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** The following process_k functions calculate both normal vector and 3d coords
@@ -98,3 +98,25 @@ int	lumos(t_3d **spot, t_sec *k, t_obj **scene)
     }
   return (apply_light(cos_a, k, spot));
 }
+
+/*int	lumos(t_3d *spot, t_sec *k, t_obj **scene)
+  {
+    t_3d	l;
+    float	norm_l;
+    float	norm_n;
+    float	scal;
+    float	cos_a;
+
+    l.x = spot->x - k->p_x;
+    l.y = spot->y - k->p_y;
+    l.z = spot->z - k->p_z;
+    scal = l.x * k->x_n + l.y * k->y_n + l.z * k->z_n;
+    norm_l = sqrtf(powf(l.x, 2.0) + powf(l.y, 2.0) + powf(l.z, 2.0));
+    norm_n = sqrtf(powf(k->x_n, 2.0) + powf(k->y_n, 2.0) + powf(k->z_n, 2.0));
+    cos_a = scal / (norm_l * norm_n);
+    if (cos_a < 0.0)
+      cos_a = 0.0;
+    if ((shadow_checking(&l, k, scene)) == 1)
+      cos_a = cos_a / 2;
+    return (apply_light(cos_a, k, spot));
+  }*/

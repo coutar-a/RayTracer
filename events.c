@@ -5,13 +5,13 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat Feb 15 13:51:53 2014 coutar_a
-** Last update Sat Mar 15 13:42:11 2014 coutar_a
+** Last update Mon Apr 21 15:04:47 2014 grelli_t
 */
 
 #include <unistd.h>
 #include <mlx.h>
 #include <stdlib.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** MLX event handling, basic stuff.

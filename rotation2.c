@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:07:31 2014 grelli_t
-** Last update Mon Apr 21 10:07:33 2014 grelli_t
+** Last update Mon Apr 21 15:05:57 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "rtv1.h"
+#include "raytracer.h"
 
 /*
 ** Matrix for z-axis rotation. Angle in degrees.
