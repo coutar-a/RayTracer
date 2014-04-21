@@ -1,11 +1,11 @@
 /*
-** stuff.c for wolf3d in /home/coutar_a/Documents/I_graph/wolf3d
+** stuff.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Sat Jan 11 16:16:43 2014 coutar_a
-** Last update Mon Mar 17 13:26:33 2014 coutar_a
+** Started on  Mon Apr 21 10:09:19 2014 grelli_t
+** Last update Mon Apr 21 10:09:20 2014 grelli_t
 */
 
 #include <mlx.h>

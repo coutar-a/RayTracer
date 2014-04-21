@@ -1,11 +1,11 @@
 /*
-** spheres.c for rtv1 in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
+** spheres.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Fri Mar  7 16:45:11 2014 coutar_a
-** Last update Sat Mar 15 17:58:18 2014 coutar_a
+** Started on  Mon Apr 21 10:08:53 2014 grelli_t
+** Last update Mon Apr 21 10:08:53 2014 grelli_t
 */
 
 #include <stdio.h>

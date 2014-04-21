@@ -1,11 +1,11 @@
 /*
-** main.c for rtv1 in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
-**
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
-**
-** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-** Last update Fri Apr 11 10:57:35 2014 coutar_a
+** main.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
+** 
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
+** 
+** Started on  Mon Apr 21 10:06:47 2014 grelli_t
+** Last update Mon Apr 21 10:40:14 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -100,31 +100,24 @@ int		color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
 ** Finally returns return value of color picker.
 */
 
-int			calc(t_dump *ptr,int x, int y, t_eye *eye)
+int		calc(t_dump *ptr,int x, int y, t_eye *eye)
 {
-  t_3d			point;
-  t_3d			vector;
-  static t_obj		**scene;
-  static t_sec		**inter_array;
-  static t_3d    	**spots;
-  int			color;
+  t_3d		point;
+  t_3d		vector;
+  t_obj		**scene;
+  t_sec		**inter_array;
+  t_3d    	**spots;
 
   sub_calc_pt(ptr, &point, x, y);
   sub_calc_vc(&point, eye, &vector);
-  if (x == 0 &&  y == 0)
-    {
-      scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);                //déclaration des objs en dur, à remplacer par un parsing de 0.
-      inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
-      spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
-      define_scene(scene, inter_array);				//même deal pour les lumières.
-      define_lights(spots);
-    }
+  scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
+  inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
+  spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
+  define_scene(scene, inter_array);
+  define_lights(spots);
   calc_inter(scene, inter_array, eye, &vector);
   process_k(scene, inter_array, eye, &vector);
-  color = color_picker(scene, inter_array, spots);
-  if (x == ptr->win_x - 1 && y == ptr->win_y - 1)
-    free_scene(scene, inter_array, spots);
-  return (color);
+  return (color_picker(scene, inter_array, spots));
 }
 
 /*

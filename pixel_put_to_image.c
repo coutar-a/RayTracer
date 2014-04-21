@@ -1,11 +1,11 @@
 /*
-** pixel_put_to_image.c for wolf3d in /home/coutar_a/Documents/I_graph/tp_02
+** pixel_put_to_image.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Tue Jan  7 13:46:49 2014 coutar_a
-** Last update Fri Apr 11 10:57:46 2014 coutar_a
+** Started on  Mon Apr 21 10:07:06 2014 grelli_t
+** Last update Mon Apr 21 10:07:08 2014 grelli_t
 */
 
 #include <mlx.h>

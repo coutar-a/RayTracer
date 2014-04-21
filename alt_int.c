@@ -1,11 +1,11 @@
 /*
-** alt_int.c for rtv1.h in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
+** alt_int.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Wed Feb 19 17:03:06 2014 coutar_a
-** Last update Sat Mar 15 16:48:54 2014 coutar_a
+** Started on  Mon Apr 21 10:05:19 2014 grelli_t
+** Last update Mon Apr 21 10:40:50 2014 grelli_t
 */
 
 #include <stdio.h>

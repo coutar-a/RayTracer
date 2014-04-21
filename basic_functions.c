@@ -1,11 +1,11 @@
 /*
-** basic_functions.c for basic_functions in /home/coutar_a/rendu/101pong
+** basic_functions.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Tue Nov 12 15:54:12 2013 coutar_a
-** Last update Sat Mar 15 17:45:27 2014 coutar_a
+** Started on  Mon Apr 21 10:05:35 2014 grelli_t
+** Last update Mon Apr 21 10:05:36 2014 grelli_t
 */
 
 void	my_putchar(char c)

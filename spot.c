@@ -1,11 +1,11 @@
 /*
-** spot.c for rtv1 in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
+** spot.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Mon Mar 10 14:53:47 2014 coutar_a
-** Last update Sat Mar 15 17:38:24 2014 coutar_a
+** Started on  Mon Apr 21 10:09:04 2014 grelli_t
+** Last update Mon Apr 21 10:09:04 2014 grelli_t
 */
 
 #include <stdio.h>

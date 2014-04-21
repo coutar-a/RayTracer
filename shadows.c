@@ -1,11 +1,11 @@
 /*
-** shadows.c for rtv1 in /home/coutar_a/rendu/MUL_2013_rtv1
+** shadows.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Sat Mar 15 14:09:23 2014 coutar_a
-** Last update Sat Mar 15 17:23:09 2014 coutar_a
+** Started on  Mon Apr 21 10:08:34 2014 grelli_t
+** Last update Mon Apr 21 10:08:35 2014 grelli_t
 */
 
 #include <stdio.h>

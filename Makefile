@@ -1,55 +1,56 @@
 ##
-## Makefile for wolf3d in /home/coutar_a/Documents/I_graph/wolf3d
+## Makefile for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ## 
-## Made by coutar_a
-## Login   <coutar_a@epitech.net>
+## Made by grelli_t
+## Login   <grelli_t@epitech.net>
 ## 
-## Started on  Tue Jan  7 16:06:29 2014 coutar_a
-## Last update Fri Apr 11 10:58:25 2014 coutar_a
+## Started on  Mon Apr 21 10:06:56 2014 grelli_t
+## Last update Mon Apr 21 11:07:28 2014 grelli_t
 ##
 
-SRC	= main.c \
-	  basic_functions.c \
-	  pixel_put_to_image.c \
-	  events.c \
-	  cylinders.c \
-	  spheres.c \
-	  plans.c \
-	  cones.c \
-	  lumos.c \
-	  lumos2.c \
-	  intersection.c \
-	  alt_int.c \
-	  translation.c \
-	  rotation2.c \
-	  spot.c \
-	  scene_stuff.c \
-	  shadows.c \
-	  stuff.c
-
-##MLX	= -L/usr/lib64 -lmlx -L/usr/lib64/X11 -lXext -lX11 -lm
-
-MLX	= -L/usr/lib64 -lmlx -L/usr/X11/lib -lXext -lX11 -lm
-
-CFLAGS	= -I/usr/X11/include -g3
-
-CC	= cc
+CC	= clang
 
 RM	= rm -f
 
-NAME	= rtv1
+CFLAGS	+= -I.
 
-OBJ	= $(SRC:.c=.o)
+NAME	= raytraceur
 
-all:	  $(NAME)
+SRCS	= alt_int.c \
+	  basic_functions.c  \
+	  cones.c \
+	  cylinders.c \
+	  events.c \
+	  intersection.c \
+	  lumos2.c \
+	  lumos.c \
+	  main.c \
+	  pixel_put_to_image.c \
+	  plans.c \
+	  rotation2.c \
+	  rotation.c \
+	  scene_stuff.c \
+	  shadows.c \
+	  spheres.c \
+	  spot.c \
+	  stuff.c \
+	  translation.c
 
-$(NAME):  $(OBJ)
-	  $(CC) $(OBJ) -o $(NAME) $(MLX)
+OBJS	= $(SRCS:.c=.o)
+
+LMX_P	= -L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11 -lm
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) -o $(NAME) $(OBJS) $(LMX_P) $(CFLAGS)
 
 clean:
-	  $(RM) $(OBJ)
+	$(RM) $(OBJS)
 
-fclean:   clean
-	  $(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re:	  fclean all
+re: fclean all
+
+.PHONY: all clean fclean re

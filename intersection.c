@@ -1,11 +1,11 @@
 /*
-** intersection.c for rtv1 in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
-**
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
-**
-** Started on  Mon Feb 17 15:24:39 2014 coutar_a
-** Last update Fri Mar  7 16:07:04 2014 coutar_a
+** intersection.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
+** 
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
+** 
+** Started on  Mon Apr 21 10:06:11 2014 grelli_t
+** Last update Mon Apr 21 10:42:08 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -31,7 +31,8 @@ float		sphere_intersection(t_eye *eye, t_3d *vc, float ray)
 
   a = (powf(vc->x, 2.0) + powf(vc->y, 2.0) + powf(vc->z, 2.0));
   b = 2.0 * (eye->x * vc->x) + 2 * (eye->y * vc->y) + 2 * (eye->z * vc->z);
-  c = (powf(eye->x, 2.0) + powf(eye->y, 2.0) + powf(eye->z, 2.0) - powf(ray, 2.0));
+  c = (powf(eye->x, 2.0) + powf(eye->y, 2.0) + powf(eye->z, 2.0) -
+       powf(ray, 2.0));
   delta = powf(b, 2.0) - (4.0 * a * c);
   if (delta < 0.0)
     return (0.0);
@@ -47,7 +48,7 @@ float		sphere_intersection(t_eye *eye, t_3d *vc, float ray)
     }
 }
 
-float	cyl_intersection(t_eye *eye, t_3d *vc, float ray)
+float		cyl_intersection(t_eye *eye, t_3d *vc, float ray)
 {
   float		a;
   float		b;
@@ -79,7 +80,7 @@ float	cyl_intersection(t_eye *eye, t_3d *vc, float ray)
 ** Square constant q for funky results.
 */
 
-float	cone_intersection(t_eye *eye, t_3d *vc, float angle)
+float		cone_intersection(t_eye *eye, t_3d *vc, float angle)
 {
   float		q;
   float		a;

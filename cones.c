@@ -1,11 +1,11 @@
 /*
-** cones.c for rtv1.h in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
+** cones.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
 ** 
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
 ** 
-** Started on  Fri Mar  7 16:57:33 2014 coutar_a
-** Last update Mon Mar 17 13:09:45 2014 coutar_a
+** Started on  Mon Apr 21 10:05:48 2014 grelli_t
+** Last update Mon Apr 21 10:05:49 2014 grelli_t
 */
 
 #include <stdio.h>

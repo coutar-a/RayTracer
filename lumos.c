@@ -1,11 +1,11 @@
 /*
-** lumos.c for rtv1 in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
-**
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
-**
-** Started on  Mon Mar 10 14:14:59 2014 coutar_a
-** Last update Mon Mar 31 17:19:15 2014 coutar_a
+** lumos.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
+** 
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
+** 
+** Started on  Mon Apr 21 10:06:33 2014 grelli_t
+** Last update Mon Apr 21 10:44:52 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -98,25 +98,3 @@ int	lumos(t_3d **spot, t_sec *k, t_obj **scene)
     }
   return (apply_light(cos_a, k, spot));
 }
-
-/*int	lumos(t_3d *spot, t_sec *k, t_obj **scene)
-  {
-    t_3d	l;
-    float	norm_l;
-    float	norm_n;
-    float	scal;
-    float	cos_a;
-
-    l.x = spot->x - k->p_x;
-    l.y = spot->y - k->p_y;
-    l.z = spot->z - k->p_z;
-    scal = l.x * k->x_n + l.y * k->y_n + l.z * k->z_n;
-    norm_l = sqrtf(powf(l.x, 2.0) + powf(l.y, 2.0) + powf(l.z, 2.0));
-    norm_n = sqrtf(powf(k->x_n, 2.0) + powf(k->y_n, 2.0) + powf(k->z_n, 2.0));
-    cos_a = scal / (norm_l * norm_n);
-    if (cos_a < 0.0)
-      cos_a = 0.0;
-    if ((shadow_checking(&l, k, scene)) == 1)
-      cos_a = cos_a / 2;
-    return (apply_light(cos_a, k, spot));
-  }*/

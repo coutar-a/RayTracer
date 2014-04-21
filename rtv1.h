@@ -1,77 +1,93 @@
 /*
-** rtv1.h for rtv1 in /home/coutar_a/rendu/MUL_2013_fdf
-**
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
-**
-** Started on  Fri Nov 15 17:56:41 2013 coutar_a
-** Last update Sat Mar 15 18:02:13 2014 coutar_a
+** rtv1.h for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
+** 
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
+** 
+** Started on  Mon Apr 21 10:08:06 2014 grelli_t
+** Last update Mon Apr 21 12:09:18 2014 grelli_t
 */
 
-#ifndef RTV1_H_
-# define RTV1_H_
+#ifndef RAYTRACEUR_H_
+# define RAYTRACEUR_H_
 # define CPR_MIN(x, y) (x < y ? x : y)
 # define COLOR_DEFAULT (0x2FD1D4)
 # define NUMBER_OBJ (4)
 # define NBR_LIGHTS (4)
 # define ESCAPE (65307)
 
-typedef struct		s_dump
-  {
-    void		*mlx_ptr;
-    void		*win_ptr;
-    void		*img_ptr;
-    char		*img;
-    int			sizeline;
-    int			bpp;
-    int			endian;
-    unsigned long	color;
-    int			win_x;
-    int			win_y;
-  }			t_dump;
+typedef struct	s_dump
+{
+  void		*mlx_ptr;
+  void		*win_ptr;
+  void		*img_ptr;
+  char		*img;
+  int		sizeline;
+  int		bpp;
+  int		endian;
+  unsigned long	color;
+  int		win_x;
+  int		win_y;
+}		t_dump;
 
-typedef struct		s_3d
-  {
-    float		x;
-    float		y;
-    float		z;
-    int			color;
-  }			t_3d;
+typedef struct	s_apply
+{
+  unsigned char	r;
+  unsigned char	g;
+  unsigned char	b;
+  unsigned char	r_spot;
+  unsigned char	g_spot;
+  unsigned char	b_spot;
+  int		ret;
+  int		i;
+}		t_apply;
 
-typedef struct		s_sec
-  {
-    float		k;
-    float		p_x;
-    float		p_y;
-    float		p_z;
-    float		x_n;
-    float		y_n;
-    float		z_n;
-    int			color;
-    float		brill;
-  }			t_sec;
+typedef struct	s_3d
+{
+  float		x;
+  float		y;
+  float		z;
+  int		color;
+}		t_3d;
 
-typedef struct		s_eye
-  {
-    float		x;
-    float		y;
-    float		z;
-    float		angle_x;
-    float		angle_y;
-    float		angle_z;
-  }			t_eye;
+typedef struct	s_sec
+{
+  float		k;
+  float		p_x;
+  float		p_y;
+  float		p_z;
+  float		x_n;
+  float		y_n;
+  float		z_n;
+  int		color;
+  float		brill;
+}		t_sec;
 
-typedef struct		s_obj
-  {
-    char		type;
-    float		x;
-    float		y;
-    float		z;
-    float		r_a;
-    int			color;
-    float		brill;
-  }			t_obj;
+typedef struct	s_eye
+{
+  float		x;
+  float		y;
+  float		z;
+  float		angle_x;
+  float		angle_y;
+  float		angle_z;
+}		t_eye;
 
+typedef struct	s_obj
+{
+  char		type;
+  float		x;
+  float		y;
+  float		z;
+  float		r_a;
+  int		color;
+  float		brill;
+}		t_obj;
+
+void    incre_unsigned(unsigned char *r, unsigned char *g, unsigned char *b,
+                       unsigned char *t_spot);
+void	incre_unsi_int(unsigned char *g_spot, unsigned char *b_spot, int *i,
+		       int *ret);
 int	key_event(int keycode);
 int	expose_redraw(t_dump *ptr);
 float	sphere_intersection(t_eye *eye, t_3d *vc, float ray);
@@ -117,7 +133,6 @@ int 	color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot);
 void	calc_inter(t_obj **scene, t_sec **inter, t_eye *eye, t_3d *vc);
 void	process_k(t_obj **scene, t_sec **inter, t_eye *eye, t_3d *vc);
 void	define_scene(t_obj **scene, t_sec **inter_array);
-void	free_scene(t_obj **scene, t_sec **inter, t_3d **spots);
 void	display_sec_array(t_sec inter_array[2]);
 void	disp_scene_spec(t_obj scene[2]);
 void	disp_obj_spec(t_obj *obj);
@@ -127,4 +142,5 @@ float	cyl_int_shadow(t_eye *eye, t_3d *vc, t_obj *cyl);
 float	plan_int_shadow(t_eye *eye, t_3d *vc, t_obj *pl);
 float	sphere_int_shadow(t_eye *eye, t_3d *vc, t_obj *sph);
 int	find_object_type(t_obj *obj);
-#endif /* !RTV1_H_ */
+
+#endif /* !RAYTRACEUR_H_ */

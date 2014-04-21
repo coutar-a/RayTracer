@@ -1,11 +1,11 @@
 /*
-** lumos2.c for rtv1.h in /home/coutar_a/Documents/I_graph/Semestre 2/rtv1
-**
-** Made by coutar_a
-** Login   <coutar_a@epitech.net>
-**
-** Started on  Tue Mar 11 10:02:35 2014 coutar_a
-** Last update Mon Mar 31 17:34:14 2014 coutar_a
+** lumos2.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
+** 
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
+** 
+** Started on  Mon Apr 21 10:06:23 2014 grelli_t
+** Last update Mon Apr 21 12:12:36 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -21,44 +21,47 @@
 ** puts those back into an MLX-usable int. Powered by dark magics most foul.
 */
 
-int			apply_light(float *cos_a, t_sec *k, t_3d **spot)
+void	incre_unsigned(unsigned char *r, unsigned char *g, unsigned char *b,
+		       unsigned char *t_spot)
 {
-  unsigned char 	r;
-  unsigned char 	g;
-  unsigned char 	b;
-  unsigned char 	r_spot;
-  unsigned char 	g_spot;
-  unsigned char 	b_spot;
-  int			ret;
-  int 			i;
+  *r = 0;
+  *g = 0;
+  *b = 0;
+  *t_spot = 0;
+}
 
-  i = 0;
-  r = 0;
-  g = 0;
-  b = 0;
-  r_spot = 0;
-  g_spot = 0;
-  b_spot = 0;
-  while (i != NBR_LIGHTS)
+void	incre_unsi_int(unsigned char *g_spot, unsigned char *b_spot, int *i,
+		       int *ret)
+{
+  *i = -1;
+  *ret = 0;
+  *g_spot = 0;
+  *b_spot = 0;
+}
+
+int		apply_light(float *cos_a, t_sec *k, t_3d **spot)
+{
+  t_apply	apply;
+
+  incre_unsigned(&apply.r, &apply.g, &apply.b, &apply.r_spot);
+  incre_unsi_int(&apply.g_spot, &apply.b_spot, &apply.i, &apply.ret);
+  while (++apply.i != NBR_LIGHTS)
     {
-      r += (unsigned char)(((k->color >> 16) & 0xFF) * cos_a[i]) / NBR_LIGHTS;
-      g += (unsigned char)(((k->color >> 8) & 0xFF) * cos_a[i]) / NBR_LIGHTS;
-      b += (unsigned char)((k->color & 0xFF) * cos_a[i]) / NBR_LIGHTS;
-      r_spot += (unsigned char)((spot[i]->color >> 16 & 0xFF) * cos_a[i]) / NBR_LIGHTS;
-      g_spot += (unsigned char)((spot[i]->color >> 8 & 0xFF) * cos_a[i]) / NBR_LIGHTS;
-      b_spot += (unsigned char)((spot[i]->color & 0xFF) * cos_a[i]) / NBR_LIGHTS;
-      i++;
+      apply.r += (unsigned char)(((k->color >> 16) & 0xFF) * cos_a[apply.i]) / NBR_LIGHTS;
+      apply.g += (unsigned char)(((k->color >> 8) & 0xFF) * cos_a[apply.i]) / NBR_LIGHTS;
+      apply.b += (unsigned char)((k->color & 0xFF) * cos_a[apply.i]) / NBR_LIGHTS;
+      apply.r_spot += (unsigned char)((spot[apply.i]->color >> 16 & 0xFF) * cos_a[apply.i]) /
+	NBR_LIGHTS;
+      apply.g_spot += (unsigned char)((spot[apply.i]->color >> 8 & 0xFF) * cos_a[apply.i]) /
+	NBR_LIGHTS;
+      apply.b_spot += (unsigned char)((spot[apply.i]->color & 0xFF) * cos_a[apply.i]) /
+	NBR_LIGHTS;
     }
-  //r = (r / NBR_LIGHTS) * (r_spot / NBR_LIGHTS) * k->brill;
-  //g = (g / NBR_LIGHTS) * (g_spot / NBR_LIGHTS) * k->brill;
-  //b = (b / NBR_LIGHTS) * (b_spot / NBR_LIGHTS) * k->brill;
-  r = (r) * (1 - k->brill) + (r_spot) * k->brill;
-  g = (g) * (1 - k->brill) + (g_spot) * k->brill;
-  b = (b) * (1 - k->brill) + (b_spot) * k->brill;
-  ret = b;
-  ret = ret | g << 8;
-  ret = ret | r << 16;
-  return (ret);
+  apply.r = (apply.r) * (1 - k->brill) + (apply.r_spot) * k->brill;
+  apply.g = (apply.g) * (1 - k->brill) + (apply.g_spot) * k->brill;
+  apply.b = (apply.b) * (1 - k->brill) + (apply.b_spot) * k->brill;
+  apply.ret = apply.b | apply.g << 8 | apply.r << 16;
+  return (apply.ret);
 }
 
 void    define_lights(t_3d **spots)
@@ -71,6 +74,4 @@ void    define_lights(t_3d **spots)
   define_spot3(spots[2]);
   spots[3] = malloc(sizeof(t_3d));
   define_spot3(spots[3]);
-  //spots[4] = malloc(sizeof(t_3d));
-  //define_spot4(spots[4]);
 }
