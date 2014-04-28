@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:08:06 2014 grelli_t
-** Last update Mon Apr 21 12:09:18 2014 grelli_t
+** Last update Mon Apr 21 14:33:29 2014 grelli_t
 */
 
 #ifndef RAYTRACEUR_H_
@@ -83,6 +83,8 @@ typedef struct	s_obj
   int		color;
   float		brill;
 }		t_obj;
+
+void	free_scene(t_obj **scene, t_sec **inter, t_3d **spots);
 
 void    incre_unsigned(unsigned char *r, unsigned char *g, unsigned char *b,
                        unsigned char *t_spot);

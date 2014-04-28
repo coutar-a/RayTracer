@@ -5,7 +5,11 @@
 ** Login   <coutar_a@epitech.net>
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-** Last update Mon Apr 21 15:32:16 2014 grelli_t
+<<<<<<< HEAD
+** Last update Mon Apr 28 11:21:10 2014 grelli_t
+=======
+** Last update Mon Apr 21 14:35:17 2014 grelli_t
+>>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
 */
 
 #include <stdlib.h>
@@ -113,6 +117,10 @@ int		calc(t_dump *ptr,int x, int y, t_eye *eye)
   sub_calc_vc(&point, eye, &vector);
   if (x == 0 &&  y == 0)
     {
+      scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
+      inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
+      spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
+      define_scene(scene, inter_array);
       scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
       inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
       spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));

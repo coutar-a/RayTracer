@@ -5,7 +5,11 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:08:15 2014 grelli_t
+<<<<<<< HEAD
 ** Last update Mon Apr 21 15:32:52 2014 grelli_t
+=======
+** Last update Mon Apr 21 14:36:21 2014 grelli_t
+>>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
 */
 
 #include <stdlib.h>
