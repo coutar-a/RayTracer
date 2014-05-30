@@ -1,0 +1,69 @@
+
+#ifndef LIST_H_
+# define LIST_H_
+# define MASTER_ERROR -10
+# define ERROR -1
+# define SUCCESS 1
+# define YES 2
+# define NO 3
+# include <sys/types.h>
+# include <sys/wait.h>
+
+/*
+**fd pour pipes; num pour savoir quels redirec;cmd = command;
+*/
+
+typedef struct	t_list
+{
+  char		*cmd;
+  //unsigned int	digit;
+  int		*fd;
+  int		num;
+  struct t_list	*next;
+}		t_list;
+
+void	my_putchar(char);
+void	my_putstr(char *);
+void	free_list(t_list *);
+int	my_put_in_end_list(t_list **, char *, int);
+int	my_put_in_list(t_list **, char *, int);
+void	my_show_list(t_list *);
+/*
+int     d_red_right(t_list *list, int *p);
+int     d_red_right_for_unique(t_list *list, int *p);
+int     red_right(t_list *list, int *p);
+int     red_right_for_unique(t_list *list, int *p);
+void	disp_tab(char **tab);
+int	send_to_pipe(int pipefd[2], char *arg_list, pid_t son_pid);
+int	exec_d_red_left(char *cmd, int pipefd[2], int *p, int flag);
+int	cmd_handling(t_list *list, char *arg_list, int *p, int flag);
+void	put_buff_to_args(char buff[1024], char *args);
+int	d_red_left(t_list *list, int *p, int flag);
+int	send_to_pipe_spe(int pipefd[2], char *arg_list, pid_t son_pid);
+int	exec_d_red_left_spe(char *cmd, int pipefd[2], int fd);
+int	cmd_handling_spe(t_list *list, char *arg_list, int fd);
+int	get_fd_open(t_list *list);
+int	d_red_left_spe(t_list *list, int fd);
+int	exe(char *cmd);
+int	first_pipe(t_list *list, int *p, int status);
+int	last_pipe(t_list *list, int *p, int status);
+int	next_pipe(t_list *list, int *p, int *p2, int status);
+void	wait_and_list(t_list **list, int status);
+int	right_manage(t_list *list, int *p);
+int	master_pipe(t_list *list, int *p, int i);
+int	get_it_on(t_list *list);
+int	is_neg(char *str);
+int	is_num(int nb);
+int	my_getnbr(char *str);
+int	exe_redirec_unique(t_list *list);
+int	special_all_left_case(t_list *list);
+int	only_one_redirec_manage(t_list *list);
+int	two_dup_and_close(int *p,int fd, int flag);
+int	redirec_pars_left_angular_fork(t_list *list, int *p, int fd, int flag);
+int	redirec_left(t_list *list, int *p, int flag);
+int	two_dup_and_close_spe(int *fd);
+int	redirec_pars_left_angular_fork_spe(t_list *list, int *fd);
+int	redirec_left_spe(t_list *list);
+*/
+
+#endif /* !LIST_H_ */
