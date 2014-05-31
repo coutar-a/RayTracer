@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat May 31 15:05:01 2014 
+## Last update Sat May 31 15:12:45 2014 
 ##
 
 CC	= gcc
@@ -20,8 +20,7 @@ SRC	= src/
 
 CONF	= src/conf/
 
-SRCS	= $(LIB)basic_functions.c		\
-	  $(SRC)events.c			\
+SRCS	= $(SRC)events.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\
 	  $(SRC)main.c				\
@@ -35,18 +34,19 @@ SRCS	= $(LIB)basic_functions.c		\
 	  $(SRC)translation.c			\
 	  $(CONF)check.c			\
 	  $(CONF)check_error_read_file.c	\
-	  $(LIB)epur.c				\
 	  $(CONF)fill.c				\
-	  $(LIB)my_str.c			\
 	  $(CONF)read_file.c			\
+	  $(CONF)fill_objects.c			\
+	  $(CONF)fill_window.c			\
+	  $(CONF)fill_ray.c			\
+	  $(CONF)fill_sphere.c			\
+	  $(LIB)epur.c				\
+	  $(LIB)my_str.c			\
 	  $(LIB)show_tab.c			\
 	  $(LIB)str_to_wordtab.c		\
 	  $(LIB)my_strcmp.c			\
-	  $(CONF)fill_objects.c			\
-	  $(CONF)fill_window.c			\
 	  $(LIB)free_tab.c			\
-	  $(CONF)fill_ray.c			\
-	  $(CONF)fill_sphere.c
+	  $(LIB)basic_functions.c		\
 
 OBJS	= $(SRCS:.c=.o)
 
