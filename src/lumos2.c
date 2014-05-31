@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Sat May 31 17:30:28 2014 coutar_a
+** Last update Sat May 31 17:36:44 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -46,19 +46,19 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 				 * cos_a[apply.i]) / params->nb_spots;
       apply.b += (unsigned char)((obj->color & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.r_params->spots += (unsigned char)((params->spots[apply.i]->color >>
+      apply.r_spot += (unsigned char)((params->spots[apply.i].color >>
 						16 & 0xFF) * cos_a[apply.i])
 	/ params->nb_spots;
-      apply.g_params->spots += (unsigned char)((params->spots[apply.i]->color
+      apply.g_spot += (unsigned char)((params->spots[apply.i].color
 						>> 8 & 0xFF) * cos_a[apply.i]) /
         params->nb_spots;
-      apply.b_params->spots += (unsigned char)((params->spots[apply.i]->color &
+      apply.b_spot += (unsigned char)((params->spots[apply.i].color &
 						0xFF) * cos_a[apply.i]) /
         params->nb_spots;
     }
-  apply.r = (apply.r) * (1 - obj->shine) + (apply.r_spots) * obj->shine;
-  apply.g = (apply.g) * (1 - obj->shine) + (apply.g_spots) * obj->shine;
-  apply.b = (apply.b) * (1 - obj->shine) + (apply.b_spots) * obj->shine;
+  apply.r = (apply.r) * (1 - obj->shine) + (apply.r_spot) * obj->shine;
+  apply.g = (apply.g) * (1 - obj->shine) + (apply.g_spot) * obj->shine;
+  apply.b = (apply.b) * (1 - obj->shine) + (apply.b_spot) * obj->shine;
   apply.ret = apply.b | apply.g << 8 | apply.r << 16;
   return (apply.ret);
 }
