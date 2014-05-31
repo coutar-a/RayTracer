@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Mon Apr 21 10:08:06 2014 grelli_t
-** Last update Sat May 31 14:05:45 2014 grelli_t
+** Last update Sat May 31 14:30:06 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -113,5 +113,13 @@ typedef struct		s_3d
   float			z;
   int			color;
 }			t_3d;
+
+void	fill_sphere_pos(t_params *params, char *line);
+void	fill_sphere_color(t_params *params, char *line);
+void	fill_sphere_ray(t_params *params, char *line);
+void	fill_sphere_texture(t_params *params, char *line);
+void	fill_sphere_negative(t_params *params, char *line);
+void	fill_sphere_transparency(t_params *params, char *line);
+void	fill_sphere_angle(t_params *params, char *line);
 
 #endif /* !RAYTRACER_H_ */
