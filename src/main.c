@@ -6,7 +6,7 @@
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
 <<<<<<< HEAD
-** Last update Mon Apr 28 11:21:10 2014 grelli_t
+** Last update Sat May 31 17:19:46 2014 coutar_a
 =======
 ** Last update Mon Apr 21 14:35:17 2014 grelli_t
 >>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
@@ -73,27 +73,27 @@ void	sub_calc_vc(t_3d *pt, t_eye *eye, t_3d *vector)
 ** lumos or default color.
 */
 
-int	color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
+int		color_picker(t_obj **scene, t_sec **inter_array, t_3d **spot)
 {
-  float	swap_k;
-  int	obj;
-  int	i;
+  double	swap_k;
+  int		j;
+  int		i;
 
-  swap_k = inter_array[0]->k;
-  obj = 0;
+  swap_k = obj[0]->intersection.k;
+  j = 0;
   i = 0;
   while (i != NUMBER_OBJ)
     {
-      if ((inter_array[i]->k < swap_k && inter_array[i]->k != 0.0) ||
-	  (swap_k == 0.0 && inter_array[i]->k > 0.0))
+      if ((obj[i]->intersection.k < swap_k && obj[i]->intersection.k != 0.0) ||
+	  (swap_k == 0.0 && obj[i]->intersection.k > 0.0))
 	{
-	  swap_k = inter_array[i]->k;
-	  obj = i;
+	  swap_k = obj[i]->intersection.k;
+	  j = i;
 	}
       i++;
     }
   if (swap_k != 0.0)
-    return (lumos(spot, inter_array[obj], scene));
+    return (lumos(params, obj[j]));
   return (COLOR_DEFAULT);
 }
 
