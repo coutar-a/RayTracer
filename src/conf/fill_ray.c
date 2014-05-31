@@ -8,8 +8,10 @@ void	fill_sphere_ray(t_params *obj, char *line)
   c = my_strlen(line) - 1;
   if (line[c] == ';')
     line[c] = '\0';
-  my_putstr("\n------------------");
+  my_putstr("\nRAY  >");
   my_putstr(line);
-  my_putstr("------------------\n");
-  obj->objs->ray;//FINIR remplir sphere;
+  my_putstr("<  RAY\n");
+  if (obj->objs->ray = atof(line) <= 0)
+    obj->objs->ray = 75;
+  printf("RAY = %f\n", obj->objs->ray);
 }

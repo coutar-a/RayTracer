@@ -1,4 +1,5 @@
 
+#include <stdlib.h>
 #include "raytracer.h"
 
 void    fill_sphere_angle(t_params *obj, char *line)
@@ -8,10 +9,10 @@ void    fill_sphere_angle(t_params *obj, char *line)
   c = my_strlen(line) - 1;
   if (line[c] == ';')
     line[c] = '\0';
-  my_putstr("\n------------------");
+  my_putstr("\ANGLE   >");
   my_putstr(line);
-  my_putstr("------------------\n");
-  if (obj->objs->ray = atof(line) <= 0)
-    obj->objs->ray = 50;
-  printf("LOL<>LOL>LOL>LOL> = %f\n", obj->objs->ray);
+  my_putstr("<   ANGLE\n");
+  if ((obj->objs->angle = atof(line)) <= 0)
+    obj->objs->angle = 0.0;
+  printf("ANGLE = %f\n", obj->objs->angle);
 }

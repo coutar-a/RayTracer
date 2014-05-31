@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sat May 31 11:09:24 2014 grelli_t
+** Last update Sat May 31 16:44:51 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -33,31 +33,34 @@ int		fill_diffrent_object(t_params *params, char **file, int *i)
 {
   t_params	*obj;
 
-  if ((obj = malloc(sizeof(t_params))) == NULL)
-    return (ERROR);
-  if ((obj->objs = malloc((params->nb_objs * sizeof(t_objs)) + 1)) == NULL)
-    return (ERROR);
+  /* if ((obj = malloc(sizeof(t_params))) == NULL) */
+  /*   return (ERROR); */
+  /* if ((obj->objs = malloc((params->nb_objs * sizeof(t_objs)) + 1)) == NULL) */
+  /*   return (ERROR); */
   printf("%d\n", (params->nb_objs + 1));
-  fill_sphere(obj, file, i);
+  fill_sphere(params, file, i);
   return (0);
 }
 
-int	fill_nb_objs(t_params *params, char *file)
+t_params	*fill_nb_objs(t_params *params, char *file, int flag)
 {
-  char	**tab;
-  int	c;
+  char		**tab;
+  int		c;
+  static int	j;
 
   c = 0;
   tab = NULL;
   if ((tab = my_str_to_wordtab(file, '=')) == NULL)
-    return (ERROR);
+    return (NULL);
   c = my_strlen(tab[1]) - 1;
   if (tab[1][c] == ';')
     tab[1][c] = '\0';
   if ((params->nb_objs = atoi(tab[1])) <= 0)
     params->nb_objs = 1;
+  if ((params->objs = malloc((params->nb_objs * sizeof(t_objs)) + 1)) == NULL)
+    return (NULL);
   free_tab(tab);
-  return (0);
+  return (params);
 }
 
 int	kind_of_objects(t_params *params, char **file, int *i)
@@ -74,7 +77,8 @@ int	kind_of_objects(t_params *params, char **file, int *i)
       if (my_strcmp(tab[0], "nb_objs") == 0)
 	{
 	  my_putstr("NB_OBJS\n");
-	  fill_nb_objs(params, file[*i]);
+	  if ((params = fill_nb_objs(params, file[*i])) == NULL)
+	    return (ERROR);
 	}
       else if (my_strcmp(file[*i], "sphere") == 0)
 	{

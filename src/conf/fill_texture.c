@@ -1,4 +1,5 @@
 
+#include <stdlib.h>
 #include "raytracer.h"
 
 void    fill_sphere_texture(t_params *obj, char *line)
@@ -11,7 +12,7 @@ void    fill_sphere_texture(t_params *obj, char *line)
   my_putstr("\n------------------");
   my_putstr(line);
   my_putstr("------------------\n");
-  if (obj->objs->ray = atof(line) <= 0)
-    obj->objs->ray = 50;
-  printf("LOL<>LOL>LOL>LOL> = %f\n", obj->objs->ray);
+  if (obj->objs->texture = atof(line) <= 0)
+    obj->objs->texture = 50;
+  printf("LOL<>LOL>LOL>LOL> = %f\n", obj->objs->texture);
 }

@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Thu May 29 15:21:26 2014 grelli_t
+** Last update Sat May 31 16:19:53 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -40,13 +40,13 @@ int		check_file(char **file)//global tableau pointeur sur fonction.
 	continue ;
       if (is_objs == 0)
 	{
-	  my_putstr("----------------------------------------\n");
+	  my_putstr("\n---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----\n");
 	  //my_putstr(file[i]);
 	  //printf("\ni = %d\n", i);
 	  if (my_strcmp(file[i], "WINDOW") == 0)
 	    is_objs = fill_window(&params, file, &i);
 	  else if (my_strcmp(file[i], "OBJECTS") == 0)
-	      is_objs = fill_objects(&params, file, &i);
+	    is_objs = fill_objects(&params, file, &i);
 	  else if (my_strcmp(file[i], "SPOTS") == 0)
 	    is_objs = fill_spots(&params, file, &i);
 	}

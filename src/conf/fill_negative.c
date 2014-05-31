@@ -11,7 +11,9 @@ void    fill_sphere_negative(t_params *obj, char *line)
   my_putstr("\n\\\\\\\\\\\\\\\\\\");
   my_putstr(line);
   my_putstr("\\\\\\\\\\\\\\\\\\\n");
-  if (obj->objs->negative = atof(line) <= 0)
-    obj->objs->ray = 50;
-  printf("LOL<>LOL>LOL>LOL> = %f\n", obj->objs->ray);
+  if (my_strcmp(line, "YES") == 0)
+    obj->objs->negative = YES;
+  else
+    obj->objs->negative = NO;
+  printf("NEGATIVE = %d\n", obj->objs->negative);
 }

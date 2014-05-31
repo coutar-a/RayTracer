@@ -1,4 +1,5 @@
 
+#include <stdlib.h>
 #include "raytracer.h"
 
 void    fill_sphere_transparency(t_params *obj, char *line)
@@ -8,10 +9,10 @@ void    fill_sphere_transparency(t_params *obj, char *line)
   c = my_strlen(line) - 1;
   if (line[c] == ';')
     line[c] = '\0';
-  my_putstr("\n------------------");
+  my_putstr("\nTRANSPARENCY    ");
   my_putstr(line);
-  my_putstr("------------------\n");
-  if (obj->objs->ray = atof(line) <= 0)
-    obj->objs->ray = 50;
-  printf("LOL<>LOL>LOL>LOL> = %f\n", obj->objs->ray);
+  my_putstr("    TRANSPARENCY\n");
+  if (obj->objs->transparency = atoi(line) <= 0)
+    obj->objs->transparency = NO;
+  printf("TRANSPARENCY = %f\n", obj->objs->transparency);
 }
