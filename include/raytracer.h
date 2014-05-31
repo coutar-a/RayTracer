@@ -5,13 +5,16 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Mon Apr 21 10:08:06 2014 grelli_t
-** Last update Sat May 31 14:30:06 2014 grelli_t
+** Last update Sat May 31 15:00:56 2014 
 */
 
 #ifndef RAYTRACER_H_
 # define RAYTRACER_H_
 
 # define CPR_MIN(x, y)	(x < y ? x : y)
+# define DRK_CHK(x)	(x < 0.0 ? 0.0 : x)
+# define NTS_CHK(x, y)	(x * y > 1.0 ? 1.0 : x * y)
+# define NEG(x)		(255 - x)
 # define COLOR_DEFAULT	(0x2FD1D4)
 # define ESCAPE		(65307)
 # define ERROR		(-1)
