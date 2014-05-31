@@ -1,0 +1,11 @@
+
+#include "raytracer.h"
+
+void	fill_sphere_ray(t_params *params, char *line)
+{
+  int	c;
+
+c = my_strlen(line) - 1;
+		    if (line[c] == ';')
+    line[c] = '\0';
+}

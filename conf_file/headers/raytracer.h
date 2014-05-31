@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Mon Apr 21 10:08:06 2014 grelli_t
-** Last update Thu May 29 15:16:17 2014 grelli_t
+** Last update Sat May 31 12:16:59 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -15,7 +15,8 @@
 # define NUMBER_OBJ (4)
 # define NBR_LIGHTS (4)
 # define ESCAPE (65307)
-
+# define ERROR -1
+# define SUCCESS 1
 # define CONE		(1)
 # define PLAN		(2)
 # define SPHERE		(3)
@@ -23,6 +24,7 @@
 
 typedef struct		s_objs
 {
+  int			type;
   double		pos[3];
   double		ray;
   double		angle;
@@ -31,7 +33,6 @@ typedef struct		s_objs
   int			transparency;
   int			negative;
   int			texture;
-  int			type;
   struct s_objs		*next;
 }			t_objs;
 
@@ -74,6 +75,13 @@ typedef struct		s_params
   t_objs		*objs;
   t_dump		*mlx_conf;
 }			t_params;
+
+typedef struct	s_fill
+{
+  char		*line;
+  void		(*ptr)(t_params *params, char *tab);
+}		t_fill;
+
 
 typedef struct		s_apply
 {
@@ -129,6 +137,7 @@ typedef struct		s_obj
   float			brill;
 }			t_obj;
 
+void			fill_sphere_ray(t_params *params, char *line);
 void			free_scene(t_obj **scene, t_sec **inter, t_3d **spots);
 
 void			incre_unsigned(unsigned char *r, unsigned char *g, unsigned char *b,

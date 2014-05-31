@@ -5,7 +5,7 @@
 ## Login   <lancel_e@epitech.net>
 ## 
 ## Started on  Tue Jan  7 14:24:41 2014 lancel_e
-## Last update Thu May 29 15:29:45 2014 grelli_t
+## Last update Sat May 31 11:03:42 2014 grelli_t
 ##
 
 CC	= clang
@@ -29,7 +29,9 @@ SRCS	= srcs/check.c			\
 	  srcs/my_strcmp.c		\
 	  srcs/fill_objects.c		\
 	  srcs/fill_window.c		\
-	  srcs/free_tab.c
+	  srcs/free_tab.c		\
+	  srcs/fill_ray.c		\
+	  srcs/fill_sphere.c
 
 OBJS	= $(SRCS:.c=.o)
 

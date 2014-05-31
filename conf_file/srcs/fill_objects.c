@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Thu May 29 17:28:37 2014 grelli_t
+** Last update Sat May 31 11:09:24 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -38,6 +38,7 @@ int		fill_diffrent_object(t_params *params, char **file, int *i)
   if ((obj->objs = malloc((params->nb_objs * sizeof(t_objs)) + 1)) == NULL)
     return (ERROR);
   printf("%d\n", (params->nb_objs + 1));
+  fill_sphere(obj, file, i);
   return (0);
 }
 
@@ -55,7 +56,6 @@ int	fill_nb_objs(t_params *params, char *file)
     tab[1][c] = '\0';
   if ((params->nb_objs = atoi(tab[1])) <= 0)
     params->nb_objs = 1;
-  printf("%d\n", params->nb_objs);
   free_tab(tab);
   return (0);
 }
@@ -79,17 +79,17 @@ int	kind_of_objects(t_params *params, char **file, int *i)
       else if (my_strcmp(file[*i], "sphere") == 0)
 	{
 	  my_putstr("SPHERE\n");
-	  fill_diffrent_object(params, file, *i);
+	  fill_sphere(params, file, i);
 	}
       else if (my_strcmp(file[*i], "cone") == 0)
 	{
 	  my_putstr("CONE\n");
-	  fill_diffrent_object(params, file, *i);
+	  fill_diffrent_object(params, file, i);
 	}
       else if (my_strcmp(file[*i], "cylinder") == 0)
 	{
 	  my_putstr("CYLINDER\n");
-	  fill_diffrent_object(params, file, *i);
+	  fill_diffrent_object(params, file, i);
 	}
       if (file[*i][0] == '}')
         {
