@@ -5,48 +5,60 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Mon Apr 21 10:08:06 2014 grelli_t
-** Last update Sat May 31 12:16:59 2014 grelli_t
+** Last update Sat May 31 13:53:54 2014 
 */
 
 #ifndef RAYTRACER_H_
 # define RAYTRACER_H_
-# define CPR_MIN(x, y) (x < y ? x : y)
-# define COLOR_DEFAULT (0x2FD1D4)
-# define NUMBER_OBJ (4)
-# define NBR_LIGHTS (4)
-# define ESCAPE (65307)
-# define ERROR -1
-# define SUCCESS 1
+
+# define CPR_MIN(x, y)	(x < y ? x : y)
+# define COLOR_DEFAULT	(0x2FD1D4)
+# define ESCAPE		(65307)
+# define ERROR		(-1)
+# define SUCCESS	(1)
+
 # define CONE		(1)
 # define PLAN		(2)
 # define SPHERE		(3)
 # define CYLINDRE	(4)
 
+typedef struct		s_sec
+{
+  float			k;
+  float			p_x;
+  float			p_y;
+  float			p_z;
+  float			x_n;
+  float			y_n;
+  float			z_n;
+}			t_sec;
+
 typedef struct		s_objs
 {
-  int			type;
+  t_sec			intersection;
   double		pos[3];
+  double		rot[3];
   double		ray;
   double		angle;
-  double		color;
   double		shine;
-  int			transparency;
+  double		transparency;
+  int			color;
   int			negative;
   int			texture;
-  struct s_objs		*next;
+  int			type;
 }			t_objs;
 
 typedef struct		s_spots
 {
   double		pos[3];
+  double		rot[3];
   double		ray;
   double		angle;
-  double		color;
   double		shine;
-  int			transparency;
+  double		transparency;
+  int			color;
   int			negative;
   int			texture;
-  struct s_spots	*next;
 }			t_spots;
 
 
@@ -67,8 +79,7 @@ typedef struct		s_dump
 typedef struct		s_params
 {
   double		pos_eye[3];
-  int			height;
-  int			lenght;
+  double		rot_eye[3];
   int			nb_objs;
   int			nb_spots;
   t_spots		*spots;
@@ -102,40 +113,6 @@ typedef struct		s_3d
   float			z;
   int			color;
 }			t_3d;
-
-typedef struct		s_sec
-{
-  float			k;
-  float			p_x;
-  float			p_y;
-  float			p_z;
-  float			x_n;
-  float			y_n;
-  float			z_n;
-  int			color;
-  float			brill;
-}			t_sec;
-
-typedef struct		s_eye
-{
-  float			x;
-  float			y;
-  float			z;
-  float			angle_x;
-  float			angle_y;
-  float			angle_z;
-}			t_eye;
-
-typedef struct		s_obj
-{
-  char			type;
-  float			x;
-  float			y;
-  float			z;
-  float			r_a;
-  int			color;
-  float			brill;
-}			t_obj;
 
 void			fill_sphere_ray(t_params *params, char *line);
 void			free_scene(t_obj **scene, t_sec **inter, t_3d **spots);
