@@ -1,11 +1,11 @@
 /*
 ** fill_object.c for raytracer in /home/grelli_t/ABUZAY/conf_file/srcs
-** 
+**
 ** Made by grelli_t
 ** Login   <grelli_t@epitech.net>
-** 
+**
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sat May 31 16:44:51 2014 grelli_t
+** Last update Sat May 31 19:52:50 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -29,20 +29,22 @@ int     fill_objects_in_params(t_params *params, char **file, int *i)
   return (0);
 }
 
-int		fill_diffrent_object(t_params *params, char **file, int *i)
+int		fill_diffrent_object(t_params *params, char **file, int *i, int flag)
 {
-  t_params	*obj;
+  static int	j;
 
-  /* if ((obj = malloc(sizeof(t_params))) == NULL) */
-  /*   return (ERROR); */
-  /* if ((obj->objs = malloc((params->nb_objs * sizeof(t_objs)) + 1)) == NULL) */
-  /*   return (ERROR); */
-  printf("%d\n", (params->nb_objs + 1));
-  fill_sphere(params, file, i);
+  if (flag == 1)
+    fill_sphere(params, file, i, &j);
+  else if (flag == 2)
+    fill_cylindre(params, file, i, &j);
+  else if (flag == 3)
+    fill_plan(params, file, i, &j);
+  else if (flag == 4)
+    fill_cone(params, file, i, &j);
   return (0);
 }
 
-t_params	*fill_nb_objs(t_params *params, char *file, int flag)
+t_params	*fill_nb_objs(t_params *params, char *file)
 {
   char		**tab;
   int		c;
@@ -83,22 +85,25 @@ int	kind_of_objects(t_params *params, char **file, int *i)
       else if (my_strcmp(file[*i], "sphere") == 0)
 	{
 	  my_putstr("SPHERE\n");
-	  fill_sphere(params, file, i);
+	  fill_diffrent_object(params, file, i, 4);
 	}
       else if (my_strcmp(file[*i], "cone") == 0)
 	{
 	  my_putstr("CONE\n");
-	  fill_diffrent_object(params, file, i);
+	  fill_diffrent_object(params, file, i, 4);
 	}
       else if (my_strcmp(file[*i], "cylinder") == 0)
 	{
 	  my_putstr("CYLINDER\n");
-	  fill_diffrent_object(params, file, i);
+	  fill_diffrent_object(params, file, i, 2);
+	}
+      else if (my_strcmp(file[*i], "plan") == 0)
+	{
+	  my_putstr("PLAN\n");
+	  fill_diffrent_object(params, file, i, 3);
 	}
       if (file[*i][0] == '}')
         {
-          //++(*i);
-	  //++(*i);
 	  free_tab(tab);
           return (SUCCESS);
         }
