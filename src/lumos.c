@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Mon Apr 21 15:05:18 2014 grelli_t
+** Last update Sat May 31 15:19:14 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -14,71 +14,18 @@
 #include "raytracer.h"
 
 /*
-** The following process_k functions calculate both normal vector and 3d coords
-** for the intersection point on each type of object.
-*/
-
-void	process_k_plan(t_sec *k, t_eye *eye, t_3d *vector, t_obj *plan)
-{
-  k->p_x = eye->x + k->k * vector->x;
-  k->p_y = eye->y + k->k * vector->y;
-  k->p_z = eye->z + k->k * vector->z;
-  k->x_n = plan->x;
-  k->y_n = plan->y;
-  k->z_n = plan->z;
-  k->color = plan->color;
-  k->brill = plan->brill;
-}
-
-void	process_k_sphere(t_sec *k, t_eye *eye, t_3d *vector, t_obj *sphere)
-{
-  k->p_x = eye->x + k->k * vector->x;
-  k->p_y = eye->y + k->k * vector->y;
-  k->p_z = eye->z + k->k * vector->z;
-  k->x_n = k->p_x - sphere->x;
-  k->y_n = k->p_y - sphere->y;
-  k->z_n = k->p_z - sphere->z;
-  k->color = sphere->color;
-  k->brill = sphere->brill;
-}
-
-void	process_k_cyl(t_sec *k, t_eye *eye, t_3d *vector, t_obj *cyl)
-{
-  k->p_x = eye->x + k->k * vector->x;
-  k->p_y = eye->y + k->k * vector->y;
-  k->p_z = eye->z + k->k * vector->z;
-  k->x_n = k->p_x - cyl->x;
-  k->y_n = k->p_y - cyl->y;
-  k->z_n = 0;
-  k->color = cyl->color;
-  k->brill = cyl->brill;
-}
-
-void	process_k_cone(t_sec *k, t_eye *eye, t_3d *vector, t_obj *cone)
-{
-  k->p_x = eye->x + k->k * vector->x;
-  k->p_y = eye->y + k->k * vector->y;
-  k->p_z = eye->z + k->k * vector->z;
-  k->x_n = k->p_x - cone->x;
-  k->y_n = k->p_y - cone->y;
-  k->z_n = -(tanf(cone->r_a * (M_PI / 180.0))) * k->p_z - cone->z;
-  k->color = cone->color;
-  k->brill = cone->brill;
-}
-
-/*
 ** Determines light coefficient for each pixel.
 ** Also calls in shadow_checking for shadows.
 */
 
-int	lumos(t_3d **spot, t_sec *k, t_obj **scene)
+int		lumos(t_3d **spot, t_objs **scene, t_objs *obj)
 {
-  t_3d	l;
-  float	norm_l;
-  float	norm_n;
-  float	scal;
-  float	cos_a[NBR_LIGHTS];
-  int 	i;
+  t_3d		l;
+  double	norm_l;
+  double	norm_n;
+  double	scal;
+  double	cos_a[params->nbr_lights]; // à vérifier ????
+  int		i;
 
   i = 0;
   while (i != NBR_LIGHTS)
@@ -102,10 +49,10 @@ int	lumos(t_3d **spot, t_sec *k, t_obj **scene)
 /*int	lumos(t_3d *spot, t_sec *k, t_obj **scene)
   {
     t_3d	l;
-    float	norm_l;
-    float	norm_n;
-    float	scal;
-    float	cos_a;
+    double	norm_l;
+    double	norm_n;
+    double	scal;
+    double	cos_a;
 
     l.x = spot->x - k->p_x;
     l.y = spot->y - k->p_y;
