@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:07:31 2014 grelli_t
-** Last update Mon Apr 28 10:46:22 2014 grelli_t
+** Last update Sat May 31 14:30:58 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -20,7 +20,7 @@
 ** Matrix for z-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_z(float matrix[3][3], float angle)
+void	matrix_rot_z(float matrix[][3], float angle)
 {
   float	reg;
 
@@ -40,7 +40,7 @@ void	matrix_rot_z(float matrix[3][3], float angle)
 ** Matrix for x-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_x(float matrix[3][3], float angle)
+void	matrix_rot_x(float matrix[][3], float angle)
 {
   float	reg;
 
@@ -60,7 +60,7 @@ void	matrix_rot_x(float matrix[3][3], float angle)
 ** Matrix for y-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_y(float matrix[3][3], float angle)
+void	matrix_rot_y(float matrix[][3], float angle)
 {
   float	reg;
 
@@ -80,7 +80,7 @@ void	matrix_rot_y(float matrix[3][3], float angle)
 ** Multiplies 3d point struct with trans matrix.
 */
 
-void	trans_pt(t_3d *pt, float m[3][3])
+void	trans_pt(t_3d *pt, float m[][3])
 {
   float	x_swap;
   float	y_swap;
@@ -98,7 +98,7 @@ void	trans_pt(t_3d *pt, float m[3][3])
 ** Multiplies 2 trans matrices, results in first one.
 */
 
-void	mult_matrix(float m1[3][3], float m2[3][3])
+void	mult_matrix(float m1[][3], float m2[][3])
 {
   m1[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0] + m1[0][2] * m2[2][0];
   m1[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1] + m1[0][2] * m2[2][1];

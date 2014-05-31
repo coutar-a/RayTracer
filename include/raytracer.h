@@ -1,11 +1,11 @@
 /*
-** rtv1.h for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
+** raytracer.h for rt in /home/cheval_2/git/raytracer/include
 **
-** Made by grelli_t
-** Login   <grelli_t@epitech.net>
+** Made by
+** Login   <cheval_2@epitech.net>
 **
-** Started on  Mon Apr 21 10:08:06 2014 grelli_t
-** Last update Sat May 31 15:00:56 2014 
+** Started on  Sat May 31 15:43:54 2014
+** Last update Sat May 31 15:43:57 2014 
 */
 
 #ifndef RAYTRACER_H_

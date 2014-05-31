@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:09:19 2014 grelli_t
-** Last update Mon Apr 21 15:07:00 2014 grelli_t
+** Last update Sat May 31 17:41:38 2014 coutar_a
 */
 
 #include <mlx.h>
@@ -26,15 +26,9 @@ void		sub_calc_pt(t_dump *ptr, t_3d *pt, int x, int y)
 ** Inits MLX image, stuffs it into dump struct (yay MLX).
 */
 
-int		do_a_thing(t_dump *ptr)
+void		init_img(t_dump *ptr)
 {
-  char		*data_ptr;
-  int		sizeline;
-  int		bpp;
-  int		endian;
-
-  data_ptr = mlx_get_data_addr(ptr->img_ptr, &bpp, &sizeline, &endian);
-  ptr->img = data_ptr;
+  ptr->img = mlx_get_data_addr(ptr->img_ptr, &bpp, &sizeline, &endian);
   ptr->sizeline = sizeline;
   ptr->bpp = bpp;
   ptr->endian = endian;

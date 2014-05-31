@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat May 31 14:03:08 2014 coutar_a
-** Last update Sat May 31 15:42:55 2014 coutar_a
+** Last update Sat May 31 16:26:18 2014 coutar_a
 */
 
 #include "raytracer.h"
@@ -13,7 +13,6 @@
 void		process_k(t_params *params, t_3d *vc)
 {
   int		i;
-  int		test;
   void		(*process_array[4])(t_params*, t_3d*, t_objs*);
 
   process_array[0] = &process_k_cone;
@@ -31,7 +30,6 @@ void		process_k(t_params *params, t_3d *vc)
 void		calc_inter(t_params *params, t_eye *eye, t_3d *vc)
 {
   int		i;
-  int		test;
   void		(*inter_array[4])(t_params*, t_3d*, t_objs*);
 
   inter_array[0] = &inter_cone;

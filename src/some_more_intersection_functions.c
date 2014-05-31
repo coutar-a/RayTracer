@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Fri May 30 17:10:10 2014 coutar_a
-** Last update Sat May 31 14:30:10 2014 coutar_a
+** Last update Sat May 31 16:46:06 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
     sub_int_k(&(sph->intersection), b, delta, a);
 }
 
-void	inter_plan(t_param *params, t_3d *vc, t_obj *pl)
+void	inter_plan(t_param *params, t_3d *vc, t_objs *pl)
 {
   double	test;
 
@@ -72,7 +72,7 @@ void	inter_plan(t_param *params, t_3d *vc, t_obj *pl)
     k->k = test;
 }
 
-void		inter_cyl(t_param *params, t_3d *vc, t_obj *cyl)
+void		inter_cyl(t_param *params, t_3d *vc, t_objs *cyl)
 {
   double		a;
   double		b;
@@ -93,7 +93,7 @@ void		inter_cyl(t_param *params, t_3d *vc, t_obj *cyl)
     sub_int_k(&(cyl->intersection), b, delta, a);
 }
 
-void		inter_cone(t_param *params, t_3d *vc, t_obj *cone)
+void		inter_cone(t_param *params, t_3d *vc, t_objs *cone)
 {
   double		q;
   double		a;

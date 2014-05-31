@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat May 31 15:12:45 2014 
+## Last update Sat May 31 17:20:16 2014 
 ##
 
 CC	= gcc
@@ -33,10 +33,16 @@ SRCS	= $(SRC)events.c			\
 	  $(SRC)stuff.c				\
 	  $(SRC)translation.c			\
 	  $(CONF)check.c			\
+	  $(CONF)read_file.c			\
 	  $(CONF)check_error_read_file.c	\
 	  $(CONF)fill.c				\
-	  $(CONF)read_file.c			\
 	  $(CONF)fill_objects.c			\
+	  $(CONF)fill_color.c			\
+	  $(CONF)fill_pos.c			\
+	  $(CONF)fill_texture.c			\
+	  $(CONF)fill_trasnparency.c		\
+	  $(CONF)fill_negative.c		\
+	  $(CONF)fill_angle.c			\
 	  $(CONF)fill_window.c			\
 	  $(CONF)fill_ray.c			\
 	  $(CONF)fill_sphere.c			\

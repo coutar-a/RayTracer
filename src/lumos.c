@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Sat May 31 15:19:14 2014 coutar_a
+** Last update Sat May 31 17:37:57 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -18,32 +18,31 @@
 ** Also calls in shadow_checking for shadows.
 */
 
-int		lumos(t_3d **spot, t_objs **scene, t_objs *obj)
+int		lumos(t_params *params, t_objs *obj)
 {
   t_3d		l;
   double	norm_l;
   double	norm_n;
   double	scal;
-  double	cos_a[params->nbr_lights]; // à vérifier ????
+  double	cos_a[params->nb_spots]; // à vérifier ????
   int		i;
 
   i = 0;
-  while (i != NBR_LIGHTS)
+  while (i != params->nb_spots)
     {
-      l.x = spot[i]->x - k->p_x;
-      l.y = spot[i]->y - k->p_y;
-      l.z = spot[i]->z - k->p_z;
-      scal = l.x * k->x_n + l.y * k->y_n + l.z * k->z_n;
-      norm_l = sqrtf(powf(l.x, 2.0) + powf(l.y, 2.0) + powf(l.z, 2.0));
-      norm_n = sqrtf(powf(k->x_n, 2.0) + powf(k->y_n, 2.0) + powf(k->z_n, 2.0));
-      cos_a[i] = scal / (norm_l * norm_n);
-      if (cos_a[i] < 0.0)
-      	cos_a[i] = 0.0;
-      if ((shadow_checking(&l, k, scene)) == 1)
-      	cos_a[i] = cos_a[i] / 2;
+      l.x = params->spots[i].pos[0] - obj->intersection.p_x;
+      l.y = params->spots[i].pos[1] - obj->intersection.p_y;
+      l.z = params->spots[i].pos[2] - obj->intersection.p_z;
+      scal = l.x * obj->intersection.x_n + l.y * obj->intersection.y_n + l.z * obj->intersection.z_n;
+      norm_l = sqrt(pow(l.x, 2.0) + pow(l.y, 2.0) + pow(l.z, 2.0));
+      norm_n = sqrt(pow(obj->intersection.x_n, 2.0) + pow(obj->intersection.y_n, 2.0)
+		    + pow(obj->intersection.z_n, 2.0));
+      cos_a[i] = DRK_CHK((scal / (norm_l * norm_n)));
+      if ((shadow_checking(&l, obj->intersection, params->objs)) == 1)
+      	cos_a[i] /= 2;
       i++;
     }
-  return (apply_light(cos_a, k, spot));
+  return (apply_light(params, obj, cos_a));
 }
 
 /*int	lumos(t_3d *spot, t_sec *k, t_obj **scene)
