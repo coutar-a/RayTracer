@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Fri May 30 17:10:10 2014 coutar_a
-** Last update Sat May 31 14:01:12 2014 coutar_a
+** Last update Sat May 31 14:30:10 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@ void		sub_int_k(t_sec *k, double b, double delta, double a)
   k->k = CPR_MIN(k1, k2);
 }
 
-void		inter_psh(t_params *params, t_3d *vc, t_objs *sph)
+void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
 {
   double		a;
   double		b;
@@ -93,7 +93,7 @@ void		inter_cyl(t_param *params, t_3d *vc, t_obj *cyl)
     sub_int_k(&(cyl->intersection), b, delta, a);
 }
 
-void		alt_cone_int(t_param *params, t_3d *vc, t_obj *cone)
+void		inter_cone(t_param *params, t_3d *vc, t_obj *cone)
 {
   double		q;
   double		a;
