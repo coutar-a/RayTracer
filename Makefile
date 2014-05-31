@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat May 31 14:21:33 2014 
+## Last update Sat May 31 14:55:08 2014 
 ##
 
 CC	= gcc
@@ -18,25 +18,35 @@ LIB	= src/lib/
 
 SRC	= src/
 
-SRCS	= $(SRC)alt_int.c		\
-	  $(SRC)basic_functions.c	\
-	  $(SRC)cones.c			\
-	  $(SRC)cylinders.c		\
+CONF	= src/conf/
+
+SRCS	= $(LIB)basic_functions.c	\
 	  $(SRC)events.c		\
-	  $(SRC)intersection.c		\
 	  $(SRC)lumos2.c		\
 	  $(SRC)lumos.c			\
 	  $(SRC)main.c			\
 	  $(SRC)pixel_put_to_image.c	\
-	  $(SRC)plans.c			\
 	  $(SRC)rotation2.c		\
 	  $(SRC)rotation.c		\
 	  $(SRC)scene_stuff.c		\
 	  $(SRC)shadows.c		\
-	  $(SRC)spheres.c		\
 	  $(SRC)spot.c			\
 	  $(SRC)stuff.c			\
-	  $(SRC)translation.c
+	  $(SRC)translation.c		\
+	  $(CONF)check.c			\
+	  $(CONF)check_error_read_file.c	\
+	  $(LIB)epur.c			\
+	  $(CONF)fill.c			\
+	  $(LIB)my_str.c		\
+	  $(CONF)read_file.c		\
+	  $(LIB)show_tab.c		\
+	  $(LIB)str_to_wordtab.c	\
+	  $(LIB)my_strcmp.c		\
+	  $(CONF)fill_objects.c		\
+	  $(CONF)fill_window.c		\
+	  $(LIB)free_tab.c		\
+	  $(CONF)fill_ray.c		\
+	  $(CONF)fill_sphere.c
 
 OBJS	= $(SRCS:.c=.o)
 

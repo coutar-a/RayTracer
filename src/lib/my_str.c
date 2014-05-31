@@ -5,55 +5,47 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Sun Mar  9 09:38:19 2014 grelli_t
-** Last update Sat Apr 12 10:14:13 2014 grelli_t
+** Last update Tue May 27 11:17:56 2014 grelli_t
 */
 
 #include <unistd.h>
 #include "read.h"
 
-void	my_putchar(char c)
-{
-  write(1, &c, 1);
-}
-
 int	my_putstr(char *str)
 {
-  int	i;
-
-  if (str == NULL)
+  if (write(1, str, my_strlen(str)) == -1)
     return (-1);
-  i = 0;
-  while(str[i] != '\0')
-    {
-      my_putchar(str[i]);
-      ++i;
-    }
-  return (1);
+  return (0);
+}
+
+int	my_putchar(char c)
+{
+  if (write(1, &c, 1) == -1)
+    return (-1);
+  return (0);
 }
 
 int	my_strlen(char *str)
 {
   int	i;
 
-  i = 0;
+  i = -1;
   if (str == NULL)
     return (0);
-  while (str[i] != '\0')
-    ++i;
+  while (str[++i]);
   return (i);
 }
 
-int	my_put_nbr(int nb)
+void	my_put_nbr(int nb)
 {
   if (nb < 0)
     {
       nb = -nb;
-      my_putchar('-');
+      write(1, "-", 1);
     }
-  if (nb < 9)
-    nb = nb  / 10;
+  if (nb > 9)
+    my_put_nbr(nb  / 10);
   my_putchar((nb % 10) + '0');
-  return (nb);
 }
 
 void	aff_tab(char **tab)
@@ -64,7 +56,7 @@ void	aff_tab(char **tab)
   while (tab[i])
     {
       my_putstr(tab[i]);
-      my_putchar('\n');
+      write(1, "\n", 1);
       ++i;
     }
 }
