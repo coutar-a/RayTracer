@@ -1,7 +1,7 @@
 #ifndef READ_H_
 # define READ_H_
-# define ERROR -1
-# define SUCCESS 1
+# define ERROR (-1)
+# define SUCCESS (1)
 
 # include "raytracer.h"
 
