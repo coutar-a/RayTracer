@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 10:58:30 2014 
+** Last update Sun Jun  1 12:08:30 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -143,11 +143,10 @@ int		fill_objects(t_params *, char **, int *);
 int		fill_spots(t_params *, char **, int *);
 int		fill_keywords(t_params *, char **, int *);
 int		fill_window(t_params *, char **, int *);
-int		pars_file(char *, char **);
-int		check_file(char **);
+int		check_file(char **, t_params *);
 int		check_error_read_file_part(int *, int *, char *);
 char		*check_error_read_file(int *, int *, char *);
-char		*read_file(char *);
+char		*read_file(char *, t_params *);
 
 /*
 ** LIB

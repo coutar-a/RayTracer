@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Sun Jun  1 10:51:27 2014 
+** Last update Sun Jun  1 11:59:06 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -23,10 +23,10 @@ int	init_struct(t_params *params)
   return (0);
 }
 
-int		check_file(char **file)//global tableau pointeur sur fonction.
+int		check_file(char **file, t_params *params)
 {
   int		i;
-  t_params	params;
+  //t_params	params;
   int		is_objs;
 
   if (init_struct(&params) == ERROR)

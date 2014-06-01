@@ -10,7 +10,7 @@ int	my_error(char *str)
   return (0);
 }
 
-char	*read_file(char *file_name)
+char	*read_file(char *file_name, t_params *params)
 {
   int	fd;
   int	ret;
@@ -29,7 +29,7 @@ char	*read_file(char *file_name)
   if (close(fd) == ERROR)
     return (NULL);
   tab = my_str_to_wordtab(buff, '\n');
-  if (check_file(tab) == ERROR)
+  if (check_file(tab, params) == ERROR)
     {
       if (close(fd) == ERROR)
 	return (NULL);
@@ -38,7 +38,7 @@ char	*read_file(char *file_name)
   return (buff);
 }
 
-int	main(int ac, char **av, char **envp)
+int     conf_file(int ac, char **av, t_params *params)
 {
   char	*file;
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av, char **envp)
       my_putstr("[Usage] : ./a.out <name of the conf file>\n");
       return (ERROR);
     }
-  if ((file = read_file(av[1])) == NULL)
+  if ((file = read_file(av[1], params)) == NULL)
     return (ERROR);
   return (0);
 }

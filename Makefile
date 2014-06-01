@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sun Jun  1 10:59:10 2014 
+## Last update Sun Jun  1 11:52:48 2014 grelli_t
 ##
 
 CC	= gcc -g3 ##Vire le g3 avant de rendre connard.
@@ -54,7 +54,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(LIB)str_to_wordtab.c		\
 	  $(LIB)my_strcmp.c			\
 	  $(LIB)free_tab.c			\
-	  $(LIB)basic_functions.c		\
+	  $(LIB)basic_functions.c
 
 OBJS	= $(SRCS:.c=.o)
 
