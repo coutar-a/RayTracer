@@ -6,7 +6,7 @@
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
 <<<<<<< HEAD
-** Last update Sat May 31 17:56:43 2014 coutar_a
+** Last update Sun Jun  1 12:49:15 2014 coutar_a
 =======
 ** Last update Mon Apr 21 14:35:17 2014 grelli_t
 >>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
@@ -21,25 +21,25 @@
 ** Fills up image pixel per pixel with calls to calc and pixel_put_to_image.
 */
 
-int	fill_image(t_params *params, t_dump *ptr)
+int	fill_image(t_params *params)
 {
   int	pixel;
   int	x;
   int	y;
 
-  init_img(ptr);
+  init_img(params->mlx_conf);
   x = 0;
   y = 0;
   my_putstr("Doin thangs...\n");
   while (y != ptr->win_y)
     {
-      while (x != ptr->win_x)
+      while (x != params->mlx_conf->win_x)
 	{
-	  if (y == 0 && x == 1)
-	    translation_eye(eye, -1000.0, 0.0, 90.0);
-	  pixel = calc(params, ptr, x, y);
-	  ptr->color = mlx_get_color_value(ptr->mlx_ptr, pixel);
-	  my_pixel_put_to_image(ptr->img, x, y, ptr);
+	  /* if (y == 0 && x == 1) */
+	  /*   translation_eye(eye, -1000.0, 0.0, 90.0); */
+	  pixel = calc(params, x, y);
+	  ptr->color = mlx_get_color_value(params->mlx_conf->mlx_ptr, pixel);
+	  my_pixel_put_to_image(params->mlx_conf->img, x, y, params->mlx_conf);
 	  x++;
 	}
       x = 0;
@@ -84,7 +84,8 @@ int		color_picker(t_params *params)
   i = 0;
   while (i != params->nb_objs)
     {
-      if ((params->objs[i]->intersection.k < swap_k && params->objs[i]->intersection.k != 0.0) ||
+      if ((params->objs[i]->intersection.k < swap_k &&
+	   params->objs[i]->intersection.k != 0.0) ||
 	  (swap_k == 0.0 && params->objs[i]->intersection.k > 0.0))
 	{
 	  swap_k = params->objs[i]->intersection.k;
@@ -104,34 +105,18 @@ int		color_picker(t_params *params)
 ** Finally returns return value of color picker.
 */
 
-int		calc(t_params *params, int x, int y, t_dump *ptr)
+int		calc(t_params *params, int x, int y)
 {
   t_3d		point;
   t_3d		vector;
-  static t_obj	**scene;
-  static t_sec	**inter_array;
-  static t_3d	**spots;
-  int		color;
 
-  sub_calc_pt(ptr, &point, x, y);
+  sub_calc_pt(params, &point, x, y);
   sub_calc_vc(&point, params, &vector);
-  if (x == 0 &&  y == 0)
-    {
-      scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
-      inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
-      spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
-      define_scene(scene, inter_array);
-      scene = malloc((sizeof(t_obj*)) * NUMBER_OBJ);
-      inter_array = malloc((sizeof(t_sec*)) * NUMBER_OBJ);
-      spots = malloc((sizeof(t_3d*) * NBR_LIGHTS));
-      define_scene(scene, inter_array);
-      define_lights(spots);
-    }
   calc_inter(params, vector);
   process_k(params, vector);
-  color = color_picker(scene, inter_array, spots);
-  if (x == ptr->win_x - 1 && y == ptr->win_y - 1)
-    free_scene(scene, inter_array, spots);
+  color = color_picker(params);
+  /* if (x == ptr->win_x - 1 && y == ptr->win_y - 1) */ //SAME DEAL
+  /*   free_scene(scene, inter_array, spots); */
   return (color);
 }
 
@@ -141,27 +126,23 @@ int		calc(t_params *params, int x, int y, t_dump *ptr)
 ** Also calls in expose and key functions + MLX loop.
 */
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-  t_dump	ptr;
-  t_eye		eye;
+  t_params	params;
 
-  eye.x = 0.0;
-  eye.y = 0.0;
-  eye.z = 0.0;
-  eye.angle_x = 0.0;
-  eye.angle_y = 0.0;
-  eye.angle_z = 0.0;
-  ptr.win_x = 1400;
-  ptr.win_y = 768;
-  if ((ptr.mlx_ptr = mlx_init()) == NULL)
-    return (0);
-  ptr.win_ptr = mlx_new_window(ptr.mlx_ptr,
-			       ptr.win_x, ptr.win_y, "trace them rays boy");
-  ptr.img_ptr = mlx_new_image(ptr.mlx_ptr, ptr.win_x, ptr.win_y);
-  fill_image(&ptr, &eye);
-  mlx_key_hook(ptr.win_ptr, key_event, 0);
-  mlx_expose_hook(ptr.win_ptr, expose_redraw, &ptr);
-  mlx_loop(ptr.mlx_ptr);
+  if ((conf_file(argc, argv, &params) == -1))
+    return (ERROR);
+  if ((params.mlx_conf = mlx_init()) == NULL)
+    return (ERROR);
+  params.mlx_conf->win_ptr = mlx_new_window(params.mlx_conf->mlx_ptr,
+					    params.mlx_conf->win_x, params.mlx_conf->win_y, "trace them rays boy");
+  params.mlx_conf->img_ptr = mlx_new_image(params.mlx_conf->mlx_ptr,
+					   params.mlx_conf->win_x, params.mlx_conf->win_y);
+  fill_image(&params);
+  mlx_put_image_to_window(params.mlx_conf->mlx_ptr, params.mlx_conf->win_ptr,
+			  params.mlx_conf->img_ptr, 0, 0);
+  mlx_key_hook(params.mlx_conf->win_ptr, key_event, 0);
+  mlx_expose_hook(params.mlx_conf->win_ptr, expose_redraw, params.mlx_conf);
+  mlx_loop(params.mlx_conf->mlx_ptr);
   return (0);
 }
