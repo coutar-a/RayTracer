@@ -17,17 +17,21 @@ int		fill_spot(t_params *scene, char **file, int *i)
 
   p = -1;
   j = 0;
-  while (file[*i + 1] != NULL && file[*i][0] != '}')
+  while (file[*i] != NULL && file[*i][0] != '}')
     {
-      if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
-	return (ERROR);
-      while (g_spot[++p].line != NULL)
-	if (my_strcmp(g_spot[p].line, tab[0]) == 0)
-	  g_spot[p].ptr(scene, tab[1], j);
+      while (file[*i][0] != '}')
+	{
+	  if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
+	    return (ERROR);
+	  while (g_spot[++p].line != NULL)
+	    if (my_strcmp(g_spot[p].line, tab[0]) == 0)
+	      g_spot[p].ptr(scene, tab[1], j);
+	  p = -1;
+	  ++(*i);
+	  free_tab(tab);
+	}
       ++j;
-      p = -1;
       ++(*i);
-      free_tab(tab);
     }
   return (0);
 }
