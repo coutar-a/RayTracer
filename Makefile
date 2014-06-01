@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat May 31 17:20:16 2014 
+## Last update Sun Jun  1 09:26:17 2014 
 ##
 
 CC	= gcc
@@ -20,7 +20,9 @@ SRC	= src/
 
 CONF	= src/conf/
 
-SRCS	= $(SRC)events.c			\
+SRCS	= $(CONF)fill_spot.c			\
+	  $(CONF)fill_spots.c			\
+	  $(SRC)events.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\
 	  $(SRC)main.c				\
@@ -35,7 +37,6 @@ SRCS	= $(SRC)events.c			\
 	  $(CONF)check.c			\
 	  $(CONF)read_file.c			\
 	  $(CONF)check_error_read_file.c	\
-	  $(CONF)fill.c				\
 	  $(CONF)fill_objects.c			\
 	  $(CONF)fill_color.c			\
 	  $(CONF)fill_pos.c			\

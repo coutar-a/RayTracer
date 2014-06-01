@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sat May 31 15:43:57 2014 
+** Last update Sun Jun  1 09:40:52 2014 
 */
 
 #ifndef RAYTRACER_H_
@@ -93,7 +93,7 @@ typedef struct		s_params
 typedef struct	s_fill
 {
   char		*line;
-  void		(*ptr)(t_params *params, char *tab);
+  int		(*ptr)(t_params *params, char *tab, int j);
 }		t_fill;
 
 
@@ -117,12 +117,14 @@ typedef struct		s_3d
   int			color;
 }			t_3d;
 
-void	fill_sphere_pos(t_params *params, char *line);
-void	fill_sphere_color(t_params *params, char *line);
-void	fill_sphere_ray(t_params *params, char *line);
-void	fill_sphere_texture(t_params *params, char *line);
-void	fill_sphere_negative(t_params *params, char *line);
-void	fill_sphere_transparency(t_params *params, char *line);
-void	fill_sphere_angle(t_params *params, char *line);
+int		fill_spot_pos(t_params *, char *, int);
+int		fill_spot_color(t_params *, char *, int);
+void		fill_sphere_pos(t_params *, char *);
+void		fill_sphere_color(t_params *, char *);
+void		fill_sphere_ray(t_params *, char *);
+void		fill_sphere_texture(t_params *, char *);
+void		fill_sphere_negative(t_params *, char *);
+void		fill_sphere_transparency(t_params *, char *);
+void		fill_sphere_angle(t_params *, char *);
 
 #endif /* !RAYTRACER_H_ */
