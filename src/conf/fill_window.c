@@ -5,11 +5,11 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 12:01:13 2014 grelli_t
-** Last update Thu May 29 15:32:05 2014 grelli_t
+** Last update Sun Jun  1 10:48:54 2014 
 */
 
 #include <stdlib.h>
-#include "read.h"
+#include "raytracer.h"
 
 int	fill_window_in_params_height(t_params *params, char *value)
 {
@@ -20,7 +20,6 @@ int	fill_window_in_params_height(t_params *params, char *value)
     value[c] = '\0';
   if ((params->mlx_conf->win_y = atoi(value)) <= 0)
     params->mlx_conf->win_y = 1000;
-  printf("%d\n", params->mlx_conf->win_y);
   return (0);
 }
 
@@ -33,7 +32,6 @@ int	fill_window_in_params_lenght(t_params *params, char *value)
     value[c] = '\0';
   if ((params->mlx_conf->win_x = atoi(value)) <= 0)
     params->mlx_conf->win_x = 1000;
-  printf("%d\n", params->mlx_conf->win_x);
   return (0);
 }
 
@@ -54,7 +52,6 @@ int	fill_window_in_params_pos_eye(t_params *params, char *value)
     params->pos_eye[1] = 0.0;
   if ((params->pos_eye[2] = atof(pos_eye[2])) <= 0)
     params->pos_eye[2] = 0.0;
-  printf("%f, %f, %f\n", params->pos_eye[0], params->pos_eye[1], params->pos_eye[2]);
   free_tab(pos_eye);
   return (0);
 }

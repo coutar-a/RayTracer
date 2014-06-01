@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 09:40:52 2014 
+** Last update Sun Jun  1 10:44:42 2014 
 */
 
 #ifndef RAYTRACER_H_
@@ -24,6 +24,9 @@
 # define PLAN		(2)
 # define SPHERE		(3)
 # define CYLINDRE	(4)
+
+# define YES		(1)
+# define NO		(0)
 
 typedef struct		s_sec
 {
@@ -117,14 +120,53 @@ typedef struct		s_3d
   int			color;
 }			t_3d;
 
+/*
+** CONF
+*/
+
 int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
-void		fill_sphere_pos(t_params *, char *);
-void		fill_sphere_color(t_params *, char *);
-void		fill_sphere_ray(t_params *, char *);
-void		fill_sphere_texture(t_params *, char *);
-void		fill_sphere_negative(t_params *, char *);
-void		fill_sphere_transparency(t_params *, char *);
-void		fill_sphere_angle(t_params *, char *);
+int		fill_pos(t_params *, char *, int);
+int		fill_color(t_params *, char *, int);
+int		fill_ray(t_params *, char *, int);
+int		fill_texture(t_params *, char *, int);
+int		fill_negative(t_params *, char *, int);
+int		fill_transparency(t_params *, char *, int);
+int		fill_angle(t_params *, char *, int);
+int		fill_window_in_params_height(t_params *, char *);
+int		fill_window_in_params_lenght(t_params *, char *);
+int		fill_window_in_params_pos_eye(t_params *, char *);
+int		fill_window_in_params(t_params *, char **, int *);
+int		fill_objects(t_params *, char **, int *);
+int		fill_spots(t_params *, char **, int *);
+int		fill_keywords(t_params *, char **, int *);
+int		fill_window(t_params *, char **, int *);
+int		pars_file(char *, char **);
+int		check_file(char **);
+int		check_error_read_file_part(int *, int *, char *);
+char		*check_error_read_file(int *, int *, char *);
+char		*read_file(char *);
+
+/*
+** LIB
+*/
+
+int		my_strlen(char *);
+int		my_strcmp(char *, char *);
+int		my_strncmp(char *, char *, int);
+int		my_pixel_put_to_image(char *, int, int, t_dump *);
+int		show_tab(char **);
+int		my_strcmp(char *, char *);
+int		my_strncmp(char *, char *, int);
+int		my_error(char *);
+char		**my_str_to_wordtab(char *, char);
+char		*my_epur(char *);
+char		*epur(char *);
+void		char_space(char *);
+void		aff_tab(char **);
+void		my_putchar(char);
+void		my_putstr(char *);
+void		my_put_nbr(int);
+void		free_tab(char **);
 
 #endif /* !RAYTRACER_H_ */

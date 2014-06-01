@@ -5,10 +5,10 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sun Jun  1 09:26:17 2014 
+## Last update Sun Jun  1 10:53:28 2014 
 ##
 
-CC	= gcc
+CC	= clang
 
 RM	= rm -f
 
@@ -22,6 +22,19 @@ CONF	= src/conf/
 
 SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_spots.c			\
+	  $(CONF)check.c			\
+	  $(CONF)read_file.c			\
+	  $(CONF)check_error_read_file.c	\
+	  $(CONF)fill_objects.c			\
+	  $(CONF)fill_color.c			\
+	  $(CONF)fill_pos.c			\
+	  $(CONF)fill_texture.c			\
+	  $(CONF)fill_transparency.c		\
+	  $(CONF)fill_negative.c		\
+	  $(CONF)fill_angle.c			\
+	  $(CONF)fill_window.c			\
+	  $(CONF)fill_ray.c			\
+	  $(CONF)fill_sphere.c			\
 	  $(SRC)events.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\
@@ -34,19 +47,6 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)spot.c				\
 	  $(SRC)stuff.c				\
 	  $(SRC)translation.c			\
-	  $(CONF)check.c			\
-	  $(CONF)read_file.c			\
-	  $(CONF)check_error_read_file.c	\
-	  $(CONF)fill_objects.c			\
-	  $(CONF)fill_color.c			\
-	  $(CONF)fill_pos.c			\
-	  $(CONF)fill_texture.c			\
-	  $(CONF)fill_trasnparency.c		\
-	  $(CONF)fill_negative.c		\
-	  $(CONF)fill_angle.c			\
-	  $(CONF)fill_window.c			\
-	  $(CONF)fill_ray.c			\
-	  $(CONF)fill_sphere.c			\
 	  $(LIB)epur.c				\
 	  $(LIB)my_str.c			\
 	  $(LIB)show_tab.c			\

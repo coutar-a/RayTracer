@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "read.h"
+#include "raytracer.h"
 
 int	check_error_read_file_part(int *fd, int *ret, char *file_name)
 {

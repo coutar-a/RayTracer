@@ -1,15 +1,15 @@
 /*
 ** fill_object.c for raytracer in /home/grelli_t/ABUZAY/conf_file/srcs
-** 
+**
 ** Made by grelli_t
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sun Jun  1 10:25:30 2014 grelli_t
+** Last update Sun Jun  1 10:50:45 2014 
 */
 
 #include <stdlib.h>
-#include "read.h"
+#include "raytracer.h"
 
 int     fill_objects_in_params(t_params *params, char **file, int *i)
 {
@@ -75,7 +75,6 @@ t_params	*fill_nb_objs(t_params *params, char *file)
     params->nb_objs = 10;
   if ((params->objs = malloc((params->nb_objs + 1) * sizeof(t_objs))) == NULL)
     return (NULL);
-  printf("%s, NB_OBJ = %d\n", tab[1], params->nb_objs);
   free_tab(tab);
   return (params);
 }
@@ -89,32 +88,25 @@ int	kind_of_objects(t_params *params, char **file, int *i)
     {
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	return (ERROR);
-      printf("i = %d, LINE = %s\n", *i, file[*i]);
-      //printf("TAB[0] = %s\n", tab[0]);
       if (my_strcmp(tab[0], "nb_objs") == 0)
 	{
-	  my_putstr("NB_OBJS\n");
 	  if ((params = fill_nb_objs(params, file[*i])) == NULL)
 	    return (ERROR);
 	}
       else if (my_strcmp(file[*i], "sphere") == 0)
 	{
-	  my_putstr("SPHERE\n");
 	  fill_diffrent_object(params, file, i, 4);
 	}
       else if (my_strcmp(file[*i], "cone") == 0)
 	{
-	  my_putstr("CONE\n");
 	  fill_diffrent_object(params, file, i, 4);
 	}
       else if (my_strcmp(file[*i], "cylinder") == 0)
 	{
-	  my_putstr("CYLINDER\n");
 	  fill_diffrent_object(params, file, i, 2);
 	}
       else if (my_strcmp(file[*i], "plan") == 0)
 	{
-	  my_putstr("PLAN\n");
 	  fill_diffrent_object(params, file, i, 3);
 	}
       if (file[*i][0] == '}')
@@ -132,7 +124,6 @@ int     fill_objects(t_params *params, char **file, int *i)
 {
   while (file[*i] != NULL)//trier et c'est fini !!!
     {
-      printf("i = %d, LINE = %s\n", *i, file[*i]);
       if (file[*i][0] == '}')
 	{
 	  ++(*i);

@@ -1,7 +1,6 @@
 
 #include <stdlib.h>
 #include "raytracer.h"
-#include "read.h"
 
 static const t_fill	g_spot[] = {
   {"pos", &fill_spot_pos},

@@ -27,7 +27,6 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
     {
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	return (ERROR);
-      printf("K == %d\n", k);
       while (g_object[++j].line != NULL)
 	if (my_strcmp(g_object[j].line, tab[0]) == 0)
 	  g_object[j].ptr(obj, tab[1], k);

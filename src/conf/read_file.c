@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "read.h"
+#include "raytracer.h"
 
 int	my_error(char *str)
 {
@@ -35,7 +35,6 @@ char	*read_file(char *file_name)
 	return (NULL);
       return (NULL);
     }
-  //show_tab(tab);
   return (buff);
 }
 
