@@ -5,10 +5,10 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sun Jun  1 12:49:09 2014 grelli_t
+## Last update Sun Jun  1 16:52:43 2014 coutar_a
 ##
 
-CC	= gcc -g3 ##Vire le g3 avant de rendre connard.
+CC	= cc ##Vire le g3 avant de rendre connard.
 
 RM	= rm -f
 
@@ -41,12 +41,10 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\
 	  $(SRC)main.c				\
-	  $(SRC)pixel_put_to_image.c		\
+	  $(LIB)pixel_put_to_image.c		\
 	  $(SRC)rotation2.c			\
 	  $(SRC)rotation.c			\
-	  $(SRC)scene_stuff.c			\
 	  $(SRC)shadows.c			\
-	  $(SRC)spot.c				\
 	  $(SRC)stuff.c				\
 	  $(SRC)translation.c			\
 	  $(LIB)epur.c				\
@@ -54,19 +52,28 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(LIB)show_tab.c			\
 	  $(LIB)str_to_wordtab.c		\
 	  $(LIB)my_strcmp.c			\
-	  $(LIB)free_tab.c			\
-	  $(LIB)basic_functions.c
+	  $(LIB)free_tab.c 			\
+	  $(SRC)intersection_computing.c \
+	  $(SRC)normal_computing.c       \
+	  $(SRC)intersection_functions.c \
 
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS	+= -I./include
+CFLAGS  += -I/usr/X11/include ## à commenter si vous n'êtes pas coutar_a !
+CFLAGS  += -g3
 
 LMX_P	= -L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11 -lm
+
+MLX_A	= -L/usr/lib64 -lmlx -L/usr/X11/lib -lXext -lX11 -lm
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) $(LMX_P) $(CFLAGS)
+
+ambroise: $(OBJS)
+	$(CC) -o $(NAME) $(OBJS) $(MLX_A) $(CFLAGS)
 
 clean:
 	$(RM) $(OBJS)
