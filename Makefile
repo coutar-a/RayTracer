@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sun Jun  1 11:52:48 2014 grelli_t
+## Last update Sun Jun  1 12:49:09 2014 grelli_t
 ##
 
 CC	= gcc -g3 ##Vire le g3 avant de rendre connard.
@@ -28,6 +28,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_objects.c			\
 	  $(CONF)fill_color.c			\
 	  $(CONF)fill_pos.c			\
+	  $(CONF)fill_rot.c			\
 	  $(CONF)fill_height.c			\
 	  $(CONF)fill_texture.c			\
 	  $(CONF)fill_transparency.c		\
@@ -35,7 +36,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_angle.c			\
 	  $(CONF)fill_window.c			\
 	  $(CONF)fill_ray.c			\
-	  $(CONF)fill_sphere.c			\
+	  $(CONF)fill_all_object.c		\
 	  $(SRC)events.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\

@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 12:08:30 2014 grelli_t
+** Last update Sun Jun  1 12:43:19 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -23,7 +23,7 @@
 # define CONE		(1)
 # define PLAN		(2)
 # define SPHERE		(3)
-# define CYLINDRE	(4)
+# define CYLINDER	(4)
 
 # define YES		(1)
 # define NO		(0)
@@ -127,6 +127,7 @@ typedef struct		s_3d
 
 int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
+int		fill_rot(t_params *, char *, int);
 int		fill_pos(t_params *, char *, int);
 int		fill_color(t_params *, char *, int);
 int		fill_ray(t_params *, char *, int);

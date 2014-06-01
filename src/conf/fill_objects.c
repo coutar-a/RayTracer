@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sun Jun  1 10:50:45 2014 
+** Last update Sun Jun  1 12:45:45 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -34,26 +34,18 @@ int		fill_diffrent_object(t_params *params, char **file, int *i,
 {
   static int	j = 0;
 
+  if (j >= params->nb_objs)
+    return (ERROR);
   if (flag == 1)
-    {
-      params->objs->type = SPHERE;
-      fill_object(params, file, i, j);
-    }
+    params->objs[j].type = SPHERE;
   else if (flag == 2)
-    {
-      params->objs->type = SPHERE;
-      fill_object(params, file, i, j);
-    }
+    params->objs[j].type = CONE;
   else if (flag == 3)
-    {
-      params->objs->type = SPHERE;
-      fill_object(params, file, i, j);
-    }
+    params->objs[j].type = CYLINDER;
   else if (flag == 4)
-    {
-      params->objs->type = SPHERE;
-      fill_object(params, file, i, j);
-    }
+    params->objs[j].type = PLAN;
+  if (fill_object(params, file, i, j) == ERROR)
+    return (ERROR);
   ++j;
   return (0);
 }
@@ -79,7 +71,7 @@ t_params	*fill_nb_objs(t_params *params, char *file)
   return (params);
 }
 
-int	kind_of_objects(t_params *params, char **file, int *i)
+int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
 {
   char	**tab;
 
@@ -95,19 +87,20 @@ int	kind_of_objects(t_params *params, char **file, int *i)
 	}
       else if (my_strcmp(file[*i], "sphere") == 0)
 	{
-	  fill_diffrent_object(params, file, i, 4);
+	  if ((fill_diffrent_object(params, file, i, 1)) == ERROR)
+	    return (ERROR);
 	}
       else if (my_strcmp(file[*i], "cone") == 0)
 	{
-	  fill_diffrent_object(params, file, i, 4);
+	  fill_diffrent_object(params, file, i, 2);
 	}
       else if (my_strcmp(file[*i], "cylinder") == 0)
 	{
-	  fill_diffrent_object(params, file, i, 2);
+	  fill_diffrent_object(params, file, i, 3);
 	}
       else if (my_strcmp(file[*i], "plan") == 0)
 	{
-	  fill_diffrent_object(params, file, i, 3);
+	  fill_diffrent_object(params, file, i, 4);
 	}
       if (file[*i][0] == '}')
         {

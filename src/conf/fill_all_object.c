@@ -4,6 +4,7 @@
 
 static const t_fill	g_object[] = {
   {"pos", &fill_pos},
+  {"rot", &fill_rot},
   {"ray", &fill_ray},
   {"angle", &fill_angle},
   {"color", &fill_color},
@@ -20,7 +21,6 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
   int	j;
   int   c;
 
-  //obj->objs->type = SPHERE;
   j = -1;
   tab = NULL;
   while (file[*i] != NULL && file[*i][0] != '}')
@@ -29,7 +29,8 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
 	return (ERROR);
       while (g_object[++j].line != NULL)
 	if (my_strcmp(g_object[j].line, tab[0]) == 0)
-	  g_object[j].ptr(obj, tab[1], k);
+	  if (g_object[j].ptr(obj, tab[1], k) == ERROR)
+	    return (ERROR);;
       j = -1;
       ++(*i);
       free_tab(tab);

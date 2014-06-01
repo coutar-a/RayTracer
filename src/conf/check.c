@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Sun Jun  1 11:59:06 2014 grelli_t
+** Last update Sun Jun  1 12:32:10 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -26,10 +26,9 @@ int	init_struct(t_params *params)
 int		check_file(char **file, t_params *params)
 {
   int		i;
-  //t_params	params;
   int		is_objs;
 
-  if (init_struct(&params) == ERROR)
+  if (init_struct(params) == ERROR)
     return (ERROR);;
   is_objs = 0;
   i = -1;
@@ -39,11 +38,14 @@ int		check_file(char **file, t_params *params)
 	continue ;
       if (is_objs == 0)
 	if (my_strcmp(file[i], "WINDOW") == 0)
-	  is_objs = fill_window(&params, file, &i);
+	  if ((is_objs = fill_window(params, file, &i)) == ERROR)
+	    return (ERROR);
 	else if (my_strcmp(file[i], "OBJECTS") == 0)
-	  is_objs = fill_objects(&params, file, &i);
+	  if ((is_objs = fill_objects(params, file, &i)) == ERROR)
+	    return (ERROR);
 	else if (my_strcmp(file[i], "SPOTS") == 0)
-	  is_objs = fill_spots(&params, file, &i);
+	  if ((is_objs = fill_spots(params, file, &i)) == ERROR)
+	    return (ERROR);
     }
   return (0);
 }
