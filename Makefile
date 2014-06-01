@@ -5,10 +5,10 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sun Jun  1 10:53:28 2014 
+## Last update Sun Jun  1 10:59:10 2014 
 ##
 
-CC	= clang
+CC	= gcc -g3 ##Vire le g3 avant de rendre connard.
 
 RM	= rm -f
 
@@ -28,6 +28,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_objects.c			\
 	  $(CONF)fill_color.c			\
 	  $(CONF)fill_pos.c			\
+	  $(CONF)fill_height.c			\
 	  $(CONF)fill_texture.c			\
 	  $(CONF)fill_transparency.c		\
 	  $(CONF)fill_negative.c		\

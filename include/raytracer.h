@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 10:44:42 2014 
+** Last update Sun Jun  1 10:58:30 2014 
 */
 
 #ifndef RAYTRACER_H_
@@ -46,6 +46,7 @@ typedef struct		s_objs
   double		rot[3];
   double		ray;
   double		angle;
+  double		height;
   double		shine;
   double		transparency;
   int			color;
@@ -133,6 +134,7 @@ int		fill_texture(t_params *, char *, int);
 int		fill_negative(t_params *, char *, int);
 int		fill_transparency(t_params *, char *, int);
 int		fill_angle(t_params *, char *, int);
+int		fill_height(t_params *, char *, int);
 int		fill_window_in_params_height(t_params *, char *);
 int		fill_window_in_params_lenght(t_params *, char *);
 int		fill_window_in_params_pos_eye(t_params *, char *);
