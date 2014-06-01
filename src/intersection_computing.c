@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat May 31 14:03:08 2014 coutar_a
-** Last update Sun Jun  1 16:13:59 2014 coutar_a
+** Last update Sun Jun  1 17:13:56 2014 coutar_a
 */
 
 #include "raytracer.h"
@@ -21,7 +21,6 @@ void		process_k(t_params *params, t_3d *vc)
   process_array[2] = &process_k_sphere;
   process_array[3] = &process_k_cyl;
   i = 0;
-  printf("number of objects = %d\n", params->nb_objs);
   while (i < params->nb_objs)
     {
       obj = params->objs[i].type - 1;
@@ -41,7 +40,6 @@ void		calc_inter(t_params *params, t_3d *vc)
   inter_array[2] = &inter_sph;
   inter_array[3] = &inter_cyl;
   i = 0;
-  printf("number of objects = %d\n", params->nb_objs);
   while (i < params->nb_objs)
     {
       obj = params->objs[i].type - 1;
