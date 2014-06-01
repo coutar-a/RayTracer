@@ -1,11 +1,11 @@
 /*
 ** fill_object.c for raytracer in /home/grelli_t/ABUZAY/conf_file/srcs
-**
+** 
 ** Made by grelli_t
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sat May 31 19:52:50 2014 grelli_t
+** Last update Sun Jun  1 10:25:30 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -29,18 +29,32 @@ int     fill_objects_in_params(t_params *params, char **file, int *i)
   return (0);
 }
 
-int		fill_diffrent_object(t_params *params, char **file, int *i, int flag)
+int		fill_diffrent_object(t_params *params, char **file, int *i,
+				     int flag)
 {
-  static int	j;
+  static int	j = 0;
 
   if (flag == 1)
-    fill_sphere(params, file, i, &j);
+    {
+      params->objs->type = SPHERE;
+      fill_object(params, file, i, j);
+    }
   else if (flag == 2)
-    fill_cylindre(params, file, i, &j);
+    {
+      params->objs->type = SPHERE;
+      fill_object(params, file, i, j);
+    }
   else if (flag == 3)
-    fill_plan(params, file, i, &j);
+    {
+      params->objs->type = SPHERE;
+      fill_object(params, file, i, j);
+    }
   else if (flag == 4)
-    fill_cone(params, file, i, &j);
+    {
+      params->objs->type = SPHERE;
+      fill_object(params, file, i, j);
+    }
+  ++j;
   return (0);
 }
 
@@ -58,9 +72,10 @@ t_params	*fill_nb_objs(t_params *params, char *file)
   if (tab[1][c] == ';')
     tab[1][c] = '\0';
   if ((params->nb_objs = atoi(tab[1])) <= 0)
-    params->nb_objs = 1;
-  if ((params->objs = malloc((params->nb_objs * sizeof(t_objs)) + 1)) == NULL)
+    params->nb_objs = 10;
+  if ((params->objs = malloc((params->nb_objs + 1) * sizeof(t_objs))) == NULL)
     return (NULL);
+  printf("%s, NB_OBJ = %d\n", tab[1], params->nb_objs);
   free_tab(tab);
   return (params);
 }
@@ -108,6 +123,7 @@ int	kind_of_objects(t_params *params, char **file, int *i)
           return (SUCCESS);
         }
       ++(*i);
+      free_tab(tab);
     }
   return (SUCCESS);
 }
