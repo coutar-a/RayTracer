@@ -1,5 +1,5 @@
 
-#include "read.h"
+#include "raytracer.h"
 
 int	my_strcmp(char *s1, char *s2)
 {

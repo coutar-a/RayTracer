@@ -1,6 +1,6 @@
 
 #include <stdlib.h>
-#include "read.h"
+#include "raytracer.h"
 
 int	my_count_word(char *str, char delim)
 {

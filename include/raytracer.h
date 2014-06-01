@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 12:43:19 2014 grelli_t
+** Last update Sun Jun  1 16:44:20 2014 coutar_a
 */
 
 #ifndef RAYTRACER_H_
@@ -30,13 +30,13 @@
 
 typedef struct		s_sec
 {
-  float			k;
-  float			p_x;
-  float			p_y;
-  float			p_z;
-  float			x_n;
-  float			y_n;
-  float			z_n;
+  double		k;
+  double		p_x;
+  double		p_y;
+  double		p_z;
+  double		x_n;
+  double		y_n;
+  double		z_n;
 }			t_sec;
 
 typedef struct		s_objs
@@ -115,16 +115,17 @@ typedef struct		s_apply
 
 typedef struct		s_3d
 {
-  float			x;
-  float			y;
-  float			z;
-  int			color;
+  double		x;
+  double	      	y;
+  double	       	z;
+  int		       	color;
 }			t_3d;
 
 /*
 ** CONF
 */
 
+int		init_spots(t_params *, char *, int);
 int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
 int		fill_rot(t_params *, char *, int);
@@ -166,9 +167,36 @@ char		*my_epur(char *);
 char		*epur(char *);
 void		char_space(char *);
 void		aff_tab(char **);
-void		my_putchar(char);
-void		my_putstr(char *);
+int		my_putchar(char);
+int		my_putstr(char *);
 void		my_put_nbr(int);
 void		free_tab(char **);
 
+/*
+** SRC
+*/
+
+int		key_event(int keycode);
+int		expose_redraw(t_dump *ptr);
+void		process_k(t_params *params, t_3d *vc);
+void		process_k_plan(t_params *params, t_3d *vc, t_objs *plan);
+void		process_k_sphere(t_params *params, t_3d *vc, t_objs *sph);
+void		process_k_cyl(t_params *params, t_3d *vc, t_objs *cyl);
+void		process_k_cone( t_params *params, t_3d *vc, t_objs *cone);
+void		calc_inter(t_params *params, t_3d *vc);
+void		sub_int_k(t_sec *k, double b, double delta, double a);
+void		inter_sph(t_params *params, t_3d *vc, t_objs *sph);
+void		inter_plan(t_params *params, t_3d *vc, t_objs *pl);
+void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl);
+void		inter_cone(t_params *params, t_3d *vc, t_objs *cone);
+void		incre_unsigned(t_apply *apply);
+int		apply_light(t_params *params, t_objs *obj, double cos_a[]);
+int		lumos(t_params *params, t_objs *obj);
+void		matrix_rot_z(float matrix[][3], float angle);
+void		matrix_rot_x(float matrix[][3], float angle);
+void		matrix_rot_y(float matrix[][3], float angle);
+void		trans_pt(t_3d *pt, float m[][3]);
+void		mult_matrix(float m1[][3], float m2[][3]);
+
 #endif /* !RAYTRACER_H_ */
+

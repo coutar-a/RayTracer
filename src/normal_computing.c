@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat May 31 14:20:53 2014 coutar_a
-** Last update Sat May 31 15:35:26 2014 coutar_a
+** Last update Sun Jun  1 15:55:24 2014 coutar_a
 */
 
 #include <math.h>
@@ -26,9 +26,9 @@ void	process_k_sphere(t_params *params, t_3d *vc, t_objs *sph)
   sph->intersection.p_x = params->pos_eye[0] + sph->intersection.k * vc->x;
   sph->intersection.p_y = params->pos_eye[1] + sph->intersection.k * vc->y;
   sph->intersection.p_z = params->pos_eye[2] + sph->intersection.k * vc->z;
-  sph->intersection.x_n = sph->intersection.p_x - sphere->pos[0];
-  sph->intersection.y_n = sph->intersection.p_y - sphere->pos[1];
-  sph->intersection.z_n = sph->intersection.p_z - sphere->pos[2];
+  sph->intersection.x_n = sph->intersection.p_x - sph->pos[0];
+  sph->intersection.y_n = sph->intersection.p_y - sph->pos[1];
+  sph->intersection.z_n = sph->intersection.p_z - sph->pos[2];
 }
 
 void	process_k_cyl(t_params *params, t_3d *vc, t_objs *cyl)
@@ -48,6 +48,6 @@ void	process_k_cone( t_params *params, t_3d *vc, t_objs *cone)
   cone->intersection.p_z = params->pos_eye[2] + cone->intersection.k * vc->z;
   cone->intersection.x_n = cone->intersection.p_x - cone->pos[0];
   cone->intersection.y_n = cone->intersection.p_y - cone->pos[1];
-  cone->intersection.z_n = -(tan(cone->r_a * (M_PI / 180.0))) *
+  cone->intersection.z_n = -(tan(cone->ray * (M_PI / 180.0))) *
     cone->intersection.p_z - cone->pos[2];
 }

@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sun Jun  1 12:45:45 2014 grelli_t
+** Last update Sun Jun  1 16:26:05 2014 coutar_a
 */
 
 #include <stdlib.h>
@@ -64,7 +64,7 @@ t_params	*fill_nb_objs(t_params *params, char *file)
   if (tab[1][c] == ';')
     tab[1][c] = '\0';
   if ((params->nb_objs = atoi(tab[1])) <= 0)
-    params->nb_objs = 10;
+      params->nb_objs = 10;
   if ((params->objs = malloc((params->nb_objs + 1) * sizeof(t_objs))) == NULL)
     return (NULL);
   free_tab(tab);

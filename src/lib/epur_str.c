@@ -5,12 +5,12 @@
 ** Login   <lancel_e@epitech.net>
 ** 
 ** Started on  Sat Mar  8 17:59:43 2014 lancel_e
-** Last update Wed May 28 15:56:40 2014 grelli_t
+** Last update Sun Jun  1 15:35:33 2014 coutar_a
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "read.h"
+#include "raytracer.h"
 
 void	ini_var(int *i, int *k)
 {

@@ -5,12 +5,12 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Sun Mar  9 09:32:48 2014 grelli_t
-** Last update Sat Apr 12 10:29:58 2014 grelli_t
+** Last update Sun Jun  1 15:35:18 2014 coutar_a
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "read.h"
+#include "raytracer.h"
 
 int	sizestr(char *str, char sep)
 {
