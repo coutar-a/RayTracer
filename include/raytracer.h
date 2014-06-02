@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 16:44:20 2014 coutar_a
+** Last update Sun Jun  1 17:56:33 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_

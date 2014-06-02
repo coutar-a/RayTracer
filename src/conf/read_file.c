@@ -1,6 +1,8 @@
+
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <stdio.h>
 #include "raytracer.h"
 
 int	my_error(char *str)
@@ -38,7 +40,7 @@ char	*read_file(char *file_name, t_params *params)
   return (buff);
 }
 
-int     conf_file(int ac, char **av, t_params *params)
+int	conf_file(int ac, char **av, t_params *params)
 {
   char	*file;
 
@@ -49,6 +51,6 @@ int     conf_file(int ac, char **av, t_params *params)
     }
   if ((file = read_file(av[1], params)) == NULL)
     return (ERROR);
-  printf("%d\n", params->nb_objs);
+  printf("%d, %d\n", params->nb_objs, params->nb_spots);
   return (0);
 }

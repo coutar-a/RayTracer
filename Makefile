@@ -5,10 +5,10 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sun Jun  1 16:52:43 2014 coutar_a
+## Last update Sun Jun  1 17:56:47 2014 grelli_t
 ##
 
-CC	= cc ##Vire le g3 avant de rendre connard.
+CC	= gcc ##Vire le g3 avant de rendre connard.
 
 RM	= rm -f
 

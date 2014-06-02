@@ -29,8 +29,11 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
 	return (ERROR);
       while (g_object[++j].line != NULL)
 	if (my_strcmp(g_object[j].line, tab[0]) == 0)
-	  if (g_object[j].ptr(obj, tab[1], k) == ERROR)
-	    return (ERROR);;
+	  {
+	    printf("TAB = %s\n", g_object[j].line);
+	    if (g_object[j].ptr(obj, tab[1], k) == ERROR)
+	      return (ERROR);;
+	  }
       j = -1;
       ++(*i);
       free_tab(tab);
