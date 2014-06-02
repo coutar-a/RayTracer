@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Mon Jun  2 10:41:31 2014 grelli_t
+** Last update Mon Jun  2 11:39:56 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -41,7 +41,7 @@ int		fill_diffrent_object(t_params *params, char **file, int *i,
   else if (flag == 2)
     params->objs[j].type = CONE;
   else if (flag == 3)
-    params->objs[j].type = CYLINDER;
+    params->objs[j].type = 4;
   else if (flag == 4)
     params->objs[j].type = PLAN;
   if (fill_object(params, file, i, j) == ERROR)
