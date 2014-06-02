@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Mon Jun  2 14:22:46 2014 grelli_t
+** Last update Mon Jun  2 14:41:49 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -77,7 +77,7 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
   char	**tab;
 
   tab = NULL;
-  while (file[*i] != NULL && file[*i][0])
+  while (file[*i] != NULL && file[*i][0] != '}')
     {
       printf("FILE == %s\n", file[*i]);
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
@@ -115,14 +115,14 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
 
 int     fill_objects(t_params *params, char **file, int *i)
 {
-  while (file[*i] != NULL)//trier et c'est fini !!!
+   while (file[*i] != NULL)//trier et c'est fini !!!
     {
+      kind_of_objects(params, file, i);
       if (file[*i][0] == '}')
 	{
 	  ++(*i);
 	  return (0);
 	}
-      kind_of_objects(params, file, i);
       ++(*i);
     }
   return (0);
