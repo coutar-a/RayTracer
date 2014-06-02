@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Mon Jun  2 16:16:04 2014 coutar_a
+** Last update Mon Jun  2 16:33:38 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -36,16 +36,18 @@ void	incre_unsigned(t_apply *apply)
 int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 {
   t_apply	apply;
+  int		j;
 
+  j = -1;
   incre_unsigned(&apply);
-  printf("object color = %d\n", obj->color);
+  //printf("object color = %d\n", obj->color);
   while (++apply.i != params->nb_spots)
     {
-      apply.r += (unsigned char)(((obj->color >> 16) & 0xFF)
+      apply.r += (unsigned char)(((obj[++j].color >> 16) & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.g += (unsigned char)(((obj->color >> 8) & 0xFF)
+      apply.g += (unsigned char)(((obj[j].color >> 8) & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.b += (unsigned char)((obj->color & 0xFF)
+      apply.b += (unsigned char)((obj[j].color & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
       apply.r_spot += (unsigned char)((params->spots[apply.i].color >>
 						16 & 0xFF) * cos_a[apply.i])
@@ -61,6 +63,6 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
   apply.g = (apply.g) * (1 - obj->shine) + (apply.g_spot) * obj->shine;
   apply.b = (apply.b) * (1 - obj->shine) + (apply.b_spot) * obj->shine;
   apply.ret = apply.b | apply.g << 8 | apply.r << 16;
-  printf("r = %d, g = %d, b = %d\n", apply.r, apply.g, apply.b);
+  //printf("r = %d, g = %d, b = %d\n", apply.r, apply.g, apply.b);
   return (apply.ret);
 }
