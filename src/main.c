@@ -6,7 +6,7 @@
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
 <<<<<<< HEAD
-** Last update Sun Jun  1 17:51:26 2014 grelli_t
+** Last update Mon Jun  2 16:10:18 2014 coutar_a
 =======
 ** Last update Mon Apr 21 14:35:17 2014 grelli_t
 >>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
@@ -35,8 +35,6 @@ int	fill_image(t_params *params)
     {
       while (x != params->mlx_conf->win_x)
 	{
-	  /* if (y == 0 && x == 1) */
-	  /*   translation_eye(eye, -1000.0, 0.0, 90.0); */
 	  pixel = calc(params, x, y);
 	  params->mlx_conf->color = mlx_get_color_value(params->mlx_conf->mlx_ptr, pixel);
 	  my_pixel_put_to_image(params->mlx_conf->img, x, y, params->mlx_conf);
@@ -119,6 +117,7 @@ int		calc(t_params *params, int x, int y)
   color = color_picker(params);
   /* if (x == ptr->win_x - 1 && y == ptr->win_y - 1) */ //SAME DEAL
   /*   free_scene(scene, inter_array, spots); */
+  printf("Color = %d\n", color);
   return (color);
 }
 
@@ -134,7 +133,7 @@ int		main(int argc, char **argv)
 
   if ((conf_file(argc, argv, &params) == ERROR))
     return (ERROR);
-  printf("%d, %d\n", params.nb_objs, params.nb_spots);
+  //printf("%d, %d\n", params.nb_objs, params.nb_spots);
   if ((params.mlx_conf->mlx_ptr = mlx_init()) == NULL)
     return (ERROR);
   params.mlx_conf->win_ptr = mlx_new_window(params.mlx_conf->mlx_ptr,
@@ -142,6 +141,7 @@ int		main(int argc, char **argv)
   params.mlx_conf->img_ptr = mlx_new_image(params.mlx_conf->mlx_ptr,
 					   params.mlx_conf->win_x, params.mlx_conf->win_y);
   fill_image(&params);
+  printf("\n Image now full, displaying...\n");
   mlx_put_image_to_window(params.mlx_conf->mlx_ptr, params.mlx_conf->win_ptr,
 			  params.mlx_conf->img_ptr, 0, 0);
   mlx_key_hook(params.mlx_conf->win_ptr, key_event, 0);
