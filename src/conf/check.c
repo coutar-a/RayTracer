@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Mon Jun  2 10:43:58 2014 grelli_t
+** Last update Mon Jun  2 13:49:40 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -49,6 +49,7 @@ int		check_file(char **file, t_params *params)
 	    my_putstr("OBJECTS IS HERE ! \n");
 	    if ((is_objs = fill_objects(params, file, &i)) == ERROR)
 	      return (ERROR);
+	    --i;
 	  }
 	else if (my_strcmp(file[i], "SPOTS") == 0)
 	  {

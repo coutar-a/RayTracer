@@ -25,15 +25,13 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
   tab = NULL;
   while (file[*i] != NULL && file[*i][0] != '}')
     {
+      printf("file[i] == %s, I = %d \n", file[*i], *i);
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	return (ERROR);
       while (g_object[++j].line != NULL)
 	if (my_strcmp(g_object[j].line, tab[0]) == 0)
-	  {
-	    printf("TAB = %s\n", g_object[j].line);
-	    if (g_object[j].ptr(obj, tab[1], k) == ERROR)
-	      return (ERROR);;
-	  }
+	  if (g_object[j].ptr(obj, tab[1], k) == ERROR)
+	    return (ERROR);
       j = -1;
       ++(*i);
       free_tab(tab);

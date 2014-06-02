@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat May 31 14:03:08 2014 coutar_a
-** Last update Mon Jun  2 11:44:48 2014 grelli_t
+** Last update Mon Jun  2 14:26:11 2014 grelli_t
 */
 
 #include "raytracer.h"
@@ -23,7 +23,7 @@ void		process_k(t_params *params, t_3d *vc)
   i = 0;
   while (i < params->nb_objs)
     {
-      obj = params->objs[i].type;
+      obj = params->objs[i].type - 1;
       process_array[obj](params, vc, &(params->objs[i]));
       i++;
     }
@@ -40,12 +40,12 @@ void		calc_inter(t_params *params, t_3d *vc)
   inter_array[2] = &inter_sph;
   inter_array[3] = &inter_cyl;
   i = 0;
-  /* while (i < params->nb_objs) */
-  /*   { */
-  /*     printf("%d\n", params->objs[i].type); */
-  /*     obj = params->objs[i].type; */
-  /*     printf("OBJ = %d\n", obj); */
-  /*     inter_array[obj](params, vc, &(params->objs[i])); */
-  /*     ++i; */
-  /*   } */
+  while (i < params->nb_objs)
+    {
+      obj = params->objs[i].type - 1;
+      //printf("%d\n", params->objs[i].type - 1);
+	    //printf("OBJ = %d\n", obj);
+      inter_array[obj](params, vc, &(params->objs[i]));
+      ++i;
+    }
 }

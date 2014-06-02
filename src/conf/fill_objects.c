@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Mon Jun  2 11:39:56 2014 grelli_t
+** Last update Mon Jun  2 14:22:46 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -42,8 +42,9 @@ int		fill_diffrent_object(t_params *params, char **file, int *i,
     params->objs[j].type = CONE;
   else if (flag == 3)
     params->objs[j].type = 4;
-  else if (flag == 4)
+     else if (flag == 4)
     params->objs[j].type = PLAN;
+  printf("PARAMS-> OBJS = %d\n", params->objs[j].type);
   if (fill_object(params, file, i, j) == ERROR)
     return (ERROR);
   ++j;
@@ -76,8 +77,9 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
   char	**tab;
 
   tab = NULL;
-  while (file[*i] != NULL)
+  while (file[*i] != NULL && file[*i][0])
     {
+      printf("FILE == %s\n", file[*i]);
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	return (ERROR);
       if (my_strcmp(tab[0], "nb_objs") == 0)
@@ -105,12 +107,6 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
 	{
 	  fill_diffrent_object(params, file, i, 4);
 	}
-      if (file[*i][0] == '}')
-        {
-	  --(*i);
-	  free_tab(tab);
-          return (SUCCESS);
-        }
       ++(*i);
       free_tab(tab);
     }

@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Sun Jun  1 15:18:29 2014 coutar_a
+** Last update Mon Jun  2 14:29:02 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -28,17 +28,21 @@ int		lumos(t_params *params, t_objs *obj)
   int		i;
 
   i = 0;
+  printf("NB_SPOTS === \n", params->nb_spots);
   while (i != params->nb_spots)
     {
       l.x = params->spots[i].pos[0] - obj->intersection.p_x;
       l.y = params->spots[i].pos[1] - obj->intersection.p_y;
       l.z = params->spots[i].pos[2] - obj->intersection.p_z;
-      scal = l.x * obj->intersection.x_n + l.y * obj->intersection.y_n + l.z * obj->intersection.z_n;
+      scal = l.x * obj->intersection.x_n + l.y * obj->intersection.y_n + l.z *
+	obj->intersection.z_n;
       norm_l = sqrt(pow(l.x, 2.0) + pow(l.y, 2.0) + pow(l.z, 2.0));
-      norm_n = sqrt(pow(obj->intersection.x_n, 2.0) + pow(obj->intersection.y_n, 2.0)
-		    + pow(obj->intersection.z_n, 2.0));
+      norm_n = sqrt(pow(obj->intersection.x_n, 2.0) +
+		    pow(obj->intersection.y_n, 2.0) + pow(obj->intersection.z_n,
+							  2.0));
       cos_a[i] = DRK_CHK((scal / (norm_l * norm_n)));
-      if ((shadow_checking(&l, obj->intersection, params->objs, params->nb_objs)) == 1)
+      if ((shadow_checking(&l, obj->intersection, params->objs,
+			   params->nb_objs)) == 1)
       	cos_a[i] /= 2;
       i++;
     }
