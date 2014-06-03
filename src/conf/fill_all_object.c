@@ -12,7 +12,9 @@ static const t_fill	g_object[] = {
   {"negative", &fill_negative},
   {"texture", &fill_texture},
   {"height", &fill_height},
-   {NULL, NULL},
+  {"checkerboard", &fill_checkerboard},
+  {"color_checkerboard", &fill_color_checkerboard},
+  {NULL, NULL},
 };
 
 int	fill_object(t_params *obj, char **file, int *i, int k)

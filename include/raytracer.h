@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Sun Jun  1 17:56:33 2014 grelli_t
+** Last update Tue Jun  3 14:42:25 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -50,6 +50,8 @@ typedef struct		s_objs
   double		shine;
   double		transparency;
   int			color;
+  int			color_checkerboard;
+  int			checkerboard;
   int			negative;
   int			texture;
   int			type;
@@ -130,6 +132,8 @@ int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
 int		fill_rot(t_params *, char *, int);
 int		fill_pos(t_params *, char *, int);
+int		fill_checkerboard(t_params *, char *, int);
+int		fill_color_checkerboard(t_params *, char *, int);
 int		fill_color(t_params *, char *, int);
 int		fill_ray(t_params *, char *, int);
 int		fill_texture(t_params *, char *, int);
