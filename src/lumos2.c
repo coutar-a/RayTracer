@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Mon Jun  2 16:33:38 2014 grelli_t
+** Last update Tue Jun  3 10:45:56 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -33,6 +33,32 @@ void	incre_unsigned(t_apply *apply)
   apply->b_spot = 0;
 }
 
+/*
+** Assembles RGB components in an int. does the whole negative thing. Figure it out.
+*/
+
+int	light_assembler(t_apply *apply, t_objs *obj)
+{
+  if (obj->negative == YES)
+    {
+      apply->r = NEG((apply->r)) * (1 - obj->shine) + NEG((apply->r_spot)) * obj->shine;
+      apply->g = NEG((apply->g)) * (1 - obj->shine) + NEG((apply->g_spot)) * obj->shine;
+      apply->b = NEG((apply->b)) * (1 - obj->shine) + NEG((apply->b_spot)) * obj->shine;
+    }
+  else
+    {
+      apply->r = (apply->r) * (1 - obj->shine) + (apply->r_spot) * obj->shine;
+      apply->g = (apply->g) * (1 - obj->shine) + (apply->g_spot) * obj->shine;
+      apply->b = (apply->b) * (1 - obj->shine) + (apply->b_spot) * obj->shine;
+    }
+  apply->ret = apply->b | apply->g << 8 | apply->r << 16;
+  return (apply->ret);
+}
+
+/*
+** Divide this one into two functions : second one will take the struct and make an usable int, depending on the object's properties
+*/
+
 int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 {
   t_apply	apply;
@@ -40,7 +66,6 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 
   j = -1;
   incre_unsigned(&apply);
-  //printf("object color = %d\n", obj->color);
   while (++apply.i != params->nb_spots)
     {
       apply.r += (unsigned char)(((obj[++j].color >> 16) & 0xFF)
@@ -59,10 +84,5 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 						0xFF) * cos_a[apply.i]) /
         params->nb_spots;
     }
-  apply.r = (apply.r) * (1 - obj->shine) + (apply.r_spot) * obj->shine;
-  apply.g = (apply.g) * (1 - obj->shine) + (apply.g_spot) * obj->shine;
-  apply.b = (apply.b) * (1 - obj->shine) + (apply.b_spot) * obj->shine;
-  apply.ret = apply.b | apply.g << 8 | apply.r << 16;
-  //printf("r = %d, g = %d, b = %d\n", apply.r, apply.g, apply.b);
-  return (apply.ret);
+  return (light_assembler(&apply, obj));
 }
