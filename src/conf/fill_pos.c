@@ -12,12 +12,9 @@ int	fill_pos(t_params *obj, char *line, int j)
     line[c] = '\0';
   if ((tab = my_str_to_wordtab(line, ',')) == NULL)
     return (ERROR);
-  if ((obj->objs[j].pos[0] = atof(tab[0])) <= 0)
-    obj->objs[j].pos[0] = 50;
-  if ((obj->objs[j].pos[1] = atof(tab[1])) <= 0)
-    obj->objs[j].pos[1] = 50;
-  if ((obj->objs[j].pos[2] = atof(tab[2])) <= 0)
-    obj->objs[j].pos[2] = 50;
+  obj->objs[j].pos[0] = atof(tab[0]);
+  obj->objs[j].pos[1] = atof(tab[1]);
+  obj->objs[j].pos[2] = atof(tab[2]);
   free_tab(tab);
   return (0);
 }
