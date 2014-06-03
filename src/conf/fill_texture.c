@@ -10,8 +10,8 @@ int	fill_texture(t_params *obj, char *line, int j)
   if (line[c] == ';')
     line[c] = '\0';
   if (my_strcmp(line, "YES") == 0)
-    obj->objs[j].negative = YES;
+    obj->objs[j].texture = YES;
   else
-    obj->objs[j].negative = NO;
+    obj->objs[j].texture = NO;
   return (0);
 }
