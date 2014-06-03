@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Tue Jun  3 11:39:02 2014 coutar_a
+** Last update Tue Jun  3 13:33:28 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -33,36 +33,30 @@ void	incre_unsigned(t_apply *apply)
   apply->b_spot = 0;
 }
 
-void	checkering(t_apply *apply, t_objs *obj)
+int	checkering(t_objs *obj)
 {
   int	p1;
   int	p2;
   int	p3;
 
+  /* if (obj->checkering == NO) */
+  /*   return (obj->color); */
   p1 = obj->intersection.p_x / 50;
   p2 = obj->intersection.p_y / 50;
   p3 = obj->intersection.p_z / 50;
   if (p3 % 2 == 0)
     {
       if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
-	{
-	  apply->r = 0;
-	  apply->g = 0;
-	  apply->b = 0;
-	}
+	return (0xFFFFFF);
       else
-	return;
+	return (obj->color);
     }
   else
     {
       if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
-	return;
+	return (obj->color);
       else
-	{
-	  apply->r = 0;
-	  apply->g = 0;
-	  apply->b = 0;
-	}
+	  return (0xFFFFFF);
     }
 }
 
@@ -72,6 +66,7 @@ void	checkering(t_apply *apply, t_objs *obj)
 
 int	light_assembler(t_apply *apply, t_objs *obj)
 {
+  //printf("negative = %d\n", obj->negative);
   if (obj->negative == YES)
     {
       apply->r = NEG((apply->r)) * (1 - obj->shine) + NEG((apply->r_spot)) * obj->shine;
@@ -96,16 +91,18 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 {
   t_apply	apply;
   int		j;
+  int		color;
 
   j = -1;
   incre_unsigned(&apply);
   while (++apply.i != params->nb_spots)
     {
-      apply.r += (unsigned char)(((obj[++j].color >> 16) & 0xFF)
+      color = checkering(&obj[++j]);
+      apply.r += (unsigned char)(((/* obj[++j].color */color >> 16) & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.g += (unsigned char)(((obj[j].color >> 8) & 0xFF)
+      apply.g += (unsigned char)(((/* obj[j].color */color >> 8) & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.b += (unsigned char)((obj[j].color & 0xFF)
+      apply.b += (unsigned char)((/* obj[j].color */color & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
       apply.r_spot += (unsigned char)((params->spots[apply.i].color >>
 						16 & 0xFF) * cos_a[apply.i])
@@ -117,6 +114,5 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 						0xFF) * cos_a[apply.i]) /
         params->nb_spots;
     }
-  checkering(&apply, obj);
   return (light_assembler(&apply, obj));
 }
