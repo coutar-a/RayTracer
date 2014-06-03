@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 12:01:13 2014 grelli_t
-** Last update Sun Jun  1 10:48:54 2014 
+** Last update Tue Jun  3 17:33:14 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -46,12 +46,9 @@ int	fill_window_in_params_pos_eye(t_params *params, char *value)
   c = my_strlen(pos_eye[2]) - 1;
   if (pos_eye[2][c] == ';')
     pos_eye[2][c] = '\0';
-  if ((params->pos_eye[0] = atof(pos_eye[0])) <= 0)
-    params->pos_eye[0] = -300.0;
-  if ((params->pos_eye[1] = atof(pos_eye[1])) <= 0)
-    params->pos_eye[1] = 0.0;
-  if ((params->pos_eye[2] = atof(pos_eye[2])) <= 0)
-    params->pos_eye[2] = 0.0;
+  params->pos_eye[0] = atof(pos_eye[0]);
+  params->pos_eye[1] = atof(pos_eye[1]);
+  params->pos_eye[2] = atof(pos_eye[2]);
   free_tab(pos_eye);
   return (0);
 }

@@ -5,10 +5,10 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Tue Jun  3 16:05:55 2014 grelli_t
+## Last update Tue Jun  3 17:22:40 2014 grelli_t
 ##
 
-CC	= clang ##Vire le g3 avant de rendre connard.
+CC	= gcc ##Vire le g3 avant de rendre connard.
 
 RM	= rm -f
 
