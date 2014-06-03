@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Tue Jun  3 10:45:56 2014 coutar_a
+** Last update Tue Jun  3 11:39:02 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -31,6 +31,39 @@ void	incre_unsigned(t_apply *apply)
   apply->ret = 0;
   apply->g_spot = 0;
   apply->b_spot = 0;
+}
+
+void	checkering(t_apply *apply, t_objs *obj)
+{
+  int	p1;
+  int	p2;
+  int	p3;
+
+  p1 = obj->intersection.p_x / 50;
+  p2 = obj->intersection.p_y / 50;
+  p3 = obj->intersection.p_z / 50;
+  if (p3 % 2 == 0)
+    {
+      if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
+	{
+	  apply->r = 0;
+	  apply->g = 0;
+	  apply->b = 0;
+	}
+      else
+	return;
+    }
+  else
+    {
+      if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
+	return;
+      else
+	{
+	  apply->r = 0;
+	  apply->g = 0;
+	  apply->b = 0;
+	}
+    }
 }
 
 /*
@@ -84,5 +117,6 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
 						0xFF) * cos_a[apply.i]) /
         params->nb_spots;
     }
+  checkering(&apply, obj);
   return (light_assembler(&apply, obj));
 }
