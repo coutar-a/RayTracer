@@ -6,7 +6,7 @@
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
 <<<<<<< HEAD
-** Last update Mon Jun  2 16:10:18 2014 coutar_a
+** Last update Tue Jun  3 17:12:47 2014 grelli_t
 =======
 ** Last update Mon Apr 21 14:35:17 2014 grelli_t
 >>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
@@ -117,7 +117,6 @@ int		calc(t_params *params, int x, int y)
   color = color_picker(params);
   /* if (x == ptr->win_x - 1 && y == ptr->win_y - 1) */ //SAME DEAL
   /*   free_scene(scene, inter_array, spots); */
-  printf("Color = %d\n", color);
   return (color);
 }
 
