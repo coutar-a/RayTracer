@@ -6,7 +6,7 @@
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
 <<<<<<< HEAD
-** Last update Wed Jun  4 13:31:40 2014 grelli_t
+** Last update Wed Jun  4 13:37:41 2014 grelli_t
 =======
 ** Last update Tue Jun  3 18:20:40 2014 coutar_a
 >>>>>>> 96ae9eebde3c75b8b561a511c656a6e7cd451783
@@ -43,10 +43,7 @@ int	checkering(t_objs *obj)
   int	p2;
   int	p3;
 
-<<<<<<< HEAD
-=======
   printf("%d\n", obj->checkerboard);
->>>>>>> 96ae9eebde3c75b8b561a511c656a6e7cd451783
   if (obj->checkerboard == NO)
     return (obj->color);
   p1 = obj->intersection.p_x / 50;
