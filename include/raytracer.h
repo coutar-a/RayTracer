@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Wed Jun  4 14:19:39 2014 grelli_t
+** Last update Wed Jun  4 16:48:35 2014 coutar_a
 */
 
 #ifndef RAYTRACER_H_
@@ -56,6 +56,7 @@ typedef struct		s_objs
   int			texture;
   int			type;
   int			size_checkerboard;
+  int			rank;
 }			t_objs;
 
 typedef struct		s_spots
@@ -198,11 +199,11 @@ void		inter_cone(t_params *params, t_3d *vc, t_objs *cone);
 void		incre_unsigned(t_apply *apply);
 int		apply_light(t_params *params, t_objs *obj, double cos_a[]);
 int		lumos(t_params *params, t_objs *obj);
-void		matrix_rot_z(float matrix[][3], float angle);
-void		matrix_rot_x(float matrix[][3], float angle);
-void		matrix_rot_y(float matrix[][3], float angle);
-void		trans_pt(t_3d *pt, float m[][3]);
-void		mult_matrix(float m1[][3], float m2[][3]);
+void		matrix_rot_z(double matrix[][3], double angle);
+void		matrix_rot_x(double matrix[][3], double angle);
+void		matrix_rot_y(double matrix[][3], double angle);
+void		trans_pt(t_3d *pt, double m[][3]);
+void		mult_matrix(double m1[][3], double m2[][3]);
 
 #endif /* !RAYTRACER_H_ */
 
