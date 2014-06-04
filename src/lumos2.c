@@ -5,7 +5,11 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
+<<<<<<< HEAD
 ** Last update Wed Jun  4 13:31:40 2014 grelli_t
+=======
+** Last update Tue Jun  3 18:20:40 2014 coutar_a
+>>>>>>> 96ae9eebde3c75b8b561a511c656a6e7cd451783
 */
 
 #include <stdio.h>
@@ -39,6 +43,10 @@ int	checkering(t_objs *obj)
   int	p2;
   int	p3;
 
+<<<<<<< HEAD
+=======
+  printf("%d\n", obj->checkerboard);
+>>>>>>> 96ae9eebde3c75b8b561a511c656a6e7cd451783
   if (obj->checkerboard == NO)
     return (obj->color);
   p1 = obj->intersection.p_x / 50;
@@ -47,7 +55,7 @@ int	checkering(t_objs *obj)
   if (p3 % 2 == 0)
     {
       if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
-	return (0xFFFFFF);
+	return (obj->color_checkerboard);
       else
 	return (obj->color);
     }
@@ -56,7 +64,7 @@ int	checkering(t_objs *obj)
       if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
 	return (obj->color);
       else
-	  return (0xFFFFFF);
+	  return (obj->color_checkerboard);
     }
 }
 
@@ -98,11 +106,11 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
   while (++apply.i != params->nb_spots)
     {
       color = checkering(&obj[++j]);
-      apply.r += (unsigned char)(((/* obj[++j].color */color >> 16) & 0xFF)
+      apply.r += (unsigned char)(((color >> 16) & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.g += (unsigned char)(((/* obj[j].color */color >> 8) & 0xFF)
+      apply.g += (unsigned char)(((color >> 8) & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
-      apply.b += (unsigned char)((/* obj[j].color */color & 0xFF)
+      apply.b += (unsigned char)((color & 0xFF)
 				 * cos_a[apply.i]) / params->nb_spots;
       apply.r_spot += (unsigned char)((params->spots[apply.i].color >>
 						16 & 0xFF) * cos_a[apply.i])
