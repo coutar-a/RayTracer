@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Tue Jun  3 17:22:40 2014 grelli_t
+## Last update Wed Jun  4 14:20:13 2014 grelli_t
 ##
 
 CC	= gcc ##Vire le g3 avant de rendre connard.
@@ -38,6 +38,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_ray.c			\
 	  $(CONF)fill_checkerboard.c		\
 	  $(CONF)fill_color_checkerboard.c	\
+	  $(CONF)fill_size_checkerboard.c	\
 	  $(CONF)fill_all_object.c		\
 	  $(SRC)events.c			\
 	  $(SRC)lumos2.c			\

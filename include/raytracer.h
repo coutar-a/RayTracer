@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Tue Jun  3 18:23:50 2014 grelli_t
+** Last update Wed Jun  4 14:19:39 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -55,6 +55,7 @@ typedef struct		s_objs
   int			negative;
   int			texture;
   int			type;
+  int			size_checkerboard;
 }			t_objs;
 
 typedef struct		s_spots
@@ -132,6 +133,7 @@ int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
 int		fill_rot(t_params *, char *, int);
 int		fill_pos(t_params *, char *, int);
+int		fill_size_checkerboard(t_params *, char *, int);
 int		fill_checkerboard(t_params *, char *, int);
 int		fill_color_checkerboard(t_params *, char *, int);
 int		fill_color(t_params *, char *, int);

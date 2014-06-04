@@ -14,6 +14,7 @@ static const t_fill	g_object[] = {
   {"height", &fill_height},
   {"checkerboard", &fill_checkerboard},
   {"color_checkerboard", &fill_color_checkerboard},
+  {"size_checkerboard", &fill_size_checkerboard},
   {NULL, NULL},
 };
 
