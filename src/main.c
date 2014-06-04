@@ -6,7 +6,7 @@
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
 <<<<<<< HEAD
-** Last update Tue Jun  3 17:12:47 2014 grelli_t
+** Last update Wed Jun  4 17:46:28 2014 coutar_a
 =======
 ** Last update Mon Apr 21 14:35:17 2014 grelli_t
 >>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
@@ -132,7 +132,6 @@ int		main(int argc, char **argv)
 
   if ((conf_file(argc, argv, &params) == ERROR))
     return (ERROR);
-  //printf("%d, %d\n", params.nb_objs, params.nb_spots);
   if ((params.mlx_conf->mlx_ptr = mlx_init()) == NULL)
     return (ERROR);
   params.mlx_conf->win_ptr = mlx_new_window(params.mlx_conf->mlx_ptr,

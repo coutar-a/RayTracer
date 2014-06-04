@@ -5,11 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-<<<<<<< HEAD
-** Last update Wed Jun  4 14:21:01 2014 grelli_t
-=======
-** Last update Tue Jun  3 18:20:40 2014 coutar_a
->>>>>>> 96ae9eebde3c75b8b561a511c656a6e7cd451783
+** Last update Wed Jun  4 15:17:08 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -43,11 +39,12 @@ int	checkering(t_objs *obj)
   int	p2;
   int	p3;
 
+  //printf("checkerboard = %d\n", obj->checkerboard);
   if (obj->checkerboard == NO)
     return (obj->color);
-  p1 = obj->intersection.p_x / 50;
-  p2 = obj->intersection.p_y / 50;
-  p3 = obj->intersection.p_z / 50;
+  p1 = obj->intersection.p_x / obj->size_checkerboard;
+  p2 = obj->intersection.p_y / obj->size_checkerboard;
+  p3 = obj->intersection.p_z / obj->size_checkerboard;
   if (p3 % 2 == 0)
     {
       if ((p1 % 2 == 0 && p2 % 2 == 0) || (p1 % 2 != 0 && p2 % 2 != 0))
@@ -70,7 +67,6 @@ int	checkering(t_objs *obj)
 
 int	light_assembler(t_apply *apply, t_objs *obj)
 {
-  //printf("negative = %d\n", obj->negative);
   if (obj->negative == YES)
     {
       apply->r = NEG((apply->r)) * (1 - obj->shine) + NEG((apply->r_spot)) * obj->shine;

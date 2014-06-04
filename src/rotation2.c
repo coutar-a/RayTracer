@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:07:31 2014 grelli_t
-** Last update Sat May 31 14:30:58 2014 coutar_a
+** Last update Wed Jun  4 14:30:10 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -20,15 +20,15 @@
 ** Matrix for z-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_z(float matrix[][3], float angle)
+void	matrix_rot_z(double matrix[][3], double angle)
 {
-  float	reg;
+  double	reg;
 
   reg = angle * (M_PI/180);
-  matrix[0][0] = cosf(reg);
-  matrix[0][1] = -sinf(reg);
+  matrix[0][0] = cos(reg);
+  matrix[0][1] = -sin(reg);
   matrix[0][2] = 0;
-  matrix[1][0] = sinf(reg);
+  matrix[1][0] = sin(reg);
   matrix[1][1] = cos(reg);
   matrix[1][2] = 0;
   matrix[2][0] = 0;
@@ -40,34 +40,34 @@ void	matrix_rot_z(float matrix[][3], float angle)
 ** Matrix for x-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_x(float matrix[][3], float angle)
+void	matrix_rot_x(double matrix[][3], double angle)
 {
-  float	reg;
+  double	reg;
 
   reg = angle * (M_PI/180);
   matrix[0][0] = 1;
   matrix[0][1] = 0;
   matrix[0][2] = 0;
   matrix[1][0] = 0;
-  matrix[1][1] = cosf(reg);
-  matrix[1][2] = -sinf(reg);
+  matrix[1][1] = cos(reg);
+  matrix[1][2] = -sin(reg);
   matrix[2][0] = 0;
-  matrix[2][1] = sinf(reg);
-  matrix[2][2] = cosf(reg);
+  matrix[2][1] = sin(reg);
+  matrix[2][2] = cos(reg);
 }
 
 /*
 ** Matrix for y-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_y(float matrix[][3], float angle)
+void	matrix_rot_y(double matrix[][3], double angle)
 {
-  float	reg;
+  double	reg;
 
   reg = angle * (M_PI/180);
-  matrix[0][0] = cosf(reg);
+  matrix[0][0] = cos(reg);
   matrix[0][1] = 0;
-  matrix[0][2] = sinf(reg);
+  matrix[0][2] = sin(reg);
   matrix[1][0] = 0;
   matrix[1][1] = 1;
   matrix[1][2] = 0;
@@ -80,11 +80,11 @@ void	matrix_rot_y(float matrix[][3], float angle)
 ** Multiplies 3d point struct with trans matrix.
 */
 
-void	trans_pt(t_3d *pt, float m[][3])
+void	trans_pt(t_3d *pt, double m[][3])
 {
-  float	x_swap;
-  float	y_swap;
-  float	z_swap;
+  double	x_swap;
+  double	y_swap;
+  double	z_swap;
 
   x_swap = pt->x;
   y_swap = pt->y;
@@ -98,7 +98,7 @@ void	trans_pt(t_3d *pt, float m[][3])
 ** Multiplies 2 trans matrices, results in first one.
 */
 
-void	mult_matrix(float m1[][3], float m2[][3])
+void	mult_matrix(double m1[][3], double m2[][3])
 {
   m1[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0] + m1[0][2] * m2[2][0];
   m1[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1] + m1[0][2] * m2[2][1];

@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Mon Jun  2 16:18:55 2014 coutar_a
+** Last update Tue Jun  3 11:26:49 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -28,7 +28,6 @@ int		lumos(t_params *params, t_objs *obj)
   int		i;
 
   i = 0;
-  //printf("NB_SPOTS == %d\n", params->nb_spots);
   while (i != params->nb_spots)
     {
       l.x = params->spots[i].pos[0] - obj->intersection.p_x;
@@ -48,25 +47,3 @@ int		lumos(t_params *params, t_objs *obj)
     }
   return (apply_light(params, obj, cos_a));
 }
-
-/*int	lumos(t_3d *spot, t_sec *k, t_obj **scene)
-  {
-    t_3d	l;
-    double	norm_l;
-    double	norm_n;
-    double	scal;
-    double	cos_a;
-
-    l.x = spot->x - k->p_x;
-    l.y = spot->y - k->p_y;
-    l.z = spot->z - k->p_z;
-    scal = l.x * k->x_n + l.y * k->y_n + l.z * k->z_n;
-    norm_l = sqrtf(powf(l.x, 2.0) + powf(l.y, 2.0) + powf(l.z, 2.0));
-    norm_n = sqrtf(powf(k->x_n, 2.0) + powf(k->y_n, 2.0) + powf(k->z_n, 2.0));
-    cos_a = scal / (norm_l * norm_n);
-    if (cos_a < 0.0)
-      cos_a = 0.0;
-    if ((shadow_checking(&l, k, scene)) == 1)
-      cos_a = cos_a / 2;
-    return (apply_light(cos_a, k, spot));
-  }*/

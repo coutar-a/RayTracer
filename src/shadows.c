@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:08:34 2014 grelli_t
-** Last update Sun Jun  1 15:26:36 2014 coutar_a
+** Last update Wed Jun  4 15:04:28 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -121,9 +121,9 @@ int			shadow_checking(t_3d *l, t_sec *k, t_objs *objs, int nb_objs)
   double		(*shadow_array[4])(t_3d*, t_3d*, t_objs*);
   t_3d			fake_eye;
 
-  fake_eye.x = objs->intersection.p_x;
-  fake_eye.y = objs->intersection.p_y;
-  fake_eye.z = objs->intersection.p_z;
+  fake_eye.x = k->p_x;
+  fake_eye.y = k->p_y;
+  fake_eye.z = k->p_z;
   shadow_array[0] = &cone_int_shadow;
   shadow_array[1] = &plan_int_shadow;
   shadow_array[2] = &sphere_int_shadow;

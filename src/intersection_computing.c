@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat May 31 14:03:08 2014 coutar_a
-** Last update Mon Jun  2 14:26:11 2014 grelli_t
+** Last update Mon Jun  2 17:21:11 2014 coutar_a
 */
 
 #include "raytracer.h"
@@ -43,8 +43,6 @@ void		calc_inter(t_params *params, t_3d *vc)
   while (i < params->nb_objs)
     {
       obj = params->objs[i].type - 1;
-      //printf("%d\n", params->objs[i].type - 1);
-	    //printf("OBJ = %d\n", obj);
       inter_array[obj](params, vc, &(params->objs[i]));
       ++i;
     }
