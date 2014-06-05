@@ -5,36 +5,36 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Mon Apr 28 13:58:32 2014 coutar_a
-** Last update Wed Jun  4 14:15:28 2014 coutar_a
+** Last update Thu Jun  5 19:00:21 2014 coutar_a
 */
 
 #include "raytracer.h"
 
-void	*rotate_eye(t_params *params, t_objs *obj)
+void		*rotate_eye(t_params *params, t_objs *obj)
 {
-  float	trans[3][3];
+  double	trans[3][3];
 
   matrix_rot_x(trans, obj->rot[0]);
   trans_eye(params, trans);
   matrix_rot_y(trans, obj->rot[1]);
-  trans_eye(eye, trans);
+  trans_eye(params, trans);
   matrix_rot_z(trans, obj->rot[2]);
-  trans_eye(eye, trans);
+  trans_eye(params, trans);
 }
 
-void	*unrotate_eye(t_params *params, t_objs *obj)
+void		*unrotate_eye(t_params *params, t_objs *obj)
 {
-  float	trans[3][3];
+  double	trans[3][3];
 
   matrix_rot_x(trans, -obj->rot[0]);
-  trans_eye(eye, trans);
+  trans_eye(params, trans);
   matrix_rot_y(trans, -obj->rot[1]);
-  trans_eye(eye, trans);
+  trans_eye(params, trans);
   matrix_rot_z(trans, -obj->rot[2]);
-  trans_eye(eye, trans);
+  trans_eye(params, trans);
 }
 
-void	trans_eye(t_params *params, double m[3][3])
+void		trans_eye(t_params *params, double m[3][3])
 {
   double	x_swap;
   double	y_swap;

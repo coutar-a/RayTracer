@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Fri May 30 17:10:10 2014 coutar_a
-** Last update Tue Jun  3 17:03:56 2014 coutar_a
+** Last update Thu Jun  5 18:49:05 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -18,7 +18,7 @@
 
 /*
 ** Intersection functions for plans, spheres, cones and cylinders.
-** All take an object struct as parameter, fill out an intersection struct.
+** Updated to use the cfg file structs
 */
 
 void		sub_int_k(t_sec *k, double b, double delta, double a)
@@ -26,8 +26,8 @@ void		sub_int_k(t_sec *k, double b, double delta, double a)
   double		k1;
   double		k2;
 
-  k1 = ((-b) - (sqrtf(delta))) / (2.0 * a);
-  k2 = ((-b) + (sqrtf(delta))) / (2.0 * a);
+  k1 = ((-b) - (sqrt(delta))) / (2.0 * a);
+  k2 = ((-b) + (sqrt(delta))) / (2.0 * a);
   k->k = CPR_MIN(k1, k2);
 }
 
@@ -38,6 +38,7 @@ void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
   double		c;
   double		delta;
 
+  vc = rotate_ray(vc, sph);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0) + pow(vc->z, 2.0));
   b = 2.0 * (vc->x * (params->pos_eye[0] - sph->pos[0]) + vc->y *
 	   (params->pos_eye[1] - sph->pos[1]) + vc->z * (params->pos_eye[2] - sph->pos[2]));
@@ -46,14 +47,11 @@ void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
 	2.0 * (sph->pos[0] * params->pos_eye[0] + sph->pos[1] * params->pos_eye[1] +
 	     sph->pos[2] * params->pos_eye[2]) - pow(sph->ray, 2.0)));
   delta = pow(b, 2.0) - (4.0 * a * c);
+  vc = unrotate_ray(vc, sph);
   if (delta < 0.0)
-    {
-      sph->intersection.k = 0.0;
-    }
+    sph->intersection.k = 0.0;
   else if (delta == 0.0)
-    {
-      sph->intersection.k = (-b) / (2.0 * a);
-    }
+    sph->intersection.k = (-b) / (2.0 * a);
   else
     sub_int_k(&(sph->intersection), b, delta, a);
 }
@@ -62,21 +60,18 @@ void	inter_plan(t_params *params, t_3d *vc, t_objs *pl)
 {
   double	test;
 
-  //printf("x objet = %lf, y objet = %lf, z objet = %lf\n", pl->pos[0], pl->pos[1], cyl->pos[2]);
+  vc = rotate_ray(vc, pl);
   if (vc->x == 0.0 && vc->y == 0.0 && vc->z == 0.0)
     pl->intersection.k = 0.0;
   test = -(params->pos_eye[0] * pl->pos[0] + params->pos_eye[1]
 	   * pl->pos[1] + params->pos_eye[2] *
 	   pl->pos[2] + pl->ray) / (pl->pos[0] * vc->x +
 				    pl->pos[1] * vc->y + pl->pos[2] * vc->z);
+  vc = unrotate_ray(vc, pl);
   if (test < 0.0)
-    {
-      pl->intersection.k = 0.0;
-    }
+    pl->intersection.k = 0.0;
   else
-    {
-      pl->intersection.k = test;
-    }
+    pl->intersection.k = test;
 }
 
 void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl)
@@ -86,22 +81,19 @@ void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl)
   double		c;
   double		delta;
 
-  //printf("x objet = %lf, y objet = %lf, z objet = %lf\n", cyl->pos[0], cyl->pos[1], cyl->pos[2]);
+  vc = rotate_ray(vc, cyl);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0));
   b = 2.0 * (vc->x * (params->pos_eye[0] - cyl->pos[0]) + vc->y * (params->pos_eye[1] - cyl->pos[1]));
   c = (pow(params->pos_eye[0], 2.0) + pow(params->pos_eye[1], 2.0) +
        (pow(cyl->pos[0], 2.0) + pow(cyl->pos[1], 2.0) - 2.0 *
 	(cyl->pos[0] * params->pos_eye[0] + cyl->pos[1] * params->pos_eye[1]) - pow(cyl->ray, 2.0)));
   delta = pow(b, 2.0) - (4.0 * a * c);
-  /* if (delta < 0.0) */
-  /*   { */
-  /*     cyl->intersection.k = 0.0; */
-  /*   } */
-  /* else if (delta == 0.0) */
-  /*   { */
-  /*     cyl->intersection.k = (-b) / (2.0 * a); */
-  /*   } */
-  /* else */
+  vc = unrotate_ray(vc, cyl);
+  if (delta < 0.0)
+    cyl->intersection.k = 0.0;
+  else if (delta == 0.0)
+    cyl->intersection.k = (-b) / (2.0 * a);
+  else
     sub_int_k(&(cyl->intersection), b, delta, a);
 }
 
@@ -113,6 +105,7 @@ void		inter_cone(t_params *params, t_3d *vc, t_objs *cone)
   double		c;
   double		delta;
 
+  vc = rotate_ray(vc, cone);
   q = tan(cone->ray * (M_PI / 180.0));
   a = pow(vc->x, 2.0) + pow(vc->y, 2.0) - (q * pow(vc->z, 2.0));
   b = 2.0 * (vc->x * (params->pos_eye[0] - cone->pos[0]) + vc->y *
@@ -122,14 +115,11 @@ void		inter_cone(t_params *params, t_3d *vc, t_objs *cone)
     pow(cone->pos[2], 2.0) - 2 * (cone->pos[0] * params->pos_eye[0] + cone->pos[1] *
 			      params->pos_eye[1] - (q * cone->pos[2] * params->pos_eye[2]));
   delta = pow(b, 2.0) - (4.0 * a * c);
+  vc = unrotate_ray(vc, cone);
   if (delta < 0.0)
-    {
-      cone->intersection.k = 0.0;
-    }
+    cone->intersection.k = 0.0;
   else if (delta == 0.0)
-    {
-      cone->intersection.k = (-b) / (2.0 * a);
-    }
+    cone->intersection.k = (-b) / (2.0 * a);
   else
     sub_int_k(&(cone->intersection), b, delta, a);
 }

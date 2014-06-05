@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Wed Jun  4 16:48:35 2014 coutar_a
+** Last update Thu Jun  5 18:53:24 2014 coutar_a
 */
 
 #ifndef RAYTRACER_H_
@@ -204,6 +204,12 @@ void		matrix_rot_x(double matrix[][3], double angle);
 void		matrix_rot_y(double matrix[][3], double angle);
 void		trans_pt(t_3d *pt, double m[][3]);
 void		mult_matrix(double m1[][3], double m2[][3]);
-
+void		trans_k(double *x, double *y, double *z, double m[3][3]);
+void		apply_rotations(t_objs *obj);
+t_3d		*rotate_ray(t_3d *vector, t_objs *obj);
+t_3d		*unrotate_ray(t_3d *vector, t_objs *obj);
+void		trans_eye(t_params *params, double m[3][3]);
+void		*rotate_eye(t_params *params, t_objs *obj);
+void		*unrotate_eye(t_params *params, t_objs *obj);
 #endif /* !RAYTRACER_H_ */
 
