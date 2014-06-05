@@ -9,3 +9,7 @@ J'ai un algo de damier dynamique fonctionnel mais pour le rendre interessant, j'
 - un int qui m'indique la largeur des "dalles" du damier pour chaque objet.
 
 Sinon les objets négatifs devraient être fonctionnels(voir avec Tristant pour le fichier de conf).
+
+5 juin - coutar_a
+
+Les valeurs des rotation appliquées aux objets ne passent pas.
