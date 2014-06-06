@@ -1,0 +1,42 @@
+## Welcome in the configuration file of E.R.I.C !
+##
+## Here you can modify the scene by adding new objects,
+## news spots or changing the characteristics of the actual
+## configuration.
+## You must respect the pattern imposed to modify properly
+## the scene.
+
+WINDOW
+{
+	height = 900;
+	lenght = 1200;
+	pos_eye = -3000, 0, 500;
+}
+
+OBJECTS
+{
+	nb_objs = 1;
+	plan
+	{
+	       pos = 0.0, 0.0, 1.0;
+   	       rot = 0.0, 0.0, 0.0;
+	       ray = 0.0;
+	       shine = YES;
+	       checkerboard = YES;
+	       size_checkerboard = 0xFFFFFF;
+	       color_checkerboard2 = 0x00FF00;
+	       color = 0x275C98;
+	       negative = NO;
+	}
+}
+
+SPOTS
+{
+     nb_spots = 1;
+     spot1
+     {
+	intensity = 0.1;
+	pos = 950, 300, 200;
+	color = 0xFFFF00;
+     }
+}

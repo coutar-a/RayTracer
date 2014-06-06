@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 12:01:13 2014 grelli_t
-** Last update Tue Jun  3 17:33:14 2014 grelli_t
+** Last update Fri Jun  6 11:25:52 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -70,7 +70,12 @@ int	fill_window_in_params(t_params *params, char **file, int *i)
 	return (ERROR);
     }
   else if (my_strcmp(tab[0], "pos_eye") == 0)
-    if (fill_window_in_params_pos_eye(params, tab[1]) == ERROR)
+    {
+      if (fill_window_in_params_pos_eye(params, tab[1]) == ERROR)
+	return (ERROR);
+    }
+  else if (my_strcmp(tab[0], "rot_eye") == 0)
+    if (fill_window_in_params_rot_eye(params, tab[1]) == ERROR)
       return (ERROR);
   free_tab(tab);
   return (0);
