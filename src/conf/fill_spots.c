@@ -28,3 +28,15 @@ int    fill_spot_color(t_params *scene, char *line, int j)
   scene->spots[j].color = atof(line);
   return (0);
 }
+
+int	fill_intensity(t_params *params, char *line, int j)
+{
+  int   c;
+
+  c = my_strlen(line) - 1;
+  if (line[c] == ';')
+    line[c] = '\0';
+  if ((params->spots[j].color = atof(line)) >= 10)
+    params->spots[j].color = 1.0;
+  return (0);
+}

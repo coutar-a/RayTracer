@@ -20,7 +20,7 @@ int	init_spots(t_params *params, char *file, int i)
 
 static const t_fill	g_spot[] = {
   {"pos", &fill_spot_pos},
-  {"color", &fill_spot_color}
+  {"color", &fill_spot_color},
   {"intensity", &fill_intensity},
   {"nb_spots", &init_spots},
   {NULL, NULL},
