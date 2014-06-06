@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-** Last update Thu Jun  5 19:11:00 2014 coutar_a
+** Last update Fri Jun  6 11:08:52 2014 coutar_a
 */
 
 #include <stdlib.h>
@@ -26,16 +26,20 @@ int	fill_image(t_params *params)
   init_img(params->mlx_conf);
   x = 0;
   y = 0;
-  my_putstr("Doin thangs...\n");
+  my_putstr(THANGS);
   while (y != params->mlx_conf->win_y)
     {
       while (x != params->mlx_conf->win_x)
 	{
 	  pixel = calc(params, x, y);
-	  params->mlx_conf->color = mlx_get_color_value(params->mlx_conf->mlx_ptr, pixel);
+	  params->mlx_conf->color =
+	    mlx_get_color_value(params->mlx_conf->mlx_ptr, pixel);
 	  my_pixel_put_to_image(params->mlx_conf->img, x, y, params->mlx_conf);
 	  x++;
 	}
+      mlx_put_image_to_window(params->mlx_conf->mlx_ptr,
+			      params->mlx_conf->win_ptr,
+			      params->mlx_conf->img_ptr, 0, 0);
       x = 0;
       y++;
     }
@@ -128,15 +132,15 @@ int		main(int argc, char **argv)
     return (ERROR);
   if ((params.mlx_conf->mlx_ptr = mlx_init()) == NULL)
     return (ERROR);
-  printf("roation objet 0 : angle x = %lf angle = %lf angle z = %lf\n", params.objs[0].rot[0], params.objs[0].rot[1], params.objs[0].rot[2]);
+  /* printf("roation objet 0 : angle x = %lf angle = %lf angle z = %lf\n", params.objs[0].rot[0], params.objs[0].rot[1], params.objs[0].rot[2]) */;
   params.mlx_conf->win_ptr = mlx_new_window(params.mlx_conf->mlx_ptr,
-					    params.mlx_conf->win_x, params.mlx_conf->win_y, "trace them rays boy");
+					    params.mlx_conf->win_x,
+					    params.mlx_conf->win_y, TITLE);
   params.mlx_conf->img_ptr = mlx_new_image(params.mlx_conf->mlx_ptr,
-					   params.mlx_conf->win_x, params.mlx_conf->win_y);
+					   params.mlx_conf->win_x,
+					   params.mlx_conf->win_y);
   fill_image(&params);
-  my_putstr("\n Image now full, displaying...\n");
-  mlx_put_image_to_window(params.mlx_conf->mlx_ptr, params.mlx_conf->win_ptr,
-			  params.mlx_conf->img_ptr, 0, 0);
+  my_putstr(DISP_MSG);
   mlx_key_hook(params.mlx_conf->win_ptr, key_event, 0);
   mlx_expose_hook(params.mlx_conf->win_ptr, expose_redraw, params.mlx_conf);
   mlx_loop(params.mlx_conf->mlx_ptr);

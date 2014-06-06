@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Wed Jun  4 15:17:08 2014 coutar_a
+** Last update Fri Jun  6 11:10:55 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -62,16 +62,19 @@ int	checkering(t_objs *obj)
 }
 
 /*
-** Assembles RGB components in an int. does the whole negative thing. Figure it out.
+** Assembles RGB components in an int.
 */
 
 int	light_assembler(t_apply *apply, t_objs *obj)
 {
   if (obj->negative == YES)
     {
-      apply->r = NEG((apply->r)) * (1 - obj->shine) + NEG((apply->r_spot)) * obj->shine;
-      apply->g = NEG((apply->g)) * (1 - obj->shine) + NEG((apply->g_spot)) * obj->shine;
-      apply->b = NEG((apply->b)) * (1 - obj->shine) + NEG((apply->b_spot)) * obj->shine;
+      apply->r = NEG((apply->r)) * (1 - obj->shine) + NEG((apply->r_spot)) *
+	obj->shine;
+      apply->g = NEG((apply->g)) * (1 - obj->shine) + NEG((apply->g_spot)) *
+	obj->shine;
+      apply->b = NEG((apply->b)) * (1 - obj->shine) + NEG((apply->b_spot)) *
+	obj->shine;
     }
   else
     {
@@ -84,7 +87,8 @@ int	light_assembler(t_apply *apply, t_objs *obj)
 }
 
 /*
-** Divide this one into two functions : second one will take the struct and make an usable int, depending on the object's properties
+** Divide this one into two functions : second one will take the
+** struct and make an usable int, depending on the object's properties
 */
 
 int		apply_light(t_params *params, t_objs *obj, double cos_a[])

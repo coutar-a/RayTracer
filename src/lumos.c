@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Tue Jun  3 11:26:49 2014 coutar_a
+** Last update Fri Jun  6 10:42:57 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -24,7 +24,7 @@ int		lumos(t_params *params, t_objs *obj)
   double	norm_l;
   double	norm_n;
   double	scal;
-  double	cos_a[params->nb_spots]; // à vérifier ????
+  double	cos_a[params->nb_spots];
   int		i;
 
   i = 0;
@@ -43,6 +43,7 @@ int		lumos(t_params *params, t_objs *obj)
       if ((shadow_checking(&l, &(obj->intersection), params->objs,
 			   params->nb_objs)) == 1)
       	cos_a[i] /= 2;
+      //cos_a[i] = NTS_CHK(cos_a[i], spot[i]->nts);
       i++;
     }
   return (apply_light(params, obj, cos_a));
