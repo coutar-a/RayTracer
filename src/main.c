@@ -5,11 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-<<<<<<< HEAD
-** Last update Tue Jun  3 17:12:47 2014 grelli_t
-=======
-** Last update Mon Apr 21 14:35:17 2014 grelli_t
->>>>>>> 0add8c2e6b3765f75c7b3cc2adbaf28bc7619eb0
+** Last update Thu Jun  5 19:11:00 2014 coutar_a
 */
 
 #include <stdlib.h>
@@ -43,26 +39,26 @@ int	fill_image(t_params *params)
       x = 0;
       y++;
     }
-  return (0);
+  return (SUCCESS);
 }
 
 /*
 ** Sub-function of calc, determines LOS vector, applies eye rotations.
 */
 
-void	sub_calc_vc(t_3d *pt, t_params *params, t_3d *vector)
+void		sub_calc_vc(t_3d *pt, t_params *params, t_3d *vector)
 {
-  float	trans[3][3];
+  double	trans[3][3];
 
   vector->x = pt->x - params->pos_eye[0];
   vector->y = pt->y - params->pos_eye[1];
   vector->z = pt->z - params->pos_eye[2];
-  /* matrix_rot_x(trans, params->rot_eye[0]); */
-  /* trans_pt(vector, trans); */
-  /* matrix_rot_y(trans, params->rot_eye[1]); */
-  /* trans_pt(vector, trans); */
-  /* matrix_rot_z(trans, params->rot_eye[2]); */
-  /* trans_pt(vector, trans); */
+  matrix_rot_x(trans, params->rot_eye[0]);
+  trans_pt(vector, trans);
+  matrix_rot_y(trans, params->rot_eye[1]);
+  trans_pt(vector, trans);
+  matrix_rot_z(trans, params->rot_eye[2]);
+  trans_pt(vector, trans);
 }
 
 /*
@@ -115,8 +111,6 @@ int		calc(t_params *params, int x, int y)
   calc_inter(params, &vector);
   process_k(params, &vector);
   color = color_picker(params);
-  /* if (x == ptr->win_x - 1 && y == ptr->win_y - 1) */ //SAME DEAL
-  /*   free_scene(scene, inter_array, spots); */
   return (color);
 }
 
@@ -132,19 +126,19 @@ int		main(int argc, char **argv)
 
   if ((conf_file(argc, argv, &params) == ERROR))
     return (ERROR);
-  //printf("%d, %d\n", params.nb_objs, params.nb_spots);
   if ((params.mlx_conf->mlx_ptr = mlx_init()) == NULL)
     return (ERROR);
+  printf("roation objet 0 : angle x = %lf angle = %lf angle z = %lf\n", params.objs[0].rot[0], params.objs[0].rot[1], params.objs[0].rot[2]);
   params.mlx_conf->win_ptr = mlx_new_window(params.mlx_conf->mlx_ptr,
 					    params.mlx_conf->win_x, params.mlx_conf->win_y, "trace them rays boy");
   params.mlx_conf->img_ptr = mlx_new_image(params.mlx_conf->mlx_ptr,
 					   params.mlx_conf->win_x, params.mlx_conf->win_y);
   fill_image(&params);
-  printf("\n Image now full, displaying...\n");
+  my_putstr("\n Image now full, displaying...\n");
   mlx_put_image_to_window(params.mlx_conf->mlx_ptr, params.mlx_conf->win_ptr,
 			  params.mlx_conf->img_ptr, 0, 0);
   mlx_key_hook(params.mlx_conf->win_ptr, key_event, 0);
   mlx_expose_hook(params.mlx_conf->win_ptr, expose_redraw, params.mlx_conf);
   mlx_loop(params.mlx_conf->mlx_ptr);
-  return (0);
+  return (SUCCESS);
 }

@@ -47,10 +47,11 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)main.c				\
 	  $(LIB)pixel_put_to_image.c		\
 	  $(SRC)rotation2.c			\
-	  $(SRC)rotation.c			\
 	  $(SRC)shadows.c			\
 	  $(SRC)stuff.c				\
 	  $(SRC)translation.c			\
+	  $(SRC)obj_rotation.c \
+	  $(SRC)eye_rotation.c \
 	  $(LIB)epur.c				\
 	  $(LIB)my_str.c			\
 	  $(LIB)show_tab.c			\

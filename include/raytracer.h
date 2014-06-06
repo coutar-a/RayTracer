@@ -5,7 +5,11 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
+<<<<<<< HEAD
 ** Last update Thu Jun  5 14:41:42 2014 grelli_t
+=======
+** Last update Thu Jun  5 18:53:24 2014 coutar_a
+>>>>>>> 434fb3b606cbe0ab5c35f812fdf3837519352b09
 */
 
 #ifndef RAYTRACER_H_
@@ -56,6 +60,7 @@ typedef struct		s_objs
   int			texture;
   int			type;
   int			size_checkerboard;
+  int			rank;
 }			t_objs;
 
 typedef struct		s_spots
@@ -199,11 +204,17 @@ void		inter_cone(t_params *params, t_3d *vc, t_objs *cone);
 void		incre_unsigned(t_apply *apply);
 int		apply_light(t_params *params, t_objs *obj, double cos_a[]);
 int		lumos(t_params *params, t_objs *obj);
-void		matrix_rot_z(float matrix[][3], float angle);
-void		matrix_rot_x(float matrix[][3], float angle);
-void		matrix_rot_y(float matrix[][3], float angle);
-void		trans_pt(t_3d *pt, float m[][3]);
-void		mult_matrix(float m1[][3], float m2[][3]);
-
+void		matrix_rot_z(double matrix[][3], double angle);
+void		matrix_rot_x(double matrix[][3], double angle);
+void		matrix_rot_y(double matrix[][3], double angle);
+void		trans_pt(t_3d *pt, double m[][3]);
+void		mult_matrix(double m1[][3], double m2[][3]);
+void		trans_k(double *x, double *y, double *z, double m[3][3]);
+void		apply_rotations(t_objs *obj);
+t_3d		*rotate_ray(t_3d *vector, t_objs *obj);
+t_3d		*unrotate_ray(t_3d *vector, t_objs *obj);
+void		trans_eye(t_params *params, double m[3][3]);
+void		*rotate_eye(t_params *params, t_objs *obj);
+void		*unrotate_eye(t_params *params, t_objs *obj);
 #endif /* !RAYTRACER_H_ */
 
