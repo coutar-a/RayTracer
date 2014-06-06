@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:09:29 2014 grelli_t
-** Last update Sun Jun  1 15:32:42 2014 coutar_a
+** Last update Fri Jun  6 10:53:17 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -20,16 +20,16 @@
 ** Point/eye translation.
 */
 
-void	translation_eye(t_params *params, double x_plus, double y_plus, double z_plus)
+void	translation_eye(t_params *params, double x_p, double y_p, double z_p)
 {
-  params->pos_eye[0] += x_plus;
-  params->pos_eye[1] += y_plus;
-  params->pos_eye[2] += z_plus;
+  params->pos_eye[0] += x_p;
+  params->pos_eye[1] += y_p;
+  params->pos_eye[2] += z_p;
 }
 
-void	translation_point(t_3d *pt, double x_plus, double y_plus, double z_plus)
+void	translation_point(t_3d *pt, double x_p, double y_p, double z_p)
 {
-  pt->x += x_plus;
-  pt->y += y_plus;
-  pt->z += z_plus;
+  pt->x += x_p;
+  pt->y += y_p;
+  pt->z += z_p;
 }

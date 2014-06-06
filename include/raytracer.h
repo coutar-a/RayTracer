@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Thu Jun  5 18:53:24 2014 coutar_a
+** Last update Fri Jun  6 11:05:18 2014 coutar_a
 */
 
 #ifndef RAYTRACER_H_
@@ -16,6 +16,9 @@
 # define NTS_CHK(x, y)	(x * y > 1.0 ? 1.0 : x * y)
 # define NEG(x)		(255 - x)
 # define COLOR_DEFAULT	(0x2FD1D4)
+# define TITLE		("trace them rays boy")
+# define DISP_MSG	("\n Image now full, displaying...\n")
+# define THANGS		("Doin thangs...\n")
 # define ESCAPE		(65307)
 # define ERROR		(-1)
 # define SUCCESS	(1)
@@ -211,5 +214,6 @@ t_3d		*unrotate_ray(t_3d *vector, t_objs *obj);
 void		trans_eye(t_params *params, double m[3][3]);
 void		*rotate_eye(t_params *params, t_objs *obj);
 void		*unrotate_eye(t_params *params, t_objs *obj);
+
 #endif /* !RAYTRACER_H_ */
 
