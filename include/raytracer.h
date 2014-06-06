@@ -5,7 +5,8 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Fri Jun  6 11:05:18 2014 coutar_a
+** Last update Fri Jun  6 11:27:12 2014 coutar_a
+** Last update Thu Jun  5 18:53:24 2014 coutar_a
 */
 
 #ifndef RAYTRACER_H_
@@ -132,6 +133,7 @@ typedef struct		s_3d
 ** CONF
 */
 
+void		disp_params(t_params *);
 int		init_spots(t_params *, char *, int);
 int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);

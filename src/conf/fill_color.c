@@ -9,7 +9,6 @@ int	fill_color(t_params *obj, char *line, int j)
   c = my_strlen(line) - 1;
   if (line[c] == ';')
     line[c] = '\0';
-  if ((obj->objs[j].color = atof(line)) <= 0)
-    obj->objs[j].color = 0x123451;
+  obj->objs[j].color = atof(line);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Mon Jun  2 13:49:40 2014 grelli_t
+** Last update Wed Jun  4 17:04:55 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 
 int	init_struct(t_params *params)
 {
-  if ((params->objs = malloc(sizeof(t_objs))) == NULL)
+  if ((params->objs = malloc(sizeof(t_objs *))) == NULL)
     return (ERROR);
   if ((params->spots = malloc(sizeof(t_spots))) == NULL)
     return (ERROR);
