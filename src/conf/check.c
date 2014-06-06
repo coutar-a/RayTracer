@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Wed Jun  4 17:04:55 2014 grelli_t
+** Last update Fri Jun  6 17:27:09 2014 cheval_2
 */
 
 #include <stdlib.h>
@@ -34,8 +34,6 @@ int		check_file(char **file, t_params *params)
   i = -1;
   while (file[++i] != NULL)
     {
-      my_putstr("---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----\n");
-      printf("TAB[0] = %s\n", file[i]);
       if (file[i][0] == '#')
 	continue ;
       if (is_objs == 0)
@@ -46,18 +44,13 @@ int		check_file(char **file, t_params *params)
 	  }
 	else if (my_strcmp(file[i], "OBJECTS") == 0)
 	  {
-	    my_putstr("OBJECTS IS HERE ! \n");
 	    if ((is_objs = fill_objects(params, file, &i)) == ERROR)
 	      return (ERROR);
 	    --i;
 	  }
 	else if (my_strcmp(file[i], "SPOTS") == 0)
-	  {
-	    printf("%d\n", i);
-	    my_putstr("SPOTS IS HERE ! \n");
-	    if ((is_objs = fill_spot(params, file, &i)) == ERROR)
-	      return (ERROR);
-	  }
+	  if ((is_objs = fill_spot(params, file, &i)) == ERROR)
+	    return (ERROR);
     }
   return (0);
 }

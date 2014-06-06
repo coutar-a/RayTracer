@@ -14,7 +14,6 @@ int		fill_spot_pos(t_params *scene, char *line, int j)
   scene->spots[j].pos[0] = atof(tab[0]);
   scene->spots[j].pos[1] = atof(tab[1]);
   scene->spots[j].pos[2] = atof(tab[2]);
-  printf("POS[0] = %f, POS[1] = %f, POS[2] = %f\n", scene->spots[j].pos[0], scene->spots[j].pos[1] ,scene->spots[j].pos[2]);
   return (0);
 }
 

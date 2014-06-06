@@ -28,7 +28,6 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
   tab = NULL;
   while (file[*i] != NULL && file[*i][0] != '}')
     {
-      printf("file[i] == %s, I = %d \n", file[*i], *i);
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	return (ERROR);
       while (g_object[++j].line != NULL)

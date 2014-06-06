@@ -11,6 +11,5 @@ int	fill_size_checkerboard(t_params *obj, char *line, int j)
     line[c] = '\0';
   if ((obj->objs[j].size_checkerboard = atof(line)) <= 0)
     obj->objs[j].size_checkerboard = 50;
-  printf("SIZE_CHECKERBOARD == %d\n", obj->objs[j].size_checkerboard);
   return (0);
 }

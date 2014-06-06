@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Tue Jun  3 16:11:00 2014 grelli_t
+** Last update Fri Jun  6 17:26:22 2014 cheval_2
 */
 
 #include <stdlib.h>
@@ -44,7 +44,6 @@ int		fill_diffrent_object(t_params *params, char **file, int *i,
     params->objs[j].type = 4;
      else if (flag == 4)
     params->objs[j].type = PLAN;
-  printf("PARAMS-> OBJS = %d\n", params->objs[j].type);
   if (fill_object(params, file, i, j) == ERROR)
     return (ERROR);
   ++j;
@@ -79,7 +78,6 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
   tab = NULL;
   while (file[*i] != NULL && file[*i][0] != '}')
     {
-      printf("FILE == %s\n", file[*i]);
       if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	return (ERROR);
       if (my_strcmp(tab[0], "nb_objs") == 0)
@@ -89,24 +87,15 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
 	}
       else if (my_strcmp(file[*i], "sphere") == 0)
 	{
-	  printf("SPHERE\n");
 	  if ((fill_diffrent_object(params, file, i, 1)) == ERROR)
 	    return (ERROR);
 	}
       else if (my_strcmp(file[*i], "cone") == 0)
-	{
-	  printf("CONE\n");
 	  fill_diffrent_object(params, file, i, 2);
-	}
       else if (my_strcmp(file[*i], "cylinder") == 0)
-	{
-	  printf("CYLINDER\n");
 	  fill_diffrent_object(params, file, i, 3);
-	}
       else if (my_strcmp(file[*i], "plan") == 0)
-	{
 	  fill_diffrent_object(params, file, i, 4);
-	}
       ++(*i);
       free_tab(tab);
     }
