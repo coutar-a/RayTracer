@@ -5,10 +5,10 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Wed Jun  4 16:15:26 2014 grelli_t
+## Last update Thu Jun  5 14:53:08 2014 grelli_t
 ##
 
-CC	= gcc ##Vire le g3 avant de rendre connard.
+CC	= clang ##Vire le g3 avant de rendre connard.
 
 RM	= rm -f
 
@@ -23,6 +23,7 @@ CONF	= src/conf/
 SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_spots.c			\
 	  $(CONF)check.c			\
+	  $(CONF)disp_param.c			\
 	  $(CONF)read_file.c			\
 	  $(CONF)check_error_read_file.c	\
 	  $(CONF)fill_objects.c			\
