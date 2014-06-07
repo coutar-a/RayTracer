@@ -10,16 +10,11 @@ int	init_spots(t_params *params, char *file, int i)
   c = my_strlen(file) - 1;
   if (file[c] == ';')
     file[c] = '\0';
-  printf("LOL>LOL>LOL>LOL>LOL>%s\n", file);
   if ((params->nb_spots = atoi(file)) <= 0)
     params->nb_spots = 10;
   if ((params->spots = malloc(((params->nb_spots  + 1) * sizeof(t_spots)))) ==
       NULL)
-    {
-      printf("OL>LOL>LOL>LOL>\n");
       return (ERROR);
-    }
-  printf("params->nb ==== %d///// \n", params->nb_spots);
   return (0);
 }
 

@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ##
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat Jun  7 10:08:48 2014 grelli_t
+## Last update Sat Jun  7 12:00:31 2014 grelli_t
 ## Last update Fri Jun  6 17:23:28 2014 cheval_2
 ##
 
@@ -31,7 +31,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_color.c			\
 	  $(CONF)fill_pos.c			\
 	  $(CONF)fill_rot.c			\
-	  $(CONF)fill_height.c			\
+	  $(CONF)fill_trans.c			\
 	  $(CONF)fill_rot_window.c		\
 	  $(CONF)fill_negative.c		\
 	  $(CONF)fill_shine.c			\
@@ -51,9 +51,9 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)shadows.c			\
 	  $(SRC)stuff.c				\
 	  $(SRC)translation.c			\
-	  $(SRC)obj_rotation.c \
-	  $(SRC)eye_rotation.c \
-	  $(SRC)fake_eye_rotation.c \
+	  $(SRC)obj_rotation.c			\
+	  $(SRC)eye_rotation.c			\
+	  $(SRC)fake_eye_rotation.c		\
 	  $(LIB)epur.c				\
 	  $(LIB)my_str.c			\
 	  $(LIB)show_tab.c			\

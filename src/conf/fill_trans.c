@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "raytracer.h"
 
-int	fill_rot(t_params *obj, char *line, int j)
+int	fill_trans(t_params *obj, char *line, int j)
 {
   int   c;
   char	**tab;

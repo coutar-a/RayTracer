@@ -1,16 +1,11 @@
 /*
-** raytracer.h for rt in /home/cheval_2/git/raytracer/include
-**
-** Made by
-** Login   <cheval_2@epitech.net>
-**
-** Started on  Sat May 31 15:43:54 2014
-<<<<<<< HEAD
-** Last update Sat Jun  7 11:34:39 2014 coutar_a
-=======
-** Last update Fri Jun  6 11:42:13 2014 coutar_a
->>>>>>> 6b70239d687dc800a5de129e6e39d525b6b14294
-** Last update Thu Jun  5 18:53:24 2014 coutar_a
+** raytracer.h for raytracer in /home/grelli_t/ABUZAY/conf_file/all/again/raytracer
+** 
+** Made by grelli_t
+** Login   <grelli_t@epitech.net>
+** 
+** Started on  Sat Jun  7 11:50:59 2014 grelli_t
+** Last update Sat Jun  7 12:10:33 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -52,19 +47,16 @@ typedef struct		s_objs
   t_sec			intersection;
   double		pos[3];
   double		rot[3];
+  double		trans[3];
   double		ray;
   double		angle;
-  double		height;
   double		shine;
-  double		transparency;
   int			color;
   int			color_checkerboard;
   int			checkerboard;
   int			negative;
-  int			texture;
   int			type;
   int			size_checkerboard;
-  int			rank;
 }			t_objs;
 
 typedef struct		s_spots
@@ -136,10 +128,12 @@ typedef struct		s_3d
 */
 
 int		fill_intensity(t_params *params, char *line, int j);
+int		fill_trans(t_params *params, char *line, int j);
 void		disp_params(t_params *);
 int		init_spots(t_params *, char *, int);
 int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
+int		fill_trans(t_params *, char *, int);
 int		fill_rot(t_params *, char *, int);
 int		fill_pos(t_params *, char *, int);
 int		fill_shine(t_params *, char *, int);
@@ -148,11 +142,8 @@ int		fill_checkerboard(t_params *, char *, int);
 int		fill_color_checkerboard(t_params *, char *, int);
 int		fill_color(t_params *, char *, int);
 int		fill_ray(t_params *, char *, int);
-int		fill_texture(t_params *, char *, int);
 int		fill_negative(t_params *, char *, int);
-int		fill_transparency(t_params *, char *, int);
 int		fill_angle(t_params *, char *, int);
-int		fill_height(t_params *, char *, int);
 int		fill_window_in_params_height(t_params *, char *);
 int		fill_window_in_params_lenght(t_params *, char *);
 int		fill_window_in_params_pos_eye(t_params *, char *);
