@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ## 
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Thu Jun  5 14:53:08 2014 grelli_t
+## Last update Fri Jun  6 17:29:14 2014 grelli_t
 ##
 
 CC	= clang ##Vire le g3 avant de rendre connard.
@@ -31,9 +31,9 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_pos.c			\
 	  $(CONF)fill_rot.c			\
 	  $(CONF)fill_height.c			\
-	  $(CONF)fill_texture.c			\
-	  $(CONF)fill_transparency.c		\
+	  $(CONF)fill_rot_window.c		\
 	  $(CONF)fill_negative.c		\
+	  $(CONF)fill_shine.c			\
 	  $(CONF)fill_angle.c			\
 	  $(CONF)fill_window.c			\
 	  $(CONF)fill_ray.c			\

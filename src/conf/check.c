@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Wed Jun  4 17:04:55 2014 grelli_t
+** Last update Fri Jun  6 22:28:35 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -34,8 +34,6 @@ int		check_file(char **file, t_params *params)
   i = -1;
   while (file[++i] != NULL)
     {
-      my_putstr("---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----\n");
-      printf("TAB[0] = %s\n", file[i]);
       if (file[i][0] == '#')
 	continue ;
       if (is_objs == 0)

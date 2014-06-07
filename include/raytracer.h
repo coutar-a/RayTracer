@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
-** Last update Fri Jun  6 11:27:12 2014 coutar_a
+** Last update Fri Jun  6 18:12:04 2014 grelli_t
 ** Last update Thu Jun  5 18:53:24 2014 coutar_a
 */
 
@@ -69,11 +69,9 @@ typedef struct		s_spots
   double		rot[3];
   double		ray;
   double		angle;
-  double		shine;
-  double		transparency;
+  double	        intensity;
   int			color;
   int			negative;
-  int			texture;
 }			t_spots;
 
 
@@ -133,12 +131,14 @@ typedef struct		s_3d
 ** CONF
 */
 
+int		fill_intensity(t_params *params, char *line, int j);
 void		disp_params(t_params *);
 int		init_spots(t_params *, char *, int);
 int		fill_spot_pos(t_params *, char *, int);
 int		fill_spot_color(t_params *, char *, int);
 int		fill_rot(t_params *, char *, int);
 int		fill_pos(t_params *, char *, int);
+int		fill_shine(t_params *, char *, int);
 int		fill_size_checkerboard(t_params *, char *, int);
 int		fill_checkerboard(t_params *, char *, int);
 int		fill_color_checkerboard(t_params *, char *, int);
