@@ -6,7 +6,7 @@
 **
 ** Started on  Sat May 31 15:43:54 2014
 <<<<<<< HEAD
-** Last update Fri Jun  6 18:12:04 2014 grelli_t
+** Last update Sat Jun  7 11:34:39 2014 coutar_a
 =======
 ** Last update Fri Jun  6 11:42:13 2014 coutar_a
 >>>>>>> 6b70239d687dc800a5de129e6e39d525b6b14294
@@ -220,6 +220,9 @@ t_3d		*unrotate_ray(t_3d *vector, t_objs *obj);
 void		trans_eye(t_params *params, double m[3][3]);
 void		*rotate_eye(t_params *params, t_objs *obj);
 void		*unrotate_eye(t_params *params, t_objs *obj);
+void		*rotate_fake_eye(t_3d *eye, t_objs *obj);
+void		*unrotate_fake_eye(t_3d *eye, t_objs *obj);
+void		trans_fake_eye(t_3d *eye, double m[][3]);
 
 #endif /* !RAYTRACER_H_ */
 

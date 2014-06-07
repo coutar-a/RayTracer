@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Mon Apr 21 14:58:41 2014 coutar_a
-** Last update Fri Jun  6 11:20:31 2014 coutar_a
+** Last update Sat Jun  7 11:34:23 2014 coutar_a
 */
 
 #include <math.h>
@@ -14,7 +14,7 @@
 #include <fcntl.h>
 #include "raytracer.h"
 
-void	trans_k(double *x, double *y, double *z, double m[3][3])
+void	trans_k(double *x, double *y, double *z, double m[][3])
 {
   double	x_swap;
   double	y_swap;
@@ -44,18 +44,17 @@ t_3d	*rotate_ray(t_3d *vector, t_objs *obj)
 {
   double	trans[3][3];
 
-  //printf("angle x =%lf, angle y = %lf, angle z = %lf\n", obj->rot[0], obj->rot[1], obj->rot[2]);
-  if (obj->rot[0] != 0.0)
+  if (obj->rot[0])
     {
       matrix_rot_x(trans, obj->rot[0]);
       trans_pt(vector, trans);
     }
-  if (obj->rot[1] != 0.0)
+  if (obj->rot[1])
     {
       matrix_rot_y(trans, obj->rot[1]);
       trans_pt(vector, trans);
     }
-  if (obj->rot[2] != 0.0)
+  if (obj->rot[2])
     {
       matrix_rot_z(trans, obj->rot[2]);
       trans_pt(vector, trans);
@@ -67,19 +66,20 @@ t_3d	*unrotate_ray(t_3d *vector, t_objs *obj)
 {
   double	trans[3][3];
 
-  if (obj->rot[0] != 0.0)
+  //printf("Rotation x = %f, y = %f, z = %f\n", obj->rot[0], obj->rot[1], obj->rot[2]);
+  if (obj->rot[0])
     {
-      matrix_rot_x(trans, -obj->rot[0]);
+      matrix_rot_x(trans, -(obj->rot[0]));
       trans_pt(vector, trans);
     }
-  if (obj->rot[1] != 0.0)
+  if (obj->rot[1])
     {
-      matrix_rot_y(trans, -obj->rot[1]);
+      matrix_rot_y(trans, -(obj->rot[1]));
       trans_pt(vector, trans);
     }
-  if (obj->rot[2] != 0.0)
+  if (obj->rot[2])
     {
-      matrix_rot_z(trans, -obj->rot[2]);
+      matrix_rot_z(trans, -(obj->rot[2]));
       trans_pt(vector, trans);
     }
   return (vector);

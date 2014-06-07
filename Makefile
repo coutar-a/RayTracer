@@ -53,6 +53,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)translation.c			\
 	  $(SRC)obj_rotation.c \
 	  $(SRC)eye_rotation.c \
+	  $(SRC)fake_eye_rotation.c \
 	  $(LIB)epur.c				\
 	  $(LIB)my_str.c			\
 	  $(LIB)show_tab.c			\
@@ -88,5 +89,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+biohazard: fclean ambroise
 
 .PHONY: all clean fclean re

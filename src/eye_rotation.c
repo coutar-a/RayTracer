@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Mon Apr 28 13:58:32 2014 coutar_a
-** Last update Thu Jun  5 19:00:21 2014 coutar_a
+** Last update Sat Jun  7 10:22:51 2014 coutar_a
 */
 
 #include "raytracer.h"
@@ -14,24 +14,42 @@ void		*rotate_eye(t_params *params, t_objs *obj)
 {
   double	trans[3][3];
 
-  matrix_rot_x(trans, obj->rot[0]);
-  trans_eye(params, trans);
-  matrix_rot_y(trans, obj->rot[1]);
-  trans_eye(params, trans);
-  matrix_rot_z(trans, obj->rot[2]);
-  trans_eye(params, trans);
+  if (obj->rot[0])
+    {
+      matrix_rot_x(trans, obj->rot[0]);
+      trans_eye(params, trans);
+    }
+  if (obj->rot[1])
+    {
+      matrix_rot_y(trans, obj->rot[1]);
+      trans_eye(params, trans);
+    }
+  if (obj->rot[2])
+    {
+      matrix_rot_z(trans, obj->rot[2]);
+      trans_eye(params, trans);
+    }
 }
 
 void		*unrotate_eye(t_params *params, t_objs *obj)
 {
   double	trans[3][3];
 
-  matrix_rot_x(trans, -obj->rot[0]);
-  trans_eye(params, trans);
-  matrix_rot_y(trans, -obj->rot[1]);
-  trans_eye(params, trans);
-  matrix_rot_z(trans, -obj->rot[2]);
-  trans_eye(params, trans);
+  if (obj->rot[0])
+    {
+      matrix_rot_x(trans, -obj->rot[0]);
+      trans_eye(params, trans);
+    }
+  if (obj->rot[1])
+    {
+      matrix_rot_y(trans, -obj->rot[1]);
+      trans_eye(params, trans);
+    }
+  if (obj->rot[2])
+    {
+      matrix_rot_z(trans, -obj->rot[2]);
+      trans_eye(params, trans);
+    }
 }
 
 void		trans_eye(t_params *params, double m[3][3])
