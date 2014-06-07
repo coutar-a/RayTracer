@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Sat Jun  7 11:50:59 2014 grelli_t
-** Last update Sat Jun  7 14:42:09 2014 coutar_a
+** Last update Sat Jun  7 15:12:11 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -64,11 +64,9 @@ typedef struct		s_spots
   double		pos[3];
   double		rot[3];
   double		trans[3];
-  double		ray;
   double		angle;
   double	        intensity;
   int			color;
-  int			negative;
 }			t_spots;
 
 
@@ -129,8 +127,10 @@ typedef struct		s_3d
 ** CONF
 */
 
-int		fill_intensity(t_params *params, char *line, int j);
-int		fill_trans(t_params *params, char *line, int j);
+int		fill_intensity(t_params *, char *, int);
+int		fill_trans(t_params *, char *, int);
+void		init_objs(t_params *);
+void		disp_all_spots(t_params *);
 void		disp_params(t_params *);
 int		init_spots(t_params *, char *, int);
 int		fill_spot_trans(t_params *, char *, int);

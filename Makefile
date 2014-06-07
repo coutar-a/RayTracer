@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ##
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat Jun  7 13:08:49 2014 cheval_2
+## Last update Sat Jun  7 15:06:44 2014 grelli_t
 ## Last update Fri Jun  6 17:23:28 2014 cheval_2
 ##
 
@@ -42,7 +42,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_color_checkerboard.c	\
 	  $(CONF)fill_size_checkerboard.c	\
 	  $(CONF)fill_all_object.c		\
-	  $(CONF)init_list.c			\
+	  $(CONF)init_structs.c			\
 	  $(SRC)events.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\

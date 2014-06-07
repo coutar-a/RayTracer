@@ -26,18 +26,6 @@ char	*check_error_read_file(int *fd, int *ret, char *file_name)
 {
   char	*buff;
 
-  /*if ((*fd = open(file_name, O_RDONLY)) == -1)
-    {
-      my_error("Open fail\n");
-      return (NULL);
-    }
-  if ((*ret = lseek(*fd, 0, SEEK_END)) == -1)
-    {
-      my_error("Lseek fail\n");
-      close(*fd);
-      return (NULL);
-    }
-  lseek(*fd, 0, SEEK_SET);*/
   if (check_error_read_file_part(fd, ret, file_name) == ERROR)
     return (NULL);
   if ((buff = malloc((*ret + 1) * sizeof(char))) == NULL)

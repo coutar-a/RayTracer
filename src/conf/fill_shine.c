@@ -8,13 +8,6 @@ int	fill_shine(t_params *obj, char *line, int j)
   c = my_strlen(line) - 1;
   if (line[c] == ';')
     line[c] = '\0';
-  if (my_strcmp(line, "YES") == 0)
-    {
-      printf("PLS PLS PLS PLS\n");
-      obj->objs[j].shine = YES;
-    }
-  else
-    obj->objs[j].shine = NO;
-  printf("NEGATIVITE NEGRO == %ld\n", obj->objs[j].shine);
+  obj->objs[j].shine = atof(line);
   return (0);
 }

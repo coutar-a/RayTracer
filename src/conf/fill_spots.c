@@ -53,6 +53,5 @@ int	fill_intensity(t_params *params, char *line, int j)
     line[c] = '\0';
   if ((params->spots[j].intensity = atof(line)) > 10)
     params->spots[j].intensity= 1.0;
-  printf("params->spots[j].intesity == %f\n", params->spots[j].intensity);
   return (0);
 }

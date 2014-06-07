@@ -21,7 +21,6 @@ int	fill_object(t_params *obj, char **file, int *i, int k)
 {
   char	**tab;
   int	j;
-  int   c;
 
   j = -1;
   tab = NULL;

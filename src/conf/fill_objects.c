@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sat Jun  7 10:31:47 2014 grelli_t
+** Last update Sat Jun  7 15:51:48 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -42,7 +42,7 @@ int		fill_diffrent_object(t_params *params, char **file, int *i,
     params->objs[j].type = CONE;
   else if (flag == 3)
     params->objs[j].type = 4;
-     else if (flag == 4)
+  else if (flag == 4)
     params->objs[j].type = PLAN;
   if (fill_object(params, file, i, j) == ERROR)
     return (ERROR);
@@ -64,10 +64,13 @@ t_params	*fill_nb_objs(t_params *params, char *file)
   if (tab[1][c] == ';')
     tab[1][c] = '\0';
   if ((params->nb_objs = atoi(tab[1])) <= 0)
-      params->nb_objs = 10;
+    params->nb_objs = 10;
   if ((params->objs = malloc((params->nb_objs + 1) * sizeof(t_objs))) == NULL)
     return (NULL);
   free_tab(tab);
+  init_all_spots(params);
+  init_objs(params);
+  printf("XDTYGVBUHGVYIBUHIJNBUHJN\n");
   return (params);
 }
 
