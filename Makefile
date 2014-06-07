@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ##
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat Jun  7 12:00:31 2014 grelli_t
+## Last update Sat Jun  7 13:08:49 2014 cheval_2
 ## Last update Fri Jun  6 17:23:28 2014 cheval_2
 ##
 
@@ -42,11 +42,11 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_color_checkerboard.c	\
 	  $(CONF)fill_size_checkerboard.c	\
 	  $(CONF)fill_all_object.c		\
+	  $(CONF)init_list.c			\
 	  $(SRC)events.c			\
 	  $(SRC)lumos2.c			\
 	  $(SRC)lumos.c				\
 	  $(SRC)main.c				\
-	  $(LIB)pixel_put_to_image.c		\
 	  $(SRC)rotation2.c			\
 	  $(SRC)shadows.c			\
 	  $(SRC)stuff.c				\
@@ -54,20 +54,21 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)obj_rotation.c			\
 	  $(SRC)eye_rotation.c			\
 	  $(SRC)fake_eye_rotation.c		\
+	  $(SRC)intersection_computing.c	\
+	  $(SRC)normal_computing.c		\
+	  $(SRC)intersection_functions.c	\
 	  $(LIB)epur.c				\
 	  $(LIB)my_str.c			\
 	  $(LIB)show_tab.c			\
 	  $(LIB)str_to_wordtab.c		\
 	  $(LIB)my_strcmp.c			\
 	  $(LIB)free_tab.c 			\
-	  $(SRC)intersection_computing.c \
-	  $(SRC)normal_computing.c       \
-	  $(SRC)intersection_functions.c \
+	  $(LIB)pixel_put_to_image.c		\
 
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS	+= -I./include
-CFLAGS  += -I/usr/X11/include ## à commenter si vous n'êtes pas coutar_a !
+# CFLAGS  += -I/usr/X11/include ## à commenter si vous n'êtes pas coutar_a !
 CFLAGS  += -g3
 
 LMX_P	= -L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11 -lm

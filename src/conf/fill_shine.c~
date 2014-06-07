@@ -15,6 +15,6 @@ int	fill_shine(t_params *obj, char *line, int j)
     }
   else
     obj->objs[j].shine = NO;
-  printf("NEGATIVITE NEGRO == %ld\n", obj->objs[j].shine);
+  printf("NEGATIVITE NEGRO == %d\n", obj->objs[j].shine);
   return (0);
 }
