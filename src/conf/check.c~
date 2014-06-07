@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Wed May 28 12:14:34 2014 grelli_t
-** Last update Sat Jun  7 13:26:30 2014 cheval_2
+** Last update Sat Jun  7 11:19:55 2014 grelli_t
 ** Last update Fri Jun  6 17:27:09 2014 cheval_2
 */
 
@@ -31,17 +31,17 @@ int		check_file_options(t_params *params, char **file, int *i,
 {
   if (my_strcmp(file[*i], "WINDOW") == 0)
     {
-      if (((*is_objs) = fill_window(params, file, i)) == ERROR)
+      if ((is_objs = fill_window(params, file, i)) == ERROR)
 	return (ERROR);
     }
   else if (my_strcmp(file[*i], "OBJECTS") == 0)
     {
-      if (((*is_objs) = fill_objects(params, file, i)) == ERROR)
+      if ((is_objs = fill_objects(params, file, i)) == ERROR)
 	return (ERROR);
       --*i;
     }
   else if (my_strcmp(file[*i], "SPOTS") == 0)
-    if (((*is_objs) = fill_spot(params, file, i)) == ERROR)
+    if ((is_objs = fill_spot(params, file, i)) == ERROR)
       return (ERROR);
   return (SUCCESS);
 }
