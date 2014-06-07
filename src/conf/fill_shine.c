@@ -1,4 +1,5 @@
 
+#include <stdlib.h>
 #include "raytracer.h"
 
 int	fill_shine(t_params *obj, char *line, int j)
