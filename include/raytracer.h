@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Sat Jun  7 11:50:59 2014 grelli_t
-** Last update Sat Jun  7 12:10:33 2014 grelli_t
+** Last update Sat Jun  7 12:18:50 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -89,6 +89,7 @@ typedef struct		s_params
 {
   double		pos_eye[3];
   double		rot_eye[3];
+  double		trans_eye[3];
   int			nb_objs;
   int			nb_spots;
   t_spots		*spots;
@@ -146,6 +147,8 @@ int		fill_negative(t_params *, char *, int);
 int		fill_angle(t_params *, char *, int);
 int		fill_window_in_params_height(t_params *, char *);
 int		fill_window_in_params_lenght(t_params *, char *);
+int		fill_window_in_params_trans_eye(t_params *, char *);
+int		fill_window_in_params_rot_eye(t_params *, char *);
 int		fill_window_in_params_pos_eye(t_params *, char *);
 int		fill_window_in_params(t_params *, char **, int *);
 int		fill_objects(t_params *, char **, int *);
@@ -216,4 +219,3 @@ void		*unrotate_fake_eye(t_3d *eye, t_objs *obj);
 void		trans_fake_eye(t_3d *eye, double m[][3]);
 
 #endif /* !RAYTRACER_H_ */
-
