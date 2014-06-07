@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Fri Jun  6 18:35:09 2014 coutar_a
+** Last update Sat Jun  7 14:47:19 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -39,7 +39,6 @@ int	checkering(t_objs *obj)
   int	p2;
   int	p3;
 
-  //printf("checkerboard = %d\n", obj->checkerboard);
   if (obj->checkerboard == NO)
     return (obj->color);
   p1 = obj->intersection.p_x / obj->size_checkerboard;
