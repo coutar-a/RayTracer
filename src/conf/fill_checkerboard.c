@@ -13,6 +13,5 @@ int	fill_checkerboard(t_params *obj, char *line, int j)
     obj->objs[j].checkerboard = YES;
   else
     obj->objs[j].checkerboard = NO;
-  printf("DAMIER == %d\n", obj->objs[j].checkerboard);
   return (0);
 }

@@ -51,6 +51,5 @@ int	conf_file(int ac, char **av, t_params *params)
     }
   if ((file = read_file(av[1], params)) == NULL)
     return (ERROR);
-  printf("%d, %d\n", params->nb_objs, params->nb_spots);
   return (0);
 }

@@ -5,7 +5,11 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Sat May 31 15:43:54 2014
+<<<<<<< HEAD
 ** Last update Fri Jun  6 18:12:04 2014 grelli_t
+=======
+** Last update Fri Jun  6 11:42:13 2014 coutar_a
+>>>>>>> 6b70239d687dc800a5de129e6e39d525b6b14294
 ** Last update Thu Jun  5 18:53:24 2014 coutar_a
 */
 
@@ -18,7 +22,7 @@
 # define NEG(x)		(255 - x)
 # define COLOR_DEFAULT	(0x2FD1D4)
 # define TITLE		("trace them rays boy")
-# define DISP_MSG	("\n Image now full, displaying...\n")
+# define DISP_MSG	("\nImage now full, displaying...\n")
 # define THANGS		("Doin thangs...\n")
 # define ESCAPE		(65307)
 # define ERROR		(-1)

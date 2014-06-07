@@ -43,7 +43,6 @@ int		fill_spot(t_params *scene, char **file, int *i)
     {
       while (file[*i] != NULL && file[*i][0] != '}')
 	{
-	  printf("fill[] = %s\n", file[*i]);
 	  if ((tab = my_str_to_wordtab(file[*i], '=')) == NULL)
 	    return (ERROR);
 	  show_tab(tab);
