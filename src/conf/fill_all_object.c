@@ -5,6 +5,7 @@
 static const t_fill	g_object[] = {
   {"pos", &fill_pos},
   {"rot", &fill_rot},
+  {"trans", &fill_trans},
   {"ray", &fill_ray},
   {"shine", &fill_shine},
   {"angle", &fill_angle},

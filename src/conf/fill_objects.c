@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Fri Jun  6 17:26:22 2014 cheval_2
+** Last update Sat Jun  7 10:31:47 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -71,7 +71,7 @@ t_params	*fill_nb_objs(t_params *params, char *file)
   return (params);
 }
 
-int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
+int	kind_of_objects(t_params *params, char **file, int *i)
 {
   char	**tab;
 
@@ -86,10 +86,7 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
 	    return (ERROR);
 	}
       else if (my_strcmp(file[*i], "sphere") == 0)
-	{
-	  if ((fill_diffrent_object(params, file, i, 1)) == ERROR)
-	    return (ERROR);
-	}
+	fill_diffrent_object(params, file, i, 1);
       else if (my_strcmp(file[*i], "cone") == 0)
 	  fill_diffrent_object(params, file, i, 2);
       else if (my_strcmp(file[*i], "cylinder") == 0)
@@ -104,7 +101,7 @@ int	kind_of_objects(t_params *params, char **file, int *i)//verifier retour
 
 int     fill_objects(t_params *params, char **file, int *i)
 {
-   while (file[*i] != NULL)//trier et c'est fini !!!
+   while (file[*i] != NULL)
     {
       kind_of_objects(params, file, i);
       if (file[*i][0] == '}')
