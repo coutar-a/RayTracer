@@ -5,11 +5,8 @@
 ## Login   <grelli_t@epitech.net>
 ##
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-<<<<<<< HEAD
-## Last update Fri Jun  6 17:29:14 2014 grelli_t
-=======
+## Last update Sat Jun  7 10:08:48 2014 grelli_t
 ## Last update Fri Jun  6 17:23:28 2014 cheval_2
->>>>>>> 6b70239d687dc800a5de129e6e39d525b6b14294
 ##
 
 CC	= cc
