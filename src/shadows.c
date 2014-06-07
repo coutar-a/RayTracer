@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:08:34 2014 grelli_t
-** Last update Sat Jun  7 11:41:36 2014 coutar_a
+** Last update Sat Jun  7 14:00:31 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -26,8 +26,8 @@ double		sphere_int_shadow(t_3d *eye, t_3d *vc, t_objs *sph)
   double		k1;
   double		k2;
 
-  //eye = rotate_fake_eye(eye, sph);
-  vc = rotate_ray(vc, sph);
+  rotate_fake_eye(eye, sph);
+  //vc = rotate_ray(vc, sph);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0) + pow(vc->z, 2.0));
   b = 2.0 * (vc->x * (eye->x - sph->pos[0]) + vc->y *
 	     (eye->y - sph->pos[1]) + vc->z * (eye->z - sph->pos[2]));
@@ -36,8 +36,8 @@ double		sphere_int_shadow(t_3d *eye, t_3d *vc, t_objs *sph)
 	2.0 * (sph->pos[0] * eye->x + sph->pos[1] * eye->y + sph->pos[2] * eye->z) -
 	pow(sph->ray, 2.0)));
   delta = pow(b, 2.0) - (4.0 * a * c);
-  vc = unrotate_ray(vc, sph);
-  //eye = unrotate_fake_eye(eye, sph);
+  //vc = unrotate_ray(vc, sph);
+  unrotate_fake_eye(eye, sph);
  if (delta < 0.0)
     return (-1.0);
   else if (delta == 0.0)
@@ -51,14 +51,14 @@ double	plan_int_shadow(t_3d *eye, t_3d *vc, t_objs *pl)
 {
   double	test;
 
-  //eye = rotate_fake_eye(eye, pl);
+  //rotate_fake_eye(eye, pl);
   vc = rotate_ray(vc, pl);
   if (vc->x == 0.0 && vc->y == 0.0 && vc->z == 0.0)
     return (-1.0);
   test = -(eye->x * pl->pos[0] + eye->y * pl->pos[1] + eye->z *
 	   pl->pos[2] + pl->ray) / (pl->pos[0] * vc->x + pl->pos[1] * vc->y + pl->pos[2] * vc->z);
   vc = unrotate_ray(vc, pl);
-  //eye = unrotate_fake_eye(eye, pl);
+  //unrotate_fake_eye(eye, pl);
   if (test < 0.0)
     return (-1.0);
   return (test);
@@ -73,16 +73,16 @@ double		cyl_int_shadow(t_3d *eye, t_3d *vc, t_objs *cyl)
   double		k1;
   double		k2;
 
-  //eye = unrotate_fake_eye(eye, cyl);
-  vc = unrotate_ray(vc, cyl);
+  rotate_fake_eye(eye, cyl);
+  //vc = unrotate_ray(vc, cyl);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0));
   b = 2.0 * (vc->x * (eye->x - cyl->pos[0]) + vc->y * (eye->y - cyl->pos[1]));
   c = pow(eye->x, 2.0) + pow(eye->y, 2.0) +
     pow(cyl->pos[0], 2.0) + pow(cyl->pos[1], 2.0) - 2.0 *
     (cyl->pos[0] * eye->x + cyl->pos[1] * eye->y) - pow(cyl->ray, 2.0);
   delta = pow(b, 2.0) - (4.0 * a * c);
-  vc = rotate_ray(vc, cyl);
-  //eye = rotate_fake_eye(eye, cyl);
+  //vc = rotate_ray(vc, cyl);
+  unrotate_fake_eye(eye, cyl);
   if (delta < 0.0)
     return (-1.0);
   else if (delta == 0.0)
@@ -102,7 +102,7 @@ double		cone_int_shadow(t_3d *eye, t_3d *vc, t_objs *cone)
   double		k1;
   double		k2;
 
-  eye = rotate_fake_eye(eye, cone);
+  rotate_fake_eye(eye, cone);
   vc = rotate_ray(vc, cone);
   q = tan(cone->ray * (M_PI / 180.0));
   a = pow(vc->x, 2.0) + pow(vc->y, 2.0) - (q * pow(vc->z, 2.0));
@@ -114,7 +114,7 @@ double		cone_int_shadow(t_3d *eye, t_3d *vc, t_objs *cone)
 			      eye->y - (q * cone->pos[2] * eye->z));
   delta = pow(b, 2.0) - (4.0 * a * c);
   vc = unrotate_ray(vc, cone);
-  eye = unrotate_fake_eye(eye, cone);
+  unrotate_fake_eye(eye, cone);
   if (delta < 0.0)
     return (-1.0);
   else if (delta == 0.0)

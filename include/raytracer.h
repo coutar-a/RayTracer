@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Sat Jun  7 11:50:59 2014 grelli_t
-** Last update Sat Jun  7 13:48:42 2014 grelli_t
+** Last update Sat Jun  7 14:42:09 2014 coutar_a
 */
 
 #ifndef RAYTRACER_H_
@@ -219,5 +219,11 @@ void		*unrotate_eye(t_params *params, t_objs *obj);
 void		*rotate_fake_eye(t_3d *eye, t_objs *obj);
 void		*unrotate_fake_eye(t_3d *eye, t_objs *obj);
 void		trans_fake_eye(t_3d *eye, double m[][3]);
+void		translation_eye(t_params *params, double x_p,
+				double y_p, double z_p);
+void	translation_point(t_3d *pt, double x_p,
+			  double y_p, double z_p);
+void	translation_obj(t_objs *objs, double x_p,
+			double y_p, double z_p);
 
 #endif /* !RAYTRACER_H_ */

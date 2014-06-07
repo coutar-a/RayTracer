@@ -68,7 +68,7 @@ SRCS	= $(CONF)fill_spot.c			\
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS	+= -I./include
-# CFLAGS  += -I/usr/X11/include ## à commenter si vous n'êtes pas coutar_a !
+CFLAGS  += -I/usr/X11/include
 CFLAGS  += -g3
 
 LMX_P	= -L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11 -lm

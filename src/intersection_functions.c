@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Fri May 30 17:10:10 2014 coutar_a
-** Last update Fri Jun  6 18:13:35 2014 coutar_a
+** Last update Sat Jun  7 14:36:11 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -81,6 +81,7 @@ void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl)
   double		c;
   double		delta;
 
+  translation_obj(cyl, 0.0, 45.0, 0.0);
   vc = rotate_ray(vc, cyl);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0));
   b = 2.0 * (vc->x * (params->pos_eye[0] - cyl->pos[0]) + vc->y * (params->pos_eye[1] - cyl->pos[1]));
@@ -89,6 +90,7 @@ void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl)
 	(cyl->pos[0] * params->pos_eye[0] + cyl->pos[1] * params->pos_eye[1]) - pow(cyl->ray, 2.0)));
   delta = pow(b, 2.0) - (4.0 * a * c);
   vc = unrotate_ray(vc, cyl);
+  translation_obj(cyl, 0.0, -45.0, 0.0);
   if (delta < 0.0)
     cyl->intersection.k = 0.0;
   else if (delta == 0.0)

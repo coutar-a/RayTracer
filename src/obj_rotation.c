@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Mon Apr 21 14:58:41 2014 coutar_a
-** Last update Sat Jun  7 11:34:23 2014 coutar_a
+** Last update Sat Jun  7 14:40:53 2014 coutar_a
 */
 
 #include <math.h>
@@ -66,7 +66,6 @@ t_3d	*unrotate_ray(t_3d *vector, t_objs *obj)
 {
   double	trans[3][3];
 
-  //printf("Rotation x = %f, y = %f, z = %f\n", obj->rot[0], obj->rot[1], obj->rot[2]);
   if (obj->rot[0])
     {
       matrix_rot_x(trans, -(obj->rot[0]));

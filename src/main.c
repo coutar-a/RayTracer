@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-** Last update Sat Jun  7 10:50:45 2014 coutar_a
+** Last update Sat Jun  7 12:15:48 2014 coutar_a
 */
 
 #include <stdlib.h>
@@ -132,7 +132,6 @@ int		main(int argc, char **argv)
     return (ERROR);
   if ((params.mlx_conf->mlx_ptr = mlx_init()) == NULL)
     return (ERROR);
-  printf("rotation œil 0 : angle x = %lf angle = %lf angle z = %lf\n", params.rot_eye[0], params.rot_eye[1], params.rot_eye[2]);
   params.mlx_conf->win_ptr = mlx_new_window(params.mlx_conf->mlx_ptr,
 					    params.mlx_conf->win_x,
 					    params.mlx_conf->win_y, TITLE);
