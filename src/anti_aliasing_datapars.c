@@ -5,7 +5,7 @@
 ** Login   <jamme-_c@epitech.net>
 ** 
 ** Started on  Thu Jun  5 16:20:24 2014 jamme-_c
-** Last update Sun Jun  8 11:42:50 2014 jamme-_c
+** Last update Sun Jun  8 15:55:44 2014 jamme-_c
 */
 
 #include "anti_aliasing.h"
@@ -20,7 +20,7 @@ int	microparser(char **av)
 
 }
 
-void	check_pixel(int x, int y, char *data, int win)
+void		check_pixel(int x, int y, char *data, int win)
 {
   int		pos[9];
   t_color	color[9];
