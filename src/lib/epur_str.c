@@ -5,7 +5,7 @@
 ** Login   <lancel_e@epitech.net>
 ** 
 ** Started on  Sat Mar  8 17:59:43 2014 lancel_e
-** Last update Sun Jun  1 15:35:33 2014 coutar_a
+** Last update Sun Jun  8 16:07:22 2014 jamme-_c
 */
 
 #include <stdlib.h>
@@ -26,9 +26,9 @@ void	first_space(char *str, int *i)
 
 char	*epur(char *str)
 {
-  char  *ret;
-  int   i;
-  int   k;
+  char	*ret;
+  int	i;
+  int	k;
 
   ini_var(&i, &k);
   ret = malloc(my_strlen(str) + 1);
@@ -36,15 +36,15 @@ char	*epur(char *str)
   while (str[i])
     {
       if (str[i] != ' ')
-        {
-          ret[k] = str[i];
-          k = k + 1;
-        }
+	{
+	  ret[k] = str[i];
+	  k = k + 1;
+	}
       else if (str[i + 1] != '\0' && str[i] == ' ' && str[i + 1] != ' ')
-        {
-          ret[k] = ' ';
-          k = k + 1;
-        }
+	{
+	  ret[k] = ' ';
+	  k = k + 1;
+	}
       i = i + 1;
     }
   ret[k] = '\0';
