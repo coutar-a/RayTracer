@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Sat May 31 14:03:08 2014 coutar_a
-** Last update Mon Jun  2 17:21:11 2014 coutar_a
+** Last update Sun Jun  8 09:30:19 2014 grelli_t
 */
 
 #include "raytracer.h"
@@ -20,12 +20,11 @@ void		process_k(t_params *params, t_3d *vc)
   process_array[1] = &process_k_plan;
   process_array[2] = &process_k_sphere;
   process_array[3] = &process_k_cyl;
-  i = 0;
-  while (i < params->nb_objs)
+  i = -1;
+  while (++i < params->nb_objs)
     {
       obj = params->objs[i].type - 1;
       process_array[obj](params, vc, &(params->objs[i]));
-      i++;
     }
 }
 
@@ -39,11 +38,10 @@ void		calc_inter(t_params *params, t_3d *vc)
   inter_array[1] = &inter_plan;
   inter_array[2] = &inter_sph;
   inter_array[3] = &inter_cyl;
-  i = 0;
-  while (i < params->nb_objs)
+  i = -1;
+  while (++i < params->nb_objs)
     {
       obj = params->objs[i].type - 1;
       inter_array[obj](params, vc, &(params->objs[i]));
-      ++i;
     }
 }

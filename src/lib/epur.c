@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int     sizestr(char *str)
+static int	sizestr(char *str)
 {
-  int   i;
-  int   j;
+  int		i;
+  int		j;
 
   j = 0;
   i = 0;

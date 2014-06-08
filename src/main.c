@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-** Last update Sun Jun  8 11:19:43 2014 coutar_a
+** Last update Sun Jun  8 12:40:08 2014 grelli_t
 */
 
 #include <stdlib.h>
@@ -123,8 +123,9 @@ int		calc(t_params *params, int x, int y)
 int		main(int argc, char **argv)
 {
   t_params	params;
+  int		option;
 
-  if ((conf_file(argc, argv, &params) == ERROR))
+  if ((option = conf_file(argc, argv, &params)) == ERROR)
     return (ERROR);
   if ((params.mlx_conf->mlx_ptr = mlx_init()) == NULL)
     return (ERROR);
@@ -135,6 +136,9 @@ int		main(int argc, char **argv)
 					   params.mlx_conf->win_x,
 					   params.mlx_conf->win_y);
   fill_image(&params);
+  /* if (option == 1) */
+  /*   anti_aliasing_datapars(params.mlx_conf->win_x, params.mlx_conf->win_y, */
+  /* 			   params.mlx_conf->img, params.mlx_conf->sizeline); */
   mlx_put_image_to_window(params.mlx_conf->mlx_ptr,
 			  params.mlx_conf->win_ptr,
 			  params.mlx_conf->img_ptr, 0, 0);

@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Fri Jun  6 18:37:31 2014 cheval_2
-** Last update Sat Jun  7 16:41:14 2014 grelli_t
+** Last update Sun Jun  8 12:52:06 2014 grelli_t
 */
 
 #include "raytracer.h"
@@ -24,7 +24,7 @@ void		init_all_spots(t_params *params)
       params->spots[c].rot[1] = 0;
       params->spots[c].rot[2] = 0;
       params->spots[c].angle = 0;
-      params->spots[c].intensity = 10;
+      params->spots[c].intensity = 1;
       params->spots[c].color = 0xFFFFFF;
     }
 }
@@ -47,7 +47,7 @@ void		init_objs(t_params *params)
       params->objs[c].trans[2] = 0;
       params->objs[c].ray = 50;
       params->objs[c].angle = 0;
-      params->objs[c].shine = 0.3;
+      params->objs[c].shine = 0.4;
       params->objs[c].color = 0x0000FF;
       params->objs[c].checkerboard = NO;
       params->objs[c].color_checkerboard = 0x0000FF;

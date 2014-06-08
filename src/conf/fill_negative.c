@@ -3,7 +3,7 @@
 
 int	fill_negative(t_params *obj, char *line, int j)
 {
-  int   c;
+  int	c;
 
   c = my_strlen(line) - 1;
   if (line[c] == ';')

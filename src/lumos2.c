@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:23 2014 grelli_t
-** Last update Sat Jun  7 14:47:19 2014 coutar_a
+** Last update Sun Jun  8 09:28:18 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -113,9 +113,8 @@ int		apply_light(t_params *params, t_objs *obj, double cos_a[])
       apply.g_spot += (unsigned char)((params->spots[apply.i].color
 						>> 8 & 0xFF) * cos_a[apply.i]) /
         params->nb_spots;
-      apply.b_spot += (unsigned char)((params->spots[apply.i].color &
-						0xFF) * cos_a[apply.i]) /
-        params->nb_spots;
+      apply.b_spot += (unsigned char)((params->spots[apply.i].color &0xFF) *
+				      cos_a[apply.i]) / params->nb_spots;
     }
   return (light_assembler(&apply, obj));
 }

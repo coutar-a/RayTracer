@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Sat Jun  7 11:50:59 2014 grelli_t
-** Last update Sat Jun  7 15:12:11 2014 grelli_t
+** Last update Sun Jun  8 14:02:46 2014 grelli_t
 */
 
 #ifndef RAYTRACER_H_
@@ -23,6 +23,29 @@
 # define ERROR		(-1)
 # define SUCCESS	(1)
 
+# define SC_1		(pow(params->pos_eye[0], 2.0) +
+# define SC_2		pow(params->pos_eye[1], 2.0) +
+# define SC_3		pow(params->pos_eye[2], 2.0) +
+# define SC_4		(pow(sph->pos[0], 2.0) + pow(sph->pos[1], 2.0) +
+# define SC_5		pow(sph->pos[2], 2.0) - 2.0 *
+# define SC_6		(sph->pos[0] * params->pos_eye[0] +
+# define SC_7		sph->pos[1] * params->pos_eye[1] +
+# define SC_8		sph->pos[2] * params->pos_eye[2]) -
+# define SC_9		pow(sph->ray, 2.0)))
+# define SUPERCALC	SC_1 SC_2 SC_3 SC_4 SC_5 SC_6 SC_7 SC_8 SC_9
+
+# define SC_B1		2.0 * (vc->x * (params->pos_eye[0] - cone->pos[0]) +
+# define SC_B2		vc->y * (params->pos_eye[1] - cone->pos[1]) - q
+# define SC_B3		* vc->z * (params->pos_eye[2] - cone->pos[2]))
+# define SC_B		SC_B1 SC_B2 SC_B3
+# define SC_C1		pow(params->pos_eye[0], 2.0) + pow(cone->pos[0], 2.0) +
+# define SC_C2		pow(params->pos_eye[1], 2.0) + pow(cone->pos[1], 2.0) -
+# define SC_C3		q * pow(params->pos_eye[2], 2.0) - q *
+# define SC_C4		pow(cone->pos[2], 2.0) - 2 * (cone->pos[0] *
+# define SC_C5	        params->pos_eye[0] + cone->pos[1] * params->pos_eye[1] -
+# define SC_C6		(q * cone->pos[2] * params->pos_eye[2]));
+# define SC_C		SC_C1 SC_C2 SC_C3 SC_C4 SC_C5 SC_C6
+
 # define CONE		(1)
 # define PLAN		(2)
 # define SPHERE		(3)
@@ -30,6 +53,16 @@
 
 # define YES		(1)
 # define NO		(0)
+
+typedef struct	s_discri
+{
+  double	a;
+  double	b;
+  double	c;
+  double	k1;
+  double	k2;
+  double	delta;
+}		t_discri;
 
 typedef struct		s_sec
 {
@@ -131,7 +164,6 @@ int		fill_intensity(t_params *, char *, int);
 int		fill_trans(t_params *, char *, int);
 void		init_objs(t_params *);
 void		disp_all_spots(t_params *);
-void		disp_params(t_params *);
 int		init_spots(t_params *, char *, int);
 int		fill_spot_trans(t_params *, char *, int);
 int		fill_spot_pos(t_params *, char *, int);

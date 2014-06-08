@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Wed Jun  4 16:49:16 2014 coutar_a
-** Last update Wed Jun  4 17:07:25 2014 coutar_a
+** Last update Sun Jun  8 10:17:50 2014 grelli_t
 */
 
 #include <raytracer.h>
@@ -26,15 +26,14 @@ void	rank_objects(t_params *params)
 		      pow(params->objs[i]->pos[1] - params->pos_eye[1]) +
 		      pow(params->objs[i]->pos[2] - params->pos_eye[2]));
     }
-  i = 0;
+  i = -1;
   while (++count != params->nb_objs)
     {
-      if (value[count] == i)
+      if (value[count] == ++i)
 	{
 	  params->objs[count]->rank = count;
-	  count++;
-	  i = 0;
+	  ++count;
+	  i = -1;
 	}
-      i++;
     }
 }

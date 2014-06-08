@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:07:31 2014 grelli_t
-** Last update Wed Jun  4 14:30:10 2014 coutar_a
+** Last update Sun Jun  8 09:23:33 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -20,11 +20,11 @@
 ** Matrix for z-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_z(double matrix[][3], double angle)
+void		matrix_rot_z(double matrix[][3], double angle)
 {
   double	reg;
 
-  reg = angle * (M_PI/180);
+  reg = angle * (M_PI / 180);
   matrix[0][0] = cos(reg);
   matrix[0][1] = -sin(reg);
   matrix[0][2] = 0;
@@ -40,11 +40,11 @@ void	matrix_rot_z(double matrix[][3], double angle)
 ** Matrix for x-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_x(double matrix[][3], double angle)
+void		matrix_rot_x(double matrix[][3], double angle)
 {
   double	reg;
 
-  reg = angle * (M_PI/180);
+  reg = angle * (M_PI / 180);
   matrix[0][0] = 1;
   matrix[0][1] = 0;
   matrix[0][2] = 0;
@@ -60,11 +60,11 @@ void	matrix_rot_x(double matrix[][3], double angle)
 ** Matrix for y-axis rotation. Angle in degrees.
 */
 
-void	matrix_rot_y(double matrix[][3], double angle)
+void		matrix_rot_y(double matrix[][3], double angle)
 {
   double	reg;
 
-  reg = angle * (M_PI/180);
+  reg = angle * (M_PI / 180);
   matrix[0][0] = cos(reg);
   matrix[0][1] = 0;
   matrix[0][2] = sin(reg);
@@ -80,7 +80,7 @@ void	matrix_rot_y(double matrix[][3], double angle)
 ** Multiplies 3d point struct with trans matrix.
 */
 
-void	trans_pt(t_3d *pt, double m[][3])
+void		trans_pt(t_3d *pt, double m[][3])
 {
   double	x_swap;
   double	y_swap;
@@ -98,7 +98,7 @@ void	trans_pt(t_3d *pt, double m[][3])
 ** Multiplies 2 trans matrices, results in first one.
 */
 
-void	mult_matrix(double m1[][3], double m2[][3])
+void		mult_matrix(double m1[][3], double m2[][3])
 {
   m1[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0] + m1[0][2] * m2[2][0];
   m1[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1] + m1[0][2] * m2[2][1];

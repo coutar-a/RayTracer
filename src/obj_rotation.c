@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Mon Apr 21 14:58:41 2014 coutar_a
-** Last update Sat Jun  7 14:40:53 2014 coutar_a
+** Last update Sun Jun  8 10:16:54 2014 grelli_t
 */
 
 #include <math.h>
@@ -14,7 +14,7 @@
 #include <fcntl.h>
 #include "raytracer.h"
 
-void	trans_k(double *x, double *y, double *z, double m[][3])
+void		trans_k(double *x, double *y, double *z, double m[][3])
 {
   double	x_swap;
   double	y_swap;
@@ -28,7 +28,7 @@ void	trans_k(double *x, double *y, double *z, double m[][3])
   (*z) = x_swap * m[2][0] + y_swap * m[2][1] + z_swap * m[2][2];
 }
 
-void	apply_rotations(t_objs *obj)
+void		apply_rotations(t_objs *obj)
 {
   double	trans[3][3];
 
@@ -40,7 +40,7 @@ void	apply_rotations(t_objs *obj)
   trans_k(&(obj->pos[0]), &(obj->pos[1]), &(obj->pos[2]), trans);
 }
 
-t_3d	*rotate_ray(t_3d *vector, t_objs *obj)
+t_3d		*rotate_ray(t_3d *vector, t_objs *obj)
 {
   double	trans[3][3];
 
@@ -62,7 +62,7 @@ t_3d	*rotate_ray(t_3d *vector, t_objs *obj)
   return (vector);
 }
 
-t_3d	*unrotate_ray(t_3d *vector, t_objs *obj)
+t_3d		*unrotate_ray(t_3d *vector, t_objs *obj)
 {
   double	trans[3][3];
 

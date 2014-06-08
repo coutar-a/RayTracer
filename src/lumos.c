@@ -1,11 +1,11 @@
 /*
 ** lumos.c for raytraceur in /home/grelli_t/ABUZAY/Raytraceur/Raytraceur/Ganesha51-raytracer-40f2a2190e64
-**
+** 
 ** Made by grelli_t
 ** Login   <grelli_t@epitech.net>
-**
+** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Sun Jun  8 11:37:11 2014 cheval_2
+** Last update Sun Jun  8 11:13:11 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -27,8 +27,8 @@ int		lumos(t_params *params, t_objs *obj)
   double	cos_a[params->nb_spots];
   int		i;
 
-  i = 0;
-  while (i != params->nb_spots)
+  i = -1;
+  while (++i != params->nb_spots)
     {
       l.x = params->spots[i].pos[0] - obj->intersection.p_x;
       l.y = params->spots[i].pos[1] - obj->intersection.p_y;
@@ -42,8 +42,6 @@ int		lumos(t_params *params, t_objs *obj)
       cos_a[i] = DRK_CHK((scal / (norm_l * norm_n)));
       if ((shadow_checking(&l, params, obj)) == 1)
 	cos_a[i] /= 2;
-      cos_a[i] = NTS_CHK(cos_a[i], params->spots[i].intensity);
-      i++;
     }
   return (apply_light(params, obj, cos_a));
 }

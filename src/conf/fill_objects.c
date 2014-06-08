@@ -5,13 +5,13 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
-** Last update Sat Jun  7 15:51:48 2014 grelli_t
+** Last update Sun Jun  8 11:15:25 2014 grelli_t
 */
 
 #include <stdlib.h>
 #include "raytracer.h"
 
-int     fill_objects_in_params(t_params *params, char **file, int *i)
+int	fill_objects_in_params(t_params *params, char **file, int *i)
 {
   if (my_strcmp(file[0], "pos") == 0)
     {

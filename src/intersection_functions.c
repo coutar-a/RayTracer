@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Fri May 30 17:10:10 2014 coutar_a
-** Last update Sat Jun  7 16:48:10 2014 coutar_a
+** Last update Sun Jun  8 14:03:28 2014 grelli_t
 */
 
 #include <stdio.h>
@@ -23,8 +23,8 @@
 
 void		sub_int_k(t_sec *k, double b, double delta, double a)
 {
-  double		k1;
-  double		k2;
+  double	k1;
+  double	k2;
 
   k1 = ((-b) - (sqrt(delta))) / (2.0 * a);
   k2 = ((-b) + (sqrt(delta))) / (2.0 * a);
@@ -33,21 +33,19 @@ void		sub_int_k(t_sec *k, double b, double delta, double a)
 
 void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
 {
-  double		a;
-  double		b;
-  double		c;
-  double		delta;
+  double	a;
+  double	b;
+  double	c;
+  double	delta;
 
 
   translation_obj(sph, sph->trans[0], sph->trans[1], sph->trans[2]);
   vc = rotate_ray(vc, sph);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0) + pow(vc->z, 2.0));
   b = 2.0 * (vc->x * (params->pos_eye[0] - sph->pos[0]) + vc->y *
-	   (params->pos_eye[1] - sph->pos[1]) + vc->z * (params->pos_eye[2] - sph->pos[2]));
-  c = (pow(params->pos_eye[0], 2.0) + pow(params->pos_eye[1], 2.0) + pow(params->pos_eye[2], 2.0) +
-       (pow(sph->pos[0], 2.0) + pow(sph->pos[1], 2.0) + pow(sph->pos[2], 2.0) -
-	2.0 * (sph->pos[0] * params->pos_eye[0] + sph->pos[1] * params->pos_eye[1] +
-	     sph->pos[2] * params->pos_eye[2]) - pow(sph->ray, 2.0)));
+	     (params->pos_eye[1] - sph->pos[1]) + vc->z * (params->pos_eye[2] -
+							   sph->pos[2]));
+  c = SUPERCALC;
   delta = pow(b, 2.0) - (4.0 * a * c);
   vc = unrotate_ray(vc, sph);
   translation_obj(sph, -sph->trans[0], -sph->trans[1], -sph->trans[2]);
@@ -59,7 +57,7 @@ void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
     sub_int_k(&(sph->intersection), b, delta, a);
 }
 
-void	inter_plan(t_params *params, t_3d *vc, t_objs *pl)
+void		inter_plan(t_params *params, t_3d *vc, t_objs *pl)
 {
   double	test;
 
@@ -81,18 +79,20 @@ void	inter_plan(t_params *params, t_3d *vc, t_objs *pl)
 
 void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl)
 {
-  double		a;
-  double		b;
-  double		c;
-  double		delta;
+  double	a;
+  double	b;
+  double	c;
+  double	delta;
 
   translation_obj(cyl, cyl->trans[0], cyl->trans[1], cyl->trans[2]);
   vc = rotate_ray(vc, cyl);
   a = (pow(vc->x, 2.0) + pow(vc->y, 2.0));
-  b = 2.0 * (vc->x * (params->pos_eye[0] - cyl->pos[0]) + vc->y * (params->pos_eye[1] - cyl->pos[1]));
+  b = 2.0 * (vc->x * (params->pos_eye[0] - cyl->pos[0]) + vc->y *
+	     (params->pos_eye[1] - cyl->pos[1]));
   c = (pow(params->pos_eye[0], 2.0) + pow(params->pos_eye[1], 2.0) +
        (pow(cyl->pos[0], 2.0) + pow(cyl->pos[1], 2.0) - 2.0 *
-	(cyl->pos[0] * params->pos_eye[0] + cyl->pos[1] * params->pos_eye[1]) - pow(cyl->ray, 2.0)));
+	(cyl->pos[0] * params->pos_eye[0] + cyl->pos[1] * params->pos_eye[1]) -
+	pow(cyl->ray, 2.0)));
   delta = pow(b, 2.0) - (4.0 * a * c);
   vc = unrotate_ray(vc, cyl);
   translation_obj(cyl, -cyl->trans[0], -cyl->trans[1], -cyl->trans[2]);
@@ -106,24 +106,20 @@ void		inter_cyl(t_params *params, t_3d *vc, t_objs *cyl)
 
 void		inter_cone(t_params *params, t_3d *vc, t_objs *cone)
 {
-  double		q;
-  double		a;
-  double		b;
-  double		c;
-  double		delta;
+  double	q;
+  double	a;
+  double	b;
+  double	c;
+  double	delta;
 
   translation_obj(cone, cone->trans[0], cone->trans[1], cone->trans[2]);
   vc = rotate_ray(vc, cone);
   q = tan(cone->ray * (M_PI / 180.0));
   a = pow(vc->x, 2.0) + pow(vc->y, 2.0) - (q * pow(vc->z, 2.0));
-  b = 2.0 * (vc->x * (params->pos_eye[0] - cone->pos[0]) + vc->y *
-	      (params->pos_eye[1] - cone->pos[1]) - q * vc->z * (params->pos_eye[2] - cone->pos[2]));
-  c = pow(params->pos_eye[0], 2.0) + pow(cone->pos[0], 2.0) + pow(params->pos_eye[1], 2.0)
-    + pow(cone->pos[1], 2.0) - q * pow(params->pos_eye[2], 2.0) - q *
-    pow(cone->pos[2], 2.0) - 2 * (cone->pos[0] * params->pos_eye[0] + cone->pos[1] *
-			      params->pos_eye[1] - (q * cone->pos[2] * params->pos_eye[2]));
+  b = SC_B;
+  c  = SC_C;
   delta = pow(b, 2.0) - (4.0 * a * c);
-  vc = unrotate_ray(vc, cone);
+   vc = unrotate_ray(vc, cone);
   translation_obj(cone, -cone->trans[0], -cone->trans[1], -cone->trans[2]);
   if (delta < 0.0)
     cone->intersection.k = 0.0;

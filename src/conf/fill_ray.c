@@ -4,7 +4,7 @@
 
 int	fill_ray(t_params *obj, char *line, int j)
 {
-  int   c;
+  int	c;
 
   c = my_strlen(line) - 1;
   if (line[c] == ';')
