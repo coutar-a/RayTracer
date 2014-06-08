@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 ** 
 ** Started on  Fri May 30 17:10:10 2014 coutar_a
-** Last update Sun Jun  8 14:03:28 2014 grelli_t
+** Last update Sun Jun  8 15:41:20 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -37,7 +37,6 @@ void		inter_sph(t_params *params, t_3d *vc, t_objs *sph)
   double	b;
   double	c;
   double	delta;
-
 
   translation_obj(sph, sph->trans[0], sph->trans[1], sph->trans[2]);
   vc = rotate_ray(vc, sph);

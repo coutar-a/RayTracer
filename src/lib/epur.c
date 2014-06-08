@@ -12,9 +12,9 @@ static int	sizestr(char *str)
   while (str[i])
     {
       if (str[i] != ' ')
-        ++j;
+	++j;
       if (str[i] != ' ' && str[i + 1] == ' ')
-        ++j;
+	++j;
       ++i;
     }
   return (j);
