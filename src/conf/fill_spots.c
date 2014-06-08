@@ -33,7 +33,7 @@ int		fill_spot_trans(t_params *scene, char *line, int j)
   return (0);
 }
 
-int    fill_spot_color(t_params *scene, char *line, int j)
+int	fill_spot_color(t_params *scene, char *line, int j)
 {
   int   c;
 
