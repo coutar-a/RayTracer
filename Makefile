@@ -5,7 +5,7 @@
 ## Login   <grelli_t@epitech.net>
 ##
 ## Started on  Mon Apr 21 10:06:56 2014 grelli_t
-## Last update Sat Jun  7 15:06:44 2014 grelli_t
+## Last update Sun Jun  8 17:13:42 2014 grelli_t
 ## Last update Fri Jun  6 17:23:28 2014 cheval_2
 ##
 
@@ -54,6 +54,8 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(SRC)obj_rotation.c			\
 	  $(SRC)eye_rotation.c			\
 	  $(SRC)fake_eye_rotation.c		\
+	  $(SRC)anti_aliasing_datapars.c	\
+	  $(SRC)initializing_anti.c		\
 	  $(SRC)intersection_computing.c	\
 	  $(SRC)normal_computing.c		\
 	  $(SRC)intersection_functions.c	\
@@ -63,7 +65,7 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(LIB)str_to_wordtab.c		\
 	  $(LIB)my_strcmp.c			\
 	  $(LIB)free_tab.c 			\
-	  $(LIB)pixel_put_to_image.c		\
+	  $(LIB)pixel_put_to_image.c
 
 OBJS	= $(SRCS:.c=.o)
 

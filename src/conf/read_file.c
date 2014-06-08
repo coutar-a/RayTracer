@@ -43,11 +43,18 @@ char	*read_file(char *file_name, t_params *params)
 int	conf_file(int ac, char **av, t_params *params)
 {
   char	*file;
+  int	option;
 
-  if (ac != 2)
+  if (ac < 2 || ac > 3)
     {
       my_putstr("[Usage] : ./a.out <name of the conf file>\n");
       return (ERROR);
+    }
+  if ((option = microparser(av)) == 1)
+    {
+      if ((file = read_file(av[2], params)) == NULL)
+	return (ERROR);
+      return (1);
     }
   if ((file = read_file(av[1], params)) == NULL)
     return (ERROR);
