@@ -5,7 +5,11 @@
 ** Login   <grelli_t@epitech.net>
 **
 ** Started on  Tue May 27 11:50:51 2014 grelli_t
+<<<<<<< HEAD
 ** Last update Sun Jun  8 11:15:25 2014 grelli_t
+=======
+** Last update Sun Jun  8 14:23:12 2014 jamme-_c
+>>>>>>> 8bc9c2bc5a72758d16c280cf2738223c75a50220
 */
 
 #include <stdlib.h>
