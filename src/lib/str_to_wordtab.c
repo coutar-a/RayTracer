@@ -31,12 +31,12 @@ int	my_count_letter(char *str, int num_word, char delim)
   while (str[i] != '\0')
     {
       if (str[i] != delim && word_exist == 0)
-        {
-          nb_words++;
-          word_exist = 1;
-        }
+	{
+	  nb_words++;
+	  word_exist = 1;
+	}
       if (str[i] == delim)
-        word_exist = 0;
+	word_exist = 0;
       i++;
       if (nb_words ==  num_word && str[i] != delim)
         nb_letter++;
@@ -82,9 +82,9 @@ char	**my_str_to_wordtab(char *str, char delim)
   while (++i <  my_count_word(str, delim))
     {
       while (++j < my_count_letter(str, (i + 1), delim))
-        {
-          wordtab[i][j] = str[i_str];
-          i_str++;
+	{
+	  wordtab[i][j] = str[i_str];
+	  i_str++;
         }
       i_str++;
       j = -1;
