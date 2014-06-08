@@ -5,7 +5,7 @@
 ** Login   <coutar_a@epitech.net>
 **
 ** Started on  Sat Feb 15 13:33:14 2014 coutar_a
-** Last update Sat Jun  7 12:15:48 2014 coutar_a
+** Last update Sun Jun  8 11:19:43 2014 coutar_a
 */
 
 #include <stdlib.h>
@@ -37,9 +37,6 @@ int	fill_image(t_params *params)
 	  my_pixel_put_to_image(params->mlx_conf->img, x, y, params->mlx_conf);
 	  x++;
 	}
-      mlx_put_image_to_window(params->mlx_conf->mlx_ptr,
-			      params->mlx_conf->win_ptr,
-			      params->mlx_conf->img_ptr, 0, 0);
       x = 0;
       y++;
     }
@@ -114,8 +111,7 @@ int		calc(t_params *params, int x, int y)
   sub_calc_vc(&point, params, &vector);
   calc_inter(params, &vector);
   process_k(params, &vector);
-  color = color_picker(params);
-  return (color);
+  return (color_picker(params));
 }
 
 /*
@@ -139,6 +135,9 @@ int		main(int argc, char **argv)
 					   params.mlx_conf->win_x,
 					   params.mlx_conf->win_y);
   fill_image(&params);
+  mlx_put_image_to_window(params.mlx_conf->mlx_ptr,
+			  params.mlx_conf->win_ptr,
+			  params.mlx_conf->img_ptr, 0, 0);
   my_putstr(DISP_MSG);
   mlx_key_hook(params.mlx_conf->win_ptr, key_event, 0);
   mlx_expose_hook(params.mlx_conf->win_ptr, expose_redraw, params.mlx_conf);
