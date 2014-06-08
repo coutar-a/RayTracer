@@ -4,7 +4,7 @@
 
 int	fill_rot(t_params *obj, char *line, int j)
 {
-  int   c;
+  int	c;
   char	**tab;
 
   c = my_strlen(line) - 1;
