@@ -44,10 +44,10 @@ SRCS	= $(CONF)fill_spot.c			\
 	  $(CONF)fill_all_object.c		\
 	  $(CONF)init_structs.c			\
 	  $(SRC)events.c			\
-	  $(SRC)lumos2.c			\
-	  $(SRC)lumos.c				\
+	  $(SRC)color_assembly.c			\
+	  $(SRC)light_computing.c				\
 	  $(SRC)main.c				\
-	  $(SRC)rotation2.c			\
+	  $(SRC)rot_matrix.c			\
 	  $(SRC)shadows.c			\
 	  $(SRC)stuff.c				\
 	  $(SRC)translation.c			\

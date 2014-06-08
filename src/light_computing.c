@@ -5,7 +5,7 @@
 ** Login   <grelli_t@epitech.net>
 ** 
 ** Started on  Mon Apr 21 10:06:33 2014 grelli_t
-** Last update Sun Jun  8 11:13:11 2014 grelli_t
+** Last update Sun Jun  8 15:43:33 2014 coutar_a
 */
 
 #include <stdio.h>
@@ -37,8 +37,8 @@ int		lumos(t_params *params, t_objs *obj)
 	obj->intersection.z_n;
       norm_l = sqrt(pow(l.x, 2.0) + pow(l.y, 2.0) + pow(l.z, 2.0));
       norm_n = sqrt(pow(obj->intersection.x_n, 2.0) +
-		    pow(obj->intersection.y_n, 2.0) + pow(obj->intersection.z_n,
-							  2.0));
+		    pow(obj->intersection.y_n, 2.0) +
+		    pow(obj->intersection.z_n, 2.0));
       cos_a[i] = DRK_CHK((scal / (norm_l * norm_n)));
       if ((shadow_checking(&l, params, obj)) == 1)
 	cos_a[i] /= 2;
