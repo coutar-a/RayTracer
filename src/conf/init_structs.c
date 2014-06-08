@@ -5,7 +5,7 @@
 ** Login   <cheval_2@epitech.net>
 **
 ** Started on  Fri Jun  6 18:37:31 2014 cheval_2
-** Last update Sat Jun  7 16:41:14 2014 grelli_t
+** Last update Sun Jun  8 13:26:15 2014 cheval_2
 */
 
 #include "raytracer.h"
@@ -17,14 +17,14 @@ void		init_all_spots(t_params *params)
   c = -1;
   while (++c < params->nb_spots)
     {
-      params->spots[c].pos[0] = 200;
-      params->spots[c].pos[1] = 0;
-      params->spots[c].pos[2] = 100;
-      params->spots[c].rot[0] = 0;
-      params->spots[c].rot[1] = 0;
-      params->spots[c].rot[2] = 0;
-      params->spots[c].angle = 0;
-      params->spots[c].intensity = 10;
+      params->spots[c].pos[0] = 200.0;
+      params->spots[c].pos[1] = 0.0;
+      params->spots[c].pos[2] = 100.0;
+      params->spots[c].rot[0] = 0.0;
+      params->spots[c].rot[1] = 0.0;
+      params->spots[c].rot[2] = 0.0;
+      params->spots[c].angle = 0.0;
+      params->spots[c].intensity = 1.0;
       params->spots[c].color = 0xFFFFFF;
     }
 }
@@ -36,17 +36,17 @@ void		init_objs(t_params *params)
   c = -1;
   while (++c < params->nb_objs)
     {
-      params->objs[c].pos[0] = 500;
-      params->objs[c].pos[1] = 0;
-      params->objs[c].pos[2] = 200;
-      params->objs[c].rot[0] = 0;
-      params->objs[c].rot[1] = 0;
-      params->objs[c].rot[2] = 0;
-      params->objs[c].trans[0] = 0;
-      params->objs[c].trans[1] = 0;
-      params->objs[c].trans[2] = 0;
-      params->objs[c].ray = 50;
-      params->objs[c].angle = 0;
+      params->objs[c].pos[0] = 500.0;
+      params->objs[c].pos[1] = 0.0;
+      params->objs[c].pos[2] = 200.0;
+      params->objs[c].rot[0] = 0.0;
+      params->objs[c].rot[1] = 0.0;
+      params->objs[c].rot[2] = 0.0;
+      params->objs[c].trans[0] = 0.0;
+      params->objs[c].trans[1] = 0.0;
+      params->objs[c].trans[2] = 0.0;
+      params->objs[c].ray = 50.0;
+      params->objs[c].angle = 0.0;
       params->objs[c].shine = 0.3;
       params->objs[c].color = 0x0000FF;
       params->objs[c].checkerboard = NO;
