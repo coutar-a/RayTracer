@@ -7,6 +7,7 @@ Features :
 - Gestion de la lumière (intensité, brillance des objets, lumière colorée) et des ombres.
 - Textures dynamiques (damiers).
 - Génère les scènes affichées par lecture d'un fichier de configuration externe.
+- Fichiers de configuration écrits dans un langage à la syntaxe simple, facilement éditable.
 
 Environnement : Unix.
 
