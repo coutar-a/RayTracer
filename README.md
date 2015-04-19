@@ -1,4 +1,4 @@
-Générateur d'images de synthèse 3D, utilisant une surcouche propre de la libX.
+Générateur d'images de synthèse 3D, utilisant une surcouche propriétaire de la libX.
 
 Features : 
 
